@@ -4,7 +4,7 @@
   "description": "prerender&&skeleton",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish from-package --registry http://registory.npmjs.org",
+    "publish": "lerna publish from-package --force-publish --registry http://registory.npmjs.org",
     "login": "npm login --registry http://registry.npmjs.org",
     "build": "lerna run --stream build",
     "dev": "lerna run --parallel dev",
