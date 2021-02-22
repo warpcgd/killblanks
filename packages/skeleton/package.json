@@ -1,7 +1,7 @@
 {
   "name": "@killblank/skeleton",
-  "version": "1.0.1",
-  "description": "骨架屏核心代码",
+  "version": "1.0.0",
+  "description": "skeleton",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "typings": "./dist/typings/index.d.ts",

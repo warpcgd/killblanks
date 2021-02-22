@@ -1,6 +1,6 @@
 {
   "name": "@killblank/skeleton-chrome-ext",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js --mode=development --watch ",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",

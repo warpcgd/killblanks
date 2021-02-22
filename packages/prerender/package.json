@@ -1,6 +1,6 @@
 {
   "name": "@killblank/prerender",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "prerender-skeleton",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
