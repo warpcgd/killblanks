@@ -6,6 +6,9 @@
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "zip": "run(){ zip -r -X releases/extension.zip dist; }; run"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "Apache-2.0",
   "dependencies": {
     "@killblank/skeleton": "^1.0.1",
