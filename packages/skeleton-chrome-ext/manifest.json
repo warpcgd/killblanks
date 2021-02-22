@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "skeleton-chrome-ext",
+  "short_name": "skeleton",
+  "description": "skeleton chrome extention",
+  "version": "1.0.0",
+  "icons": {
+    "16": "./icons/16.png",
+    "48": "./icons/48.png",
+    "128": "./icons/128.png"
+  },
+  "browser_action": {
+    "default_title": "test"
+  },
+  "devtools_page": "./devtools/devtools.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./contentScript/contentScript.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["./background/background.js"]
+  },
+  "permissions": ["activeTab", "storage", "https://github.com/*/*"],
+  "web_accessible_resources": ["*.png", "*.gif"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://unpkg.com; object-src 'self'"
+}

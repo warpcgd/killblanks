@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["../../types/**/*", "lib/**/*"],
+  "compilerOptions": {
+    "baseUrl": "./lib",
+    "outDir": "dist/esm",
+    "target": "ES2017",
+    "module": "commonjs",
+  }
+}
