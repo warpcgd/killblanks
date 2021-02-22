@@ -1,0 +1,60 @@
+{
+  "name": "@killblank/prerender",
+  "version": "1.0.1",
+  "description": "prerender-skeleton",
+  "main": "./dist/esm/index.js",
+  "module": "./dist/esm/index.js",
+  "typings": "./dist/typings/index.d.ts",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn run build:sockjs && yarn run build:esm && yarn run build:typings",
+    "dev": "yarn run dev:preview & yarn run dev:sockclientjs",
+    "dev:sockclientjs": "cross-env NODE_ENV=development webpack ./lib/client/sock_client.ts --config ./lib/client/webpack.sockjs.config.ts --mode=development --watch",
+    "dev:preview": "cross-env NODE_ENV=development webpack --config ./preview/webpack.preview.config.js --mode=development --watch",
+    "watch": "tsc -w -p ./tsconfig.json",
+    "build:umd": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
+    "build:esm": "tsc -p ./tsconfig.json",
+    "build:typings": "tsc --p ./tsconfig.typings.json",
+    "build:sockjs": "cross-env NODE_ENV=production webpack ./lib/client/sock_client.ts --config ./lib/client/webpack.sockjs.config.ts",
+    "build:preview": "cross-env NODE_ENV=production webpack --config ./preview/webpack.preview.config.js",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "doc": "typedoc"
+  },
+  "author": "lixichen<warpcgd@qq.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@killblank/skeleton": "^1.0.1",
+    "cross-env": "^7.0.2",
+    "css2json": "^1.1.1",
+    "deepmerge": "^4.2.2",
+    "express": "^4.17.1",
+    "get-port": "^5.1.1",
+    "html-minifier": "^4.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "html2json": "^1.0.2",
+    "js-beautify": "^1.11.0",
+    "jsdom": "^16.2.2",
+    "lodash": "^4.17.15",
+    "md5": "^2.2.1",
+    "memory-fs": "^0.5.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "open": "^7.0.4",
+    "qrcode": "^1.4.4",
+    "sockjs": "^0.3.20",
+    "sockjs-client": "^1.4.0",
+    "tiza": "^2.2.1",
+    "traverse": "^0.6.6",
+    "tree-model": "^1.0.7",
+    "typescript": "^3.9.7",
+    "vue": "^2.6.11",
+    "webpack-log": "^3.0.1"
+  },
+  "optionalDependencies": {
+    "puppeteer": "^3.1.0"
+  }
+}
