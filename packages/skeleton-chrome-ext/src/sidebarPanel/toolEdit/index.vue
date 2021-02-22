@@ -99,7 +99,7 @@
   </div>
 </template>
 <script>
-import { DEFAULTMOD } from '@killblank/skeleton'
+import { DEFAULTMOD } from '@killblanks/skeleton'
 export default {
   data() {
     return {

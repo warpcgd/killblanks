@@ -1,4 +1,4 @@
-import { outputSkeleton } from '@killblank/skeleton'
+import { outputSkeleton } from '@killblanks/skeleton'
 
 function isInBody(node: HTMLElement) {
   return node === document.body ? false : document.body.contains(node)

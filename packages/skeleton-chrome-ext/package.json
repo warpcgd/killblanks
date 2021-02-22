@@ -1,5 +1,5 @@
 {
-  "name": "@killblank/skeleton-chrome-ext",
+  "name": "@killblankss/skeleton-chrome-ext",
   "version": "1.0.0",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js --mode=development --watch ",
@@ -8,7 +8,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@killblank/skeleton": "^1.0.1",
+    "@killblanks/skeleton": "^1.0.1",
     "@types/chart.js": "^2.9.21",
     "@types/chrome": "0.0.115",
     "chart.js": "^2.9.3",
@@ -51,5 +51,5 @@
     "registry": "https://registry.npmjs.org",
     "tag": "flippin-sweet"
   },
-  "gitHead": "b55586d4e8fdc39113d4f1521db9d1e484bacb3d"
+  "gitHead": "9de0efe014fb0ac014b9ba8b06ec38ae84f8240f"
 }

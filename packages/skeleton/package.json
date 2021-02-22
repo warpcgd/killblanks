@@ -1,5 +1,5 @@
 {
-  "name": "@killblank/skeleton",
+  "name": "@killblanks/skeleton",
   "version": "1.0.0",
   "description": "skeleton",
   "main": "./dist/index.js",
@@ -35,5 +35,5 @@
     "registry": "https://registry.npmjs.org",
     "tag": "flippin-sweet"
   },
-  "gitHead": "b55586d4e8fdc39113d4f1521db9d1e484bacb3d"
+  "gitHead": "9de0efe014fb0ac014b9ba8b06ec38ae84f8240f"
 }

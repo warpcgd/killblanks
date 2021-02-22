@@ -10,7 +10,7 @@
 
 <script>
 import { sendEventToBackground } from './util'
-import { DEFAULTMOD } from '@killblank/skeleton'
+import { DEFAULTMOD } from '@killblanks/skeleton'
 import htmlEdit from './htmlEdit/index'
 import vueTemplateEdit from './vueTemplateEdit/index'
 import topBar from './topBar/index'

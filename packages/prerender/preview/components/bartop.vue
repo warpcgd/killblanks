@@ -3,7 +3,7 @@
     <div class="logo">
       <img :src="require('../assets/128.png')" alt="">
     </div>
-    <div class="logo-text">@killblank/preview</div>
+    <div class="logo-text">@killblanks/preview</div>
     <div class="tools">
         <el-tooltip effect="dark" content="preview" placement="bottom">
           <el-button type="primary" icon="el-icon-mobile-phone" circle

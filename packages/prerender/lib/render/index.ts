@@ -53,7 +53,7 @@ class Render {
 
   async makeScreen(page: puppeteer.Page) {
     const js = fs.readFileSync(
-      path.resolve(cwd, './node_modules/@killblank/skeleton/dist/index.js'),
+      path.resolve(cwd, './node_modules/@killblanks/skeleton/dist/index.js'),
       'utf8'
     )
     // return page
