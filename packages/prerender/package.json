@@ -25,6 +25,9 @@
     "test:watch": "jest --watch",
     "doc": "typedoc"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "lixichen<warpcgd@qq.com>",
   "license": "Apache-2.0",
   "dependencies": {
@@ -57,5 +60,5 @@
   "optionalDependencies": {
     "puppeteer": "^3.1.0"
   },
-  "gitHead": "1167184328c90a09d54ef7a2fdd41b9b1abf3b8b"
+  "gitHead": "2b3ea719c149df25b317fcf88b944579a6860e8b"
 }
