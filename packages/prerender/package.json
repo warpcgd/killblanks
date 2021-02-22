@@ -57,5 +57,11 @@
   "optionalDependencies": {
     "puppeteer": "^3.1.0"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org",
+    "tag": "flippin-sweet",
+    "directory": "dist"
+  },
   "gitHead": "f11432ad40f81679aab38239b0729bbec684f700"
 }

@@ -46,5 +46,11 @@
     "webpack-cli": "^3.3.11",
     "webpack-extension-reloader": "^1.1.4"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org",
+    "tag": "flippin-sweet",
+    "directory": "dist"
+  },
   "gitHead": "f11432ad40f81679aab38239b0729bbec684f700"
 }
