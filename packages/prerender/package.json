@@ -25,9 +25,6 @@
     "test:watch": "jest --watch",
     "doc": "typedoc"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "author": "lixichen<warpcgd@qq.com>",
   "license": "Apache-2.0",
   "dependencies": {

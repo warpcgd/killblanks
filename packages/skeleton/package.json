@@ -18,9 +18,6 @@
     "build:typings": "tsc -p ./tsconfig.typings.json",
     "build": "npm run build:umd && npm run build:esm && npm run build:typings"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "dependencies": {
     "hashids": "^2.2.2",
     "js-base64": "^3.5.2",
