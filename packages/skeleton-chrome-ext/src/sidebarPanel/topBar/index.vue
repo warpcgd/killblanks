@@ -3,7 +3,7 @@
     <div class="logo">
       <img :src="logoSrc" alt />
     </div>
-    <p class="title">SKELETON-EXT<span class="verstion">v:1.0.1</span></p>
+    <p class="title">@killblanks/skeleton-ext<span class="verstion">v:1.0.0</span></p>
     <div class="panel-bar">
       <Menu mode="horizontal" active-name="htmlEdit" @on-select="onSelectPanel">
         <MenuItem name="htmlEdit">

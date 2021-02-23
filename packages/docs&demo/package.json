@@ -1,0 +1,16 @@
+{
+  "name": "@killblanks/demo",
+  "version": "1.0.0",
+  "description": "<common-home></common-home>  ::: slot startDemo",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "author": "lixichen",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}

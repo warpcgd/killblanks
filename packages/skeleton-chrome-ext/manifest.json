@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "skeleton-chrome-ext",
+  "name": "@killblanks/skeleton-ext",
   "short_name": "skeleton",
   "description": "skeleton chrome extention",
   "version": "1.0.0",
