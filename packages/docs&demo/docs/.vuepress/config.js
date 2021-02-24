@@ -1,6 +1,7 @@
 module.exports = {
   base: '/killblanks/',
   title: 'killblanks',
+  theme: 'antdocs',
   description: 'killblanks',
   themeConfig: {
     nav: [{
