@@ -47,7 +47,7 @@ class Render {
         await page.evaluate(init_1.PUPPETEER.waitForRender, this.option);
     }
     async makeScreen(page) {
-        const js = fs.readFileSync(path.resolve(cwd, './node_modules/@killblank/skeleton/dist/index.js'), 'utf8');
+        const js = fs.readFileSync(path.resolve(cwd, './node_modules/@killblanks/skeleton/dist/index.js'), 'utf8');
         // return page
         const { mod } = this.option;
         await page.evaluate(async (option, js) => {

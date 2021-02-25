@@ -1,8 +1,8 @@
 <template>
   <div class="demo fullpage">
     <section class="header">
-      <div class="demo_content"> 
-        <header class="demo_header">Demos</header> 
+      <div class="demo_content">
+        <header class="demo_header">Demos</header>
       </div>
     </section>
     <div class="demo_content">
@@ -13,60 +13,8 @@
           <router-link to="/demos/Basic.html">
             <div class="demo_basic_item">Basic</div>
           </router-link>
-          <router-link to="/demos/Center.html">
-            <div class="demo_basic_item">Center</div>
-          </router-link>
-          <router-link to="/demos/CoverFlow.html">
-            <div class="demo_basic_item">CoverFlow</div>
-          </router-link>
-          <router-link to="/demos/Fade.html">
-            <div class="demo_basic_item">Fade</div>
-          </router-link>
-          <router-link to="/demos/Loop.html">
-            <div class="demo_basic_item">Loop</div>
-          </router-link>
-          <router-link to="/demos/Multiple.html">
-            <div class="demo_basic_item">Multiple</div>
-          </router-link>
-          <router-link to="/demos/Nest.html">
-            <div class="demo_basic_item">Nest</div>
-          </router-link>
-          <router-link to="/demos/RenderPagination.html">
-            <div class="demo_basic_item">RenderPagination</div>
-          </router-link>
-          <router-link to="/demos/VariableWidth.html">
-            <div class="demo_basic_item">VariableWidth</div>
-          </router-link>
-          <router-link to="/demos/Vertical.html">
-            <div class="demo_basic_item">Vertical</div>
-          </router-link>
         </div>
       </div>
-      <!-- <div class="demo_plugins">
-        <div class="demo_plugins_title">plugins demos:</div>
-        <div class="splite_line"></div>
-        <div class="demo_plugins_wrap">
-          <router-link to="/demos/plugins">
-            <div class="demo_basic_item">plugins</div>
-          </router-link>
-          <router-link to="/demos/plugins">
-            <div class="demo_plugins_item">plugins</div>
-          </router-link>
-          <router-link to="/demos/plugins">
-            <div class="demo_plugins_item">plugins</div>
-          </router-link>
-          <router-link to="/demos/plugins">
-            <div class="demo_plugins_item">plugins</div>
-          </router-link>
-        </div>
-      </div>
-      <div class="demo_libary">
-        <div class="demo_libary_title">libary demos:</div>
-        <div class="splite_line"></div>
-          <router-link to="/demos/libary">
-            <div class="demo_libary_item">libary</div>
-          </router-link>
-      </div> -->
     </div>
   </div>
 </template>
@@ -130,8 +78,8 @@
     &_item{
       padding: 1rem;
       margin: 20px 20px 0 0;
-      width: 190px;
-      height: 70px;
+      width: 240px;
+      height: 130px;
       // cursor: pointer;
       background: #eaeaea;
       font-size: 1.2rem;
@@ -140,7 +88,7 @@
     }
     &_item:hover {
       color: #fff;
-      background-color:rgb(74, 191, 138);
+      background-color:#435d7b;
       transition: color 200ms linear,background-color 500ms ease;
       text-decoration: none;
     }

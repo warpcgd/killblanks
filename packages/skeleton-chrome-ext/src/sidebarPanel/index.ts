@@ -20,6 +20,7 @@ window.$app = new Vue({
 window.Vue = Vue
 
 window.contentScriptReceiver = (res: any) => {
+  debugger
   if (res && res.name === 'setSkeletonInfo') {
     window.$app.$root.store.skeletonInfo[res.data.rootHashClass] = res.data
   }

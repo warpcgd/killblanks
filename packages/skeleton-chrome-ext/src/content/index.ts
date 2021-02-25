@@ -4,6 +4,20 @@ function isInBody(node: HTMLElement) {
   return node === document.body ? false : document.body.contains(node)
 }
 
+let chromeRuntimePort = chrome.runtime.connect()
+chromeRuntimePort.onDisconnect.addListener(() => {
+  console.error('Disconnected')
+  chromeRuntimePort = undefined;
+});
+
+// when using the port, always check if valid/connected
+function postToPort(msg: any) {
+  if (chromeRuntimePort) {
+    chromeRuntimePort.postMessage(msg);
+  }
+}
+
+
 const isDOM =
   typeof HTMLElement === 'object'
     ? function(obj: HTMLElement) {
@@ -40,7 +54,7 @@ document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
     }
 
     if (!isInBody(window.$0)) {
-      chrome.runtime.sendMessage({
+      postToPort({
         name: 'log',
         data: 'The page element is not in the body element'
       })

@@ -22,7 +22,7 @@
   "background": {
     "scripts": ["./background/background.js"]
   },
-  "permissions": ["activeTab", "storage", "https://github.com/*/*"],
+  "permissions": ["tabs", "activeTab", "storage", "https://github.com/*/*"],
   "web_accessible_resources": ["*.png", "*.gif"],
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://unpkg.com; object-src 'self'"
 }
