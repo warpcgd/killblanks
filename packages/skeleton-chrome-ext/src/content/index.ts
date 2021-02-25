@@ -5,34 +5,36 @@ function isInBody(node: HTMLElement) {
 }
 
 let chromeRuntimePort = chrome.runtime.connect()
+
 chromeRuntimePort.onDisconnect.addListener(() => {
-  console.error('Disconnected')
-  chromeRuntimePort = undefined;
-});
+  console.error('@killblanks/skeleton-ext has Disconnected, please refresh the page')
+  chromeRuntimePort = undefined
+})
 
 // when using the port, always check if valid/connected
-function postToPort(msg: any) {
-  if (chromeRuntimePort) {
-    chromeRuntimePort.postMessage(msg);
+function sendMessage(msg: any) {
+  if (chrome.runtime.sendMessage) {
+    chrome.runtime.sendMessage(msg)
+  } else {
+    console.error('@killblanks/skeleton-ext has Disconnected, please refresh the page')
   }
 }
-
 
 const isDOM =
   typeof HTMLElement === 'object'
     ? function(obj: HTMLElement) {
-      return obj instanceof HTMLElement
-    }
+        return obj instanceof HTMLElement
+      }
     : function(obj: HTMLElement) {
-      return (
-        obj &&
+        return (
+          obj &&
           typeof obj === 'object' &&
           obj.nodeType === 1 &&
           typeof obj.nodeName === 'string' &&
           obj.nodeName !== 'SCRIPT' &&
           obj.nodeName !== 'STYLE'
-      )
-    }
+        )
+      }
 
 const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSkeletonNode: any } = {
   html: '',
@@ -46,7 +48,7 @@ const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSke
 document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
   try {
     if (!isDOM(window.$0)) {
-      chrome.runtime.sendMessage({
+      sendMessage({
         name: 'log',
         data: 'Page elements has not selected'
       })
@@ -54,7 +56,7 @@ document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
     }
 
     if (!isInBody(window.$0)) {
-      postToPort({
+      sendMessage({
         name: 'log',
         data: 'The page element is not in the body element'
       })
@@ -67,17 +69,17 @@ document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
     SKELETON_CACHE.html = html
     SKELETON_CACHE.style = style
     SKELETON_CACHE['currentSkeletonNode'] = html
-    chrome.runtime.sendMessage({
+    sendMessage({
       name: 'setSkeletonInfo',
       data: { html: html.outerHTML, style: style.outerHTML, rootHashClass }
     })
-    chrome.runtime.sendMessage({
+    sendMessage({
       name: 'setInspectedDom',
       data: window.$0 ? Array.from(window.$0.classList) : []
     })
   } catch (error) {
     console.error(error)
-    chrome.runtime.sendMessage({
+    sendMessage({
       name: 'log',
       data: error.message
     })
@@ -96,14 +98,14 @@ document.addEventListener('_GO_BACK_SKELETON_', async () => {
         inspect(SKELETON_CACHE['lastSelectedNode'])
       }, 100)
     } else {
-      chrome.runtime.sendMessage({
+      sendMessage({
         name: 'log',
         data: 'There is currently no node cache'
       })
     }
   } catch (error) {
     console.error(error)
-    chrome.runtime.sendMessage({
+    sendMessage({
       name: 'log',
       data: error.message
     })
@@ -116,23 +118,23 @@ document.addEventListener('_REFRESH_SKELETON_', () => {
   try {
     const { html, style } = SKELETON_CACHE
     if (html && style) {
-      chrome.runtime.sendMessage({
+      sendMessage({
         name: 'setSkeletonInfo',
         data: { html: html.outerHTML, style: style.outerHTML }
       })
-      chrome.runtime.sendMessage({
+      sendMessage({
         name: 'setInspectedDom',
         data: window.$0 ? Array.from(window.$0.classList) : []
       })
     } else {
-      chrome.runtime.sendMessage({
+      sendMessage({
         name: 'log',
         data: 'SKELETON_CACHE has no data'
       })
     }
   } catch (error) {
     console.error(error)
-    chrome.runtime.sendMessage({
+    sendMessage({
       name: 'log',
       data: error.message
     })

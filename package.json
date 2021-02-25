@@ -9,6 +9,7 @@
     "build": "lerna run --stream build",
     "dev": "lerna run --parallel dev",
     "watch": "lerna run --parallel watch",
+    "docs:dev": "lerna run docs:dev --scope=@killblanks/demo",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
     "test:watch": "jest --watch",

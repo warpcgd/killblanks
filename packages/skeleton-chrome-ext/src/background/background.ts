@@ -1,6 +1,32 @@
 // 作为content script 与 devtool 通信的桥
 const connections: Record<string, any> = {}
 
+chrome.runtime.onInstalled.addListener(installScript)
+
+function installScript() {
+  // console.log('Installing content script in all tabs.');
+  const params = {
+    currentWindow: true
+  }
+  chrome.tabs.query(params, function gotTabs(tabs) {
+    const contentjsFile = chrome.runtime.getManifest().content_scripts[0].js[0]
+    for (let index = 0; index < tabs.length; index++) {
+      chrome.tabs.executeScript(
+        tabs[index].id,
+        {
+          file: contentjsFile
+        },
+        () => {
+          const lastErr = chrome.runtime.lastError
+          if (lastErr) {
+            console.error('tab: ' + tabs[index].id + ' lastError: ' + JSON.stringify(lastErr))
+          }
+        }
+      )
+    }
+  })
+}
+
 chrome.runtime.onConnect.addListener(function(port) {
   const extensionListener = function(message: any) {
     if (message.name == 'original') {

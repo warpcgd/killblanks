@@ -5,17 +5,16 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:dev": "cross-env vuepress dev docs",
+    "docs:build": "cross-env vuepress build docs"
   },
   "author": "lixichen",
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "node-sass": "^5.0.0",
     "sass-loader": "10.1.1",
-    "vuepress": "^1.8.2"
-  },
-  "dependencies": {
+    "vuepress": "^1.8.2",
     "vuepress-theme-antdocs": "^1.2.2"
   }
 }

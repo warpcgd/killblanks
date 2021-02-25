@@ -13,12 +13,10 @@
     "default_title": "test"
   },
   "devtools_page": "./devtools/devtools.html",
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["./contentScript/contentScript.js"]
-    }
-  ],
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["./contentScript/contentScript.js"]
+  }],
   "background": {
     "scripts": ["./background/background.js"]
   },
