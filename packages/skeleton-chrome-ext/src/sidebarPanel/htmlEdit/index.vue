@@ -16,12 +16,10 @@ export default {
       editor: null
     }
   },
-  props: {},
   watch: {
     '$root.$data.store.skeletonInfo': {
       handler: function (val) {
         if (val) {
-
           this.setCode()
           log('success', 'render skeleton success')
         }

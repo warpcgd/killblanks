@@ -13,6 +13,9 @@ chromeRuntimePort.onDisconnect.addListener(() => {
 
 // when using the port, always check if valid/connected
 function sendMessage(msg: any) {
+  console.log(chrome)
+  console.log(chrome.runtime)
+  console.log(chrome.runtime.sendMessage)
   if (chrome.runtime.sendMessage) {
     chrome.runtime.sendMessage(msg)
   } else {
@@ -23,18 +26,18 @@ function sendMessage(msg: any) {
 const isDOM =
   typeof HTMLElement === 'object'
     ? function(obj: HTMLElement) {
-        return obj instanceof HTMLElement
-      }
+      return obj instanceof HTMLElement
+    }
     : function(obj: HTMLElement) {
-        return (
-          obj &&
+      return (
+        obj &&
           typeof obj === 'object' &&
           obj.nodeType === 1 &&
           typeof obj.nodeName === 'string' &&
           obj.nodeName !== 'SCRIPT' &&
           obj.nodeName !== 'STYLE'
-        )
-      }
+      )
+    }
 
 const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSkeletonNode: any } = {
   html: '',

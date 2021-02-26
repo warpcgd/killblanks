@@ -2,21 +2,11 @@
   <div class="fullpage">
     <section class="cover">
       <div class="cover-main">
-        <h1>vue-concise-slider</h1>
-        <blockquote>
-          <p>A simple vue sliding component</p>
-        </blockquote>
-        <ul>
-          <li>Simple and lightweight (~36kB)</li>
-          <li>Multiple sliding effects</li>
-          <li>Simple configuration</li>
-        </ul>
       </div>
     </section>
     <section class="home-demo">
       <div class="row">
         <h3>Demo</h3>
-        <p><effect-sliderHome></effect-sliderHome></p>
       </div>
     </section>
     <section>
@@ -41,14 +31,17 @@
 
 export default {
   data () {
-    return {}
+    return {
+    }
+  },
+  mounted() {
   }
 }
 </script>
-<style scoped>
+<style scoped lang="scss">
   body {
     -webkit-font-smoothing: antialiased;
-    color: #34495e;
+    color: #415c7a;
     font-size: 16px;
     letter-spacing: 0;
     margin: 0;
@@ -76,6 +69,9 @@ export default {
   .custom-layout {
     padding-top: 0;
   }
+  .img {
+    width: 300px;
+  }
   section.cover {
       -ms-flex-align: center;
       align-items: center;
@@ -84,7 +80,8 @@ export default {
       background-size: cover;
       height: 50vh;
       display: flex;
-      background: linear-gradient(to left bottom, hsl(189, 100%, 85%) 0%,hsl(111, 100%, 85%) 100%);
+      background: #435d7b;
+      color: #fff;
   }
   section.cover .cover-main {
     -ms-flex: 1;
@@ -103,7 +100,7 @@ export default {
   section.cover blockquote {
     font-size: 1.5rem;
     text-align: center;
-    color: #34495e;
+    color: #415c7a;
   }
   section.cover p {
     line-height: 1.5rem;
@@ -148,6 +145,15 @@ export default {
     font-weight: 500;
     border-bottom: none;
     padding-bottom: 0;
+  }
+
+</style>
+<style>
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
   }
 </style>
 

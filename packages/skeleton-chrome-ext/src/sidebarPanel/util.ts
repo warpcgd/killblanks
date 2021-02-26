@@ -19,7 +19,7 @@ export const sendEventToBackground = (
 
 export const getSkeletonClass =  (classList: Array<string>): string => {
   const skeletonClass = classList.filter((e) => {
-    return /skeleton-\d+/gi.test(e)
+    return /skeleton--\d+/gi.test(e)
   })
   if (skeletonClass && skeletonClass.length) {
     return skeletonClass[0]
