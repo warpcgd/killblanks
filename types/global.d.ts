@@ -14,30 +14,64 @@ interface Window {
 interface ModType {
   name: string
   text: {
+    /**
+     * @type {string | `automatic`}
+     * @default '#EFEFEF'
+     * @description 设置文本字体颜色
+     */
     color: string
   }
-  loading: string
   image: {
-    // `rect` | `circle`
+    /**
+     * @type {`rect` | `circle`}
+     * @default '#rect'
+     * @description 设置图片转换的形状
+     */
     shape: string
+    /**
+     * @type {string | `automatic`}
+     * @default '#EFEFEF'
+     * @description 设置图片转换颜色
+     */
     color: string | 'automatic'
     shapeOpposite: HTMLElement[]
   }
   button: {
+    /**
+     * @type {string}
+     * @default '#EFEFEF'
+     * @description 设置按钮转换颜色
+     */
     color: string
     excludes: HTMLElement[]
   }
   svg: {
-    // or transparent
+    /**
+     * @type {string}
+     * @default '#EFEFEF'
+     * @description 设置svg转换颜色
+     */
     color: string
-    // circle | rect
+    /**
+     * @type {`rect` | `circle`}
+     * @default '#rect'
+     * @description 设置svg转换的形状
+     */
     shape: string
     shapeOpposite: HTMLElement[]
   }
   pseudo: {
-    // or transparent
+    /**
+     * @type {string}
+     * @default '#EFEFEF'
+     * @description 设置伪类转换颜色
+     */
     color: string
-    // circle | rect
+    /**
+     * @type {`rect` | `circle`}
+     * @default '#rect'
+     * @description 设置伪类转换的形状
+     */
     shape: string
     shapeOpposite: HTMLElement[]
   }
@@ -45,12 +79,41 @@ interface ModType {
   remove: string[]
   hide: string[]
   grayBlock: string[]
+  /**
+   * @type {boolean}
+   * @default false
+   * @description 是否跳过Base64
+   */
   skipBase64: boolean
+  /**
+   * @type {boolean}
+   * @default true
+   * @description 是否开启animation
+   */
   animation: boolean
+  /**
+   * @type {boolean}
+   * @default false
+   * @description 是否重复LI
+   */
   repeatLI: boolean
+  /**
+   * @type {boolean}
+   * @default true
+   * @description 是否跳过伪类
+   */
   skipPseudo: boolean
-  // or 'vw|vh|vmin|vmax'
-  cssUnit: string | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax'
+  /**
+   * @type {string | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax'}
+   * @default 'rem'
+   * @description css单位
+   */
+  cssUnit: 'px' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax'
+  /**
+   * @type {number}
+   * @default '4'
+   * @description 小数位
+   */
   decimal: number
 }
 

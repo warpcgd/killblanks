@@ -3,8 +3,11 @@ module.exports = {
   title: 'Killblanks',
   theme: 'antdocs',
   description: 'killblanks',
+  head: [['link', { rel: 'stylesheet', href: '/css/style.css' }]],
   themeConfig: {
-    nav: [{
+    backToTop: true,
+    nav: [
+      {
         text: 'Home',
         link: '/'
       },
@@ -13,23 +16,20 @@ module.exports = {
         link: '/demos/'
       },
       {
-        text: 'Docs',
-        link: '/docs'
+        text: 'Docs▾',
+        ariaLabel: 'Docs',
+        items: [
+          { text: '@killblank/prerender', link: '/documents/prerender' },
+          { text: '@killblank/skeleton', link: '/documents/skeleton' }
+        ]
       },
       {
         text: 'Guide',
         link: '/guide'
       }
-    ],
-    sidebar: {
-        '/demos/': [
-          '',     /* /foo/ */
-          'Basic'  /* /foo/one.html */
-        ]
-      }
-    },
-    chainWebpack (config, isServer) {
-      config.resolve.alias
-      .set('vue$', 'vue/dist/vue.esm.js')
-    }
+    ]
+  },
+  chainWebpack(config, isServer) {
+    config.resolve.alias.set('vue$', 'vue/dist/vue.esm.js')
+  }
 }

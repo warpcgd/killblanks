@@ -1,67 +1,38 @@
+---
+home: true
+heroText: null
+tagline: null
+---
 
-<common-home></common-home> 
+<common-home></common-home>
+
 ::: slot startDemo
 
-```js
-  1. npm i vue-concise-slider -D
+### 1. 安装
+
+```sh
+  npm i @kiilblank/prerender -D
 ```
 
-```js
-  2. Create your vue component
-```
+### 2. 配置
 
-```html
-<template>
-<!-- Make a div wrapped slider,set height and width -->
- <div style="width:100%;margin:20px auto;height:400px">
-      <!-- Using the slider component -->
-      <slider ref="slider" :options="options">
-          <!-- slideritem wrapped package with the components you need -->
-          <slideritem v-for="(item,index) in someList" :key="index" :style="item.style">{{item.html}}</slideritem>
-          <!-- Customizable loading -->
-          <div slot="loading">loading...</div>
-      </slider>
- </div>
-</template>
-<script>
-// import slider components
-import { slider, slideritem } from 'vue-concise-slider'
+```ts
+// webpack.config.js
+const prerender = require('@killblanks/prerender')
+
 export default {
-   el: '#app',
-   data () {
-      return {
-        //data list [array]
-        someList:[
-          {
-            html: 'slide1',
-            style: {
-              'background': '#1bbc9b'
-            }
-          },
-          {
-            html: 'slide2',
-            style: {
-              'background': '#4bbfc3'
-            }
-          },
-          {
-            html: 'slide3',
-            style: {
-              'background': '#7baabe'
-            }
-          }
-        ],
-        //Slider configuration [obj]
-        options: {
-          currentPage: 0
-        }
-      }
-    },
-    components: {
-      slider,
-      slideritem
-    }
+  ...
+  plugins: [new prerender()]
+  ...
 }
-</script>
 ```
+
+### 3. 使用`@killblanks/skeleton-ext`
+
+### 4. 启用`PRERENDER_SKELETON`
+
+```sh
+ 1. 在Chrome console中输入`PRERENDER_SKELETON`启动骨架屏预览
+```
+
 :::

@@ -71,6 +71,22 @@
       </Col>
       <Divider dashed />
       <Col span="12">
+        <span>cssUnit</span>
+        <Form :model="mod" inline>
+          <FormItem label="cssUnit" :label-width="50">
+            <Select v-model="mod.cssUnit" size="small">
+              <Option value="px">px</Option>
+              <Option value="rem">rem</Option>
+              <Option value="vw">vw</Option>
+              <Option value="vh">vh</Option>
+              <Option value="vmax">vmax</Option>
+              <Option value="vmin">vmin</Option>
+            </Select>
+          </FormItem>
+        </Form>
+      </Col>
+      <Divider dashed />
+      <Col span="12">
         <span>animation</span>
         <Form :model="mod" inline>
           <FormItem label="condition" :label-width="60">

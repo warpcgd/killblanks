@@ -19,11 +19,11 @@
   </div>
 </template>
 <script>
-  export default {
-    data () {
-      return {}
-    }
+export default {
+  data() {
+    return {}
   }
+}
 </script>
 <style lang="scss" scoped>
 .fullpage {
@@ -32,7 +32,7 @@
   height: 100%;
   left: 0;
   right: 0;
-  margin: 0!important;
+  margin: 0 !important;
   padding: 0;
   top: 0;
   box-sizing: border-box;
@@ -49,7 +49,10 @@
     text-decoration: none;
   }
   .header {
-    background: linear-gradient(to left bottom, hsl(189, 100%, 85%) 0%,hsl(111, 100%, 85%) 100%);
+    background-image: linear-gradient(60deg, #29323c 0%, #435d7b 100%);
+    .demo_header {
+      color: #fff;
+    }
   }
   &_header {
     padding: 1.5rem 0;
@@ -70,12 +73,12 @@
       height: 80px;
       line-height: 80px;
     }
-    &_wrap{
-      display: flex;;
+    &_wrap {
+      display: flex;
       justify-content: flex-start;
       flex-flow: row wrap;
     }
-    &_item{
+    &_item {
       padding: 1rem;
       margin: 20px 20px 0 0;
       width: 240px;
@@ -88,8 +91,8 @@
     }
     &_item:hover {
       color: #fff;
-      background-color:#435d7b;
-      transition: color 200ms linear,background-color 500ms ease;
+      background-color: #435d7b;
+      transition: color 200ms linear, background-color 500ms ease;
       text-decoration: none;
     }
   }
@@ -101,12 +104,12 @@
       height: 80px;
       line-height: 80px;
     }
-    &_wrap{
-      display: flex;;
+    &_wrap {
+      display: flex;
       justify-content: flex-start;
       flex-flow: row wrap;
     }
-    &_item{
+    &_item {
       padding: 1rem;
       margin: 20px 20px 0 0;
       width: 190px;
@@ -118,8 +121,8 @@
     }
     &_item:hover {
       color: #fff;
-      background-color:rgb(74, 191, 138);
-      transition: color 200ms linear,background-color 500ms ease;
+      background-color: rgb(74, 191, 138);
+      transition: color 200ms linear, background-color 500ms ease;
     }
   }
   &_libary {
@@ -130,12 +133,12 @@
       height: 80px;
       line-height: 80px;
     }
-    &_wrap{
-      display: flex;;
+    &_wrap {
+      display: flex;
       justify-content: flex-start;
       flex-flow: row wrap;
     }
-    &_item{
+    &_item {
       padding: 1rem;
       margin: 20px 20px 0 0;
       width: 190px;
@@ -147,8 +150,8 @@
     }
     &_item:hover {
       color: #fff;
-      background-color:rgb(74, 191, 138);
-      transition: color 200ms linear,background-color 500ms ease;
+      background-color: rgb(74, 191, 138);
+      transition: color 200ms linear, background-color 500ms ease;
     }
   }
 }

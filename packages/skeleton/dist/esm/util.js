@@ -109,6 +109,9 @@ export const px2relativeUtil = (px, unit = 'rem', decimal = 4) => {
         const htmlElementFontSize = getComputedStyle(document.documentElement).fontSize;
         return `${(pxValue / parseFloat(htmlElementFontSize)).toFixed(decimal)}${unit}`;
     }
+    else if (unit === 'px') {
+        return px;
+    }
     else {
         const dimensions = getViewPort();
         const base = dimensions[unit];

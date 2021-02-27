@@ -24,7 +24,6 @@ export const DEFAULTMOD = {
   text: {
     color: '#EFEFEF'
   },
-  loading: 'spin',
   image: {
     // `rect` | `circle`
     shape: 'rect',
@@ -56,7 +55,7 @@ export const DEFAULTMOD = {
   skipBase64: false,
   repeatLI: false,
   skipPseudo: true,
-  cssUnit: 'rem', // or 'vw|vh|vmin|vmax'
+  cssUnit: 'px', // or 'vw|vh|vmin|vmax|rem'
   decimal: 4,
   animation: true
 }

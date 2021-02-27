@@ -2,42 +2,29 @@
   <div class="container">
     <skeleton :show="!!filterProductList.length">
       <div class="productionList">
-            <div
-              v-for="(item, key) in filterProductList"
-              :key="item.goods_id + key"
-              class="production"
-            >
-              <div class="logoWrap">
-                <div class="tag">{{ item.tag }}</div>
-                <div
-                    v-if="item.svga_photo"
-                    class="play"
-                ></div>
-                <img class="logo" :src="item.photo" />
-                <div class="tip">
-                  recharge
+        <div v-for="(item, key) in filterProductList" :key="item.goods_id + key" class="production">
+          <div class="logoWrap">
+            <div class="tag">{{ item.tag }}</div>
+            <div v-if="item.svga_photo" class="play"></div>
+            <img class="logo" :src="item.photo" />
+            <div class="tip">recharge</div>
+          </div>
+          <div class="detailWrap">
+            <div class="name">{{ item.name }}</div>
+            <div class="prizeWrap">
+              <div class="prizeDetail">
+                <div class="dia"></div>
+                <div class="prize">{{ item.real_price }}</div>
+                <div class="originPrize">
+                  {{ item.price }}
                 </div>
               </div>
-              <div class="detailWrap">
-                <div class="name">{{ item.name }}</div>
-                <div class="prizeWrap">
-                  <div class="prizeDetail">
-                    <div class="dia"></div>
-                    <div class="prize">{{ item.real_price }}</div>
-                    <div
-                      class="originPrize"
-                    >
-                      {{ item.price }}
-                    </div>
-                  </div>
-                  <div
-                    class="off"
-                  >
-                    {{ `${item.discount / 100}%OFF` }}
-                  </div>
-                </div>
+              <div class="off">
+                {{ `${item.discount / 100}%OFF` }}
               </div>
             </div>
+          </div>
+        </div>
       </div>
     </skeleton>
   </div>
@@ -56,8 +43,8 @@ export default {
   mounted() {
     setTimeout(() => {
       const res = JSON.parse(
-            `{"goods_id":"5e7d6d331d41c801b95f594f","name":"skeletontest","photo":"https://o-static.ihago.net/ikxd/e545a3470091c784794ac21f3de80183/lanshuijin.png","svga_photo":"","tag":"new","type":1,"type":1805,"real_price":199,"price":299,"discount":8000,"update_time":1594695268}`
-          )
+        `{"goods_id":"5e7d6d331d41c801b95f594f","name":"skeleton-test","photo":"https://o-static.ihago.net/ikxd/e62403ac0d365c57b4dbc1a0ab7e9cf4/128.png","svga_photo":"","tag":"new","type":1,"type":1805,"real_price":199,"price":299,"discount":8000,"update_time":1594695268}`
+      )
       this.filterProductList = Array(10).fill(res)
     }, 3000)
   }
@@ -91,7 +78,7 @@ export default {
 
 .logoWrap {
   height: 136px;
-  background-image: linear-gradient(180deg, #ffe6a7 0%, #fff7e2 100%);
+  background-image: linear-gradient(180deg, #fff 0%, #fff 100%);
   border-radius: 5px 5px 0 0;
   position: relative;
   padding-top: 24px;
@@ -111,7 +98,7 @@ export default {
   letter-spacing: 0;
   line-height: 18px;
   opacity: 0.6;
-  background: #ffc102;
+  background: #435d7b;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -164,10 +151,10 @@ export default {
   }
 
   .dia {
-     width: 20px;
-     height: 20px;
-     background: url('./imgs/dia.png') no-repeat;
-     background-size: 100%;
+    width: 20px;
+    height: 20px;
+    background: url('./imgs/dia.png') no-repeat;
+    background-size: 100%;
   }
 
   .prize {

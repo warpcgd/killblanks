@@ -120,13 +120,15 @@ export const injectStyle = (rootHashClass: string, style: string): HTMLStyleElem
 
 export const px2relativeUtil = (
   px: string | number,
-  unit: string | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax' = 'rem',
+  unit: 'px' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax' = 'rem',
   decimal = 4
 ) => {
   const pxValue = typeof px === 'string' ? parseFloat(px) : px
   if (unit === 'rem') {
     const htmlElementFontSize = getComputedStyle(document.documentElement).fontSize
     return `${(pxValue / parseFloat(htmlElementFontSize)).toFixed(decimal)}${unit}`
+  } else if (unit === 'px') {
+    return px
   } else {
     const dimensions = getViewPort()
     const base = dimensions[unit as keyof typeof dimensions]

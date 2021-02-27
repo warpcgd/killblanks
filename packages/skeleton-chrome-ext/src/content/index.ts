@@ -1,5 +1,14 @@
 import { outputSkeleton } from '@killblanks/skeleton'
 
+const { name, version } = chrome.runtime.getManifest()
+
+console.log(
+  ` %c ${name} %c ${version} %c `,
+  'color: #fff; background: #435d7b; padding:5px;',
+  'color: #fff; background: #a8b3c1; padding:5px;',
+  "content:' '"
+)
+
 function isInBody(node: HTMLElement) {
   return node === document.body ? false : document.body.contains(node)
 }
@@ -7,37 +16,34 @@ function isInBody(node: HTMLElement) {
 let chromeRuntimePort = chrome.runtime.connect()
 
 chromeRuntimePort.onDisconnect.addListener(() => {
-  console.error('@killblanks/skeleton-ext has Disconnected, please refresh the page')
+  console.error('@killblanks/skeleton-ext has Disconnected, please refresh this page')
   chromeRuntimePort = undefined
 })
 
 // when using the port, always check if valid/connected
 function sendMessage(msg: any) {
-  console.log(chrome)
-  console.log(chrome.runtime)
-  console.log(chrome.runtime.sendMessage)
   if (chrome.runtime.sendMessage) {
     chrome.runtime.sendMessage(msg)
   } else {
-    console.error('@killblanks/skeleton-ext has Disconnected, please refresh the page')
+    console.error('@killblanks/skeleton-ext has Disconnected, please refresh this page')
   }
 }
 
 const isDOM =
   typeof HTMLElement === 'object'
     ? function(obj: HTMLElement) {
-      return obj instanceof HTMLElement
-    }
+        return obj instanceof HTMLElement
+      }
     : function(obj: HTMLElement) {
-      return (
-        obj &&
+        return (
+          obj &&
           typeof obj === 'object' &&
           obj.nodeType === 1 &&
           typeof obj.nodeName === 'string' &&
           obj.nodeName !== 'SCRIPT' &&
           obj.nodeName !== 'STYLE'
-      )
-    }
+        )
+      }
 
 const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSkeletonNode: any } = {
   html: '',

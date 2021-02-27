@@ -1,0 +1,13 @@
+.home {
+  padding: 0 !important;
+  max-width: 100% !important;
+  margin-bottom: 0 !important;
+}
+
+.loading-dot i {
+  background-color: #435d7b !important;
+}
+
+.theme-antdocs-content code {
+  /* color: #3eaf7c !important; */
+}
