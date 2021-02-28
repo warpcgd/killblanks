@@ -17,6 +17,6 @@ git init
 git add -A
 git commit -m 'deploy'
 
-git push -f https://${access_token}@github.com/warpcgd/killblanks.git master:gh-pages
+git push -f https://${access_token}@github.com/warpcgd/killblanks.git main:gh-pages
 
 cd -
