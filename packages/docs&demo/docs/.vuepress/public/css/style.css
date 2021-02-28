@@ -8,6 +8,19 @@
   background-color: #435d7b !important;
 }
 
+.sidebar {
+  border-right: 0 !important;
+}
+
 .theme-antdocs-content code {
   /* color: #3eaf7c !important; */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold !important;
 }

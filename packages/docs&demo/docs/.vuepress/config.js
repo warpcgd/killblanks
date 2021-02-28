@@ -25,8 +25,13 @@ module.exports = {
       },
       {
         text: 'Guide',
-        link: '/guide'
+        link: '/guides/'
       }
+    ],
+    sidebar: [
+      ['/guides/', '@killblanks'],
+      ['/guides/prerender/', '@killblanks/prerender'],
+      ['/guides/skeleton-ext/', '@killblanks/skeleton-ext']
     ]
   },
   chainWebpack(config, isServer) {

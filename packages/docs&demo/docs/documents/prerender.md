@@ -92,16 +92,6 @@ sidebar: auto
 /**
 ```
 
-## shellDir
-
-```ts
-/**
- * 设置shell输出文件路径
- * @type {string}
- * @default '/''
-/**
-```
-
 ## entryPath
 
 ```ts
@@ -118,16 +108,6 @@ sidebar: auto
 /**
  * 设置输出文件名
  * @type {'index'}
- * @default 'index''
-/**
-```
-
-## shellName
-
-```ts
-/**
- * 设置输出预渲染文件名
- * @type {string}
  * @default 'index''
 /**
 ```
@@ -149,16 +129,6 @@ sidebar: auto
  * 设置内存目录
  * @type {string}
  * @default '/__webpack_prerender_skeleton/__''
-/**
-```
-
-## mod
-
-```ts
-/**
- * 设置预渲染模式, 可以传`object`，会和`default`模式做深度合并
- * @type {('default' | 'automatic' |object)}
- * @default 'default''
 /**
 ```
 
