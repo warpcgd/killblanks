@@ -2,6 +2,8 @@ language: node_js # node环境
 sudo: required
 node_js:
   - lts/*
-branch: master
+branches:
+  only:
+    - master
 script:
   - ./deploy.sh
