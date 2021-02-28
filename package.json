@@ -6,6 +6,7 @@
     "publish": "lerna publish from-package --registry https://registry.npmjs.org",
     "login": "npm login --registry https://registry.npmjs.org",
     "bootstrap": "lerna bootstrap",
+    "bootstrap:docs": "lerna bootstrap --scope=@killblanks/demo",
     "build": "lerna run --stream build",
     "dev": "lerna run --parallel dev",
     "watch": "lerna run --parallel watch",
