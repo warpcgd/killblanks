@@ -1,11 +1,15 @@
 language: node_js # node环境
 sudo: required
 node_js:
-  - lts/*
+  - 8.11.3
 branches:
   only:
     - main
+cache:
+  directories:
+    - node_modules
 before_install:
+  - export TZ='Asia/Shanghai'
   - chmod +x deploy.sh
 script:
   - deploy.sh
