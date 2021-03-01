@@ -17,8 +17,12 @@
 }
 
 .navbar .site-name {
-  opacity: 0!important;
-  width: 0!important;
+  opacity: 0 !important;
+  width: 0 !important;
+}
+
+.search-box input {
+  border: 0 !important;
 }
 
 h1,

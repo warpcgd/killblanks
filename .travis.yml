@@ -11,8 +11,8 @@ branches:
 script:
   - echo "skipping tests"
 deploy:
-  provider: pages
+  provider: script
   skip_cleanup: true
-  script: chmod +x ./deploy.sh && ./deploy.sh
+  script: chmod +x ./deploy.sh && bash ./deploy.sh
   on:
     branch: main

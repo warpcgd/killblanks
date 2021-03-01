@@ -36,7 +36,8 @@ export default {
   padding: 0;
   top: 0;
   box-sizing: border-box;
-  padding-top: 3.6rem;
+  padding-top: 4rem;
+  z-index: 19;
 }
 .demo {
   height: 100%;
