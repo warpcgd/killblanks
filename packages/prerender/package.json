@@ -1,7 +1,7 @@
 {
   "name": "@killblanks/prerender",
   "version": "1.0.0",
-  "description": "prerender-skeleton",
+  "description": "prerender the HTML",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
   "typings": "./dist/typings/index.d.ts",
