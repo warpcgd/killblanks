@@ -11,7 +11,7 @@
     "dev": "lerna run --parallel dev",
     "watch": "lerna run --parallel watch",
     "docs:dev": "lerna run docs:dev --scope=@killblanks/docs --parallel",
-    "docs:build": "lerna run docs:build --scope=@killblanks/docs --parallel",
+    "docs:build": "lerna run docs:build --scope=@killblanks/docs --stream",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
     "test:watch": "jest --watch",

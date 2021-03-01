@@ -5,8 +5,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "docs:dev": "cross-env vuepress dev docs",
-    "docs:build": "cross-env vuepress build docs"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "author": "lixichen",
   "license": "ISC",

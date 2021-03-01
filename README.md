@@ -1,10 +1,22 @@
-# @kiilblank
+# Kiilblanks
 
-![logo](./assets/killblanks-logo.png.png)
+![logo](./assets/killblanks-logo.png)
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 > 白屏一直是 spa 应用诞生来困扰用户的一大问题，如何在低成本的情况下，增加用户的等待时间，减少跳出率？ @killblank 作为一种解决方案，将在等待内容加载时显示内容的轮廓。与传统的 loading 相比，它提供了更好的用户体验，并使内容感觉更快。
+
+## 目录
+
+- [Kiilblanks](#kiilblanks)
+  - [目录](#目录)
+  - [你将会用到](#你将会用到)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [API](#api)
+  - [Maintainers](#maintainers)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## 你将会用到
 
@@ -12,18 +24,6 @@
 - [@kiilblank/prerender]('./packages/prerender') 预渲染工具
 - [@kiilblank/skeleton]('./packages/skeleton') 骨架屏核心代码
 - [@kiilblank/skeleton-chrome-ext]('./packages/skeleton-chrome-ext') 骨架屏 chrome 插件
-
-## 目录
-
-- [@kiilblank](#kiilblank)
-  - [你将会用到](#你将会用到)
-  - [目录](#目录)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [API](#api)
-  - [Maintainers](#maintainers)
-  - [Contributing](#contributing)
-  - [License](#license)
 
 ## Install
 
