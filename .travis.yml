@@ -1,7 +1,8 @@
 language: node_js # node环境
 sudo: required
 node_js:
-  - 8.11.3
+  - lts/*
+branch: main
 branches:
   only:
     - main
