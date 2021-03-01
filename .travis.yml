@@ -1,5 +1,4 @@
 language: node_js # node环境
-script: 'true'
 sudo: required
 node_js:
   - lts/*
@@ -9,6 +8,8 @@ cache:
 branches:
   only:
     - main
+script:
+  - echo "skipping tests"
 deploy:
   provider: pages
   skip_cleanup: true
