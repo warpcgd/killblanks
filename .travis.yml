@@ -2,17 +2,15 @@ language: node_js # node环境
 sudo: required
 node_js:
   - lts/*
-branch: main
-branches:
-  only:
-    - main
 cache:
   directories:
     - node_modules
-
+branches:
+  only:
+    - main
 deploy:
-- provider: script
-    skip_cleanup: true
-    script: chmod +x ./deploy.sh && ./deploy.sh
-    on:
-      tags: true
+  provider: pages
+  skip_cleanup: true
+  script: chmod +x ./deploy.sh && ./deploy.sh
+  on:
+    branch: main
