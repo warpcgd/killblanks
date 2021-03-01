@@ -1,4 +1,5 @@
 language: node_js # node环境
+script: 'true'
 sudo: required
 node_js:
   - lts/*
