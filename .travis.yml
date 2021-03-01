@@ -9,8 +9,10 @@ branches:
 cache:
   directories:
     - node_modules
-before_install:
-  - export TZ='Asia/Shanghai'
-  - chmod +x deploy.sh
-script:
-  - deploy.sh
+
+deploy:
+- provider: script
+    skip_cleanup: true
+    script: chmod +x ./deploy.sh && ./deploy.sh
+    on:
+      tags: true

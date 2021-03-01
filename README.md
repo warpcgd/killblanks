@@ -1,6 +1,6 @@
 # @kiilblank
 
-![banner](./assets/skeleton-logo.png)
+![logo](./assets/killblanks-logo.png.png)
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 

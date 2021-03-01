@@ -6,6 +6,7 @@ module.exports = {
   head: [['link', { rel: 'stylesheet', href: '/css/style.css' }]],
   themeConfig: {
     backToTop: true,
+    logo: '/imgs/docs-logo.png',
     nav: [
       {
         text: 'Home',
