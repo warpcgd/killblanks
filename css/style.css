@@ -1,0 +1,35 @@
+.home {
+  padding: 0 !important;
+  max-width: 100% !important;
+  margin-bottom: 0 !important;
+}
+
+.loading-dot i {
+  background-color: #435d7b !important;
+}
+
+.sidebar {
+  border-right: 0 !important;
+}
+
+.theme-antdocs-content code {
+  /* color: #3eaf7c !important; */
+}
+
+.navbar .site-name {
+  opacity: 0 !important;
+  width: 0 !important;
+}
+
+.search-box input {
+  border: 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold !important;
+}
