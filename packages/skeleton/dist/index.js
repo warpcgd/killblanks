@@ -333,10 +333,10 @@ module.exports = stackSet;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "VtSi");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "cbiG");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "rV7w");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "VtSi");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styleCache__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./styleCache */ "kzzh");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../config */ "MMqm");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../util */ "dTf1");
@@ -358,9 +358,9 @@ function backgroundHandler(_x, _x2) {
 }
 
 function _backgroundHandler() {
-  _backgroundHandler = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(ele, _ref) {
+  _backgroundHandler = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(ele, _ref) {
     var color, shape, imageClass, shapeClass, bgImg, url, hash, result, rule;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -511,9 +511,9 @@ module.exports = isArrayLikeObject;
 /***/ }),
 
 /***/ "3yYM":
-/*!*********************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/regenerator-runtime/runtime.js ***!
-  \*********************************************************************************************/
+/*!**********************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/regenerator-runtime/runtime.js ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1493,6 +1493,33 @@ module.exports = shortOut;
 
 /***/ }),
 
+/***/ "9nKk":
+/*!**************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/defineProperty/index.js ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "AP2z":
 /*!*******************************************!*\
   !*** ./node_modules/lodash/_getRawTag.js ***!
@@ -1637,6 +1664,30 @@ function getNative(object, key) {
 
 module.exports = getNative;
 
+
+/***/ }),
+
+/***/ "D18t":
+/*!*****************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/toConsumableArray/index.js ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithoutHoles = __webpack_require__(/*! @babel/runtime/helpers/arrayWithoutHoles */ "vwgi");
+
+var iterableToArray = __webpack_require__(/*! @babel/runtime/helpers/iterableToArray */ "UbtF");
+
+var unsupportedIterableToArray = __webpack_require__(/*! @babel/runtime/helpers/unsupportedIterableToArray */ "Vn+p");
+
+var nonIterableSpread = __webpack_require__(/*! @babel/runtime/helpers/nonIterableSpread */ "aMkb");
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
@@ -1824,10 +1875,10 @@ module.exports = isObjectLike;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "VtSi");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "cbiG");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "rV7w");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "VtSi");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "MMqm");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../util */ "dTf1");
 /* harmony import */ var _styleCache__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styleCache */ "kzzh");
@@ -1845,10 +1896,10 @@ function imgHandler(_x, _x2) {
 }
 
 function _imgHandler() {
-  _imgHandler = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(ele, _ref) {
+  _imgHandler = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(ele, _ref) {
     var color, _ele$getBoundingClien, width, height, attrs, className, imgSrc, hash, url, result, rule;
 
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -2221,32 +2272,6 @@ module.exports = baseIsArguments;
 
 /***/ }),
 
-/***/ "KEM+":
-/*!*******************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/defineProperty.js ***!
-  \*******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-
-/***/ }),
-
 /***/ "KMkd":
 /*!************************************************!*\
   !*** ./node_modules/lodash/_listCacheClear.js ***!
@@ -2461,15 +2486,14 @@ module.exports = createAssigner;
   var undefined;
 
   /** Used as the semantic version number. */
-  var VERSION = '4.17.21';
+  var VERSION = '4.17.20';
 
   /** Used as the size to enable large array optimizations. */
   var LARGE_ARRAY_SIZE = 200;
 
   /** Error message constants. */
   var CORE_ERROR_TEXT = 'Unsupported core-js use. Try https://npms.io/search?q=ponyfill.',
-      FUNC_ERROR_TEXT = 'Expected a function',
-      INVALID_TEMPL_VAR_ERROR_TEXT = 'Invalid `variable` option passed into `_.template`';
+      FUNC_ERROR_TEXT = 'Expected a function';
 
   /** Used to stand-in for `undefined` hash values. */
   var HASH_UNDEFINED = '__lodash_hash_undefined__';
@@ -2602,11 +2626,10 @@ module.exports = createAssigner;
   var reRegExpChar = /[\\^$.*+?()[\]{}|]/g,
       reHasRegExpChar = RegExp(reRegExpChar.source);
 
-  /** Used to match leading whitespace. */
-  var reTrimStart = /^\s+/;
-
-  /** Used to match a single whitespace character. */
-  var reWhitespace = /\s/;
+  /** Used to match leading and trailing whitespace. */
+  var reTrim = /^\s+|\s+$/g,
+      reTrimStart = /^\s+/,
+      reTrimEnd = /\s+$/;
 
   /** Used to match wrap detail comments. */
   var reWrapComment = /\{(?:\n\/\* \[wrapped with .+\] \*\/)?\n?/,
@@ -2615,18 +2638,6 @@ module.exports = createAssigner;
 
   /** Used to match words composed of alphanumeric characters. */
   var reAsciiWord = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g;
-
-  /**
-   * Used to validate the `validate` option in `_.template` variable.
-   *
-   * Forbids characters which could potentially change the meaning of the function argument definition:
-   * - "()," (modification of function parameters)
-   * - "=" (default value)
-   * - "[]{}" (destructuring of function parameters)
-   * - "/" (beginning of a comment)
-   * - whitespace
-   */
-  var reForbiddenIdentifierChars = /[()=,{}\[\]\/\s]/;
 
   /** Used to match backslashes in property paths. */
   var reEscapeChar = /\\(\\)?/g;
@@ -3457,19 +3468,6 @@ module.exports = createAssigner;
   }
 
   /**
-   * The base implementation of `_.trim`.
-   *
-   * @private
-   * @param {string} string The string to trim.
-   * @returns {string} Returns the trimmed string.
-   */
-  function baseTrim(string) {
-    return string
-      ? string.slice(0, trimmedEndIndex(string) + 1).replace(reTrimStart, '')
-      : string;
-  }
-
-  /**
    * The base implementation of `_.unary` without support for storing metadata.
    *
    * @private
@@ -3800,21 +3798,6 @@ module.exports = createAssigner;
     return hasUnicode(string)
       ? unicodeToArray(string)
       : asciiToArray(string);
-  }
-
-  /**
-   * Used by `_.trim` and `_.trimEnd` to get the index of the last non-whitespace
-   * character of `string`.
-   *
-   * @private
-   * @param {string} string The string to inspect.
-   * @returns {number} Returns the index of the last non-whitespace character.
-   */
-  function trimmedEndIndex(string) {
-    var index = string.length;
-
-    while (index-- && reWhitespace.test(string.charAt(index))) {}
-    return index;
   }
 
   /**
@@ -14985,7 +14968,7 @@ module.exports = createAssigner;
       if (typeof value != 'string') {
         return value === 0 ? value : +value;
       }
-      value = baseTrim(value);
+      value = value.replace(reTrim, '');
       var isBinary = reIsBinary.test(value);
       return (isBinary || reIsOctal.test(value))
         ? freeParseInt(value.slice(2), isBinary ? 2 : 8)
@@ -17357,12 +17340,6 @@ module.exports = createAssigner;
       if (!variable) {
         source = 'with (obj) {\n' + source + '\n}\n';
       }
-      // Throw an error if a forbidden character was found in `variable`, to prevent
-      // potential command injection attacks.
-      else if (reForbiddenIdentifierChars.test(variable)) {
-        throw new Error(INVALID_TEMPL_VAR_ERROR_TEXT);
-      }
-
       // Cleanup code by stripping empty strings.
       source = (isEvaluating ? source.replace(reEmptyStringLeading, '') : source)
         .replace(reEmptyStringMiddle, '$1')
@@ -17476,7 +17453,7 @@ module.exports = createAssigner;
     function trim(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return baseTrim(string);
+        return string.replace(reTrim, '');
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -17511,7 +17488,7 @@ module.exports = createAssigner;
     function trimEnd(string, chars, guard) {
       string = toString(string);
       if (string && (guard || chars === undefined)) {
-        return string.slice(0, trimmedEndIndex(string) + 1);
+        return string.replace(reTrimEnd, '');
       }
       if (!string || !(chars = baseToString(chars))) {
         return string;
@@ -20171,29 +20148,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "RhWx":
-/*!**********************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
-  \**********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ "tGbD");
-
-var iterableToArray = __webpack_require__(/*! ./iterableToArray */ "twbh");
-
-var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray */ "peMk");
-
-var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread */ "d8WC");
-
-function _toConsumableArray(arr) {
-  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
-}
-
-module.exports = _toConsumableArray;
-
-/***/ }),
-
 /***/ "SfRM":
 /*!*******************************************!*\
   !*** ./node_modules/lodash/_hashClear.js ***!
@@ -20217,33 +20171,6 @@ function hashClear() {
 
 module.exports = hashClear;
 
-
-/***/ }),
-
-/***/ "T0aG":
-/*!***********************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/typeof.js ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    module.exports = _typeof = function _typeof(obj) {
-      return typeof obj;
-    };
-  } else {
-    module.exports = _typeof = function _typeof(obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-module.exports = _typeof;
 
 /***/ }),
 
@@ -20363,14 +20290,14 @@ module.exports = baseMergeDeep;
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "genSkeleton", function() { return genSkeleton; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "outputSkeleton", function() { return outputSkeleton; });
-/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "T0aG");
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "fdRb");
 /* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "VtSi");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "RhWx");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "cbiG");
-/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "D18t");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "rV7w");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/regenerator */ "VtSi");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./util */ "dTf1");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./config */ "MMqm");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "DEFAULTMOD", function() { return _config__WEBPACK_IMPORTED_MODULE_5__["DEFAULTMOD"]; });
@@ -20399,7 +20326,7 @@ function traverse(_x) {
 }
 
 function _traverse() {
-  _traverse = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee(options) {
+  _traverse = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee(options) {
     var element,
         remove,
         excludes,
@@ -20427,7 +20354,7 @@ function _traverse() {
         grayBlocks,
         offScreenParagraph,
         _args = arguments;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee$(_context) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
@@ -20449,7 +20376,7 @@ function _traverse() {
             if (Array.isArray(remove)) {
               remove.push(_config__WEBPACK_IMPORTED_MODULE_5__["CONSOLE_SELECTOR"]); // @ts-ignore
 
-              toRemove.push.apply(toRemove, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(Object(_util__WEBPACK_IMPORTED_MODULE_4__["$$"])(remove.join(','))));
+              toRemove.push.apply(toRemove, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(Object(_util__WEBPACK_IMPORTED_MODULE_4__["$$"])(remove.join(','))));
             }
 
             if (button && button.excludes.length) {
@@ -20608,14 +20535,14 @@ function genSkeleton() {
 }
 
 function _genSkeleton() {
-  _genSkeleton = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee2() {
+  _genSkeleton = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee2() {
     var options,
         hide,
         hideEle,
         rules,
         selector,
         _args2 = arguments;
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee2$(_context2) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
@@ -20667,7 +20594,7 @@ function outputSkeleton(_x2) {
 }
 
 function _outputSkeleton() {
-  _outputSkeleton = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_3___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.mark(function _callee3(element) {
+  _outputSkeleton = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_2___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.mark(function _callee3(element) {
     var options,
         _options,
         hide,
@@ -20678,7 +20605,7 @@ function _outputSkeleton() {
         style,
         _args3 = arguments;
 
-    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default.a.wrap(function _callee3$(_context3) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_3___default.a.wrap(function _callee3$(_context3) {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
@@ -20777,6 +20704,22 @@ module.exports = baseTimes;
 
 /***/ }),
 
+/***/ "UbtF":
+/*!***************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/iterableToArray/index.js ***!
+  \***************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+module.exports = _iterableToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "VaNO":
 /*!******************************************!*\
   !*** ./node_modules/lodash/_stackHas.js ***!
@@ -20802,10 +20745,33 @@ module.exports = stackHas;
 
 /***/ }),
 
+/***/ "Vn+p":
+/*!**************************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/unsupportedIterableToArray/index.js ***!
+  \**************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeToArray = __webpack_require__(/*! @babel/runtime/helpers/arrayLikeToArray */ "tQ1m");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "VtSi":
-/*!**************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/regenerator/index.js ***!
-  \**************************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/regenerator/index.js ***!
+  \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21227,6 +21193,22 @@ module.exports = listCacheSet;
 
 /***/ }),
 
+/***/ "aMkb":
+/*!*****************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/nonIterableSpread/index.js ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableSpread;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "aYSr":
 /*!***********************************!*\
   !*** (webpack)/buildin/module.js ***!
@@ -21404,53 +21386,6 @@ module.exports = isTypedArray;
 
 /***/ }),
 
-/***/ "cbiG":
-/*!*********************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
-  \*********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
-  try {
-    var info = gen[key](arg);
-    var value = info.value;
-  } catch (error) {
-    reject(error);
-    return;
-  }
-
-  if (info.done) {
-    resolve(value);
-  } else {
-    Promise.resolve(value).then(_next, _throw);
-  }
-}
-
-function _asyncToGenerator(fn) {
-  return function () {
-    var self = this,
-        args = arguments;
-    return new Promise(function (resolve, reject) {
-      var gen = fn.apply(self, args);
-
-      function _next(value) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
-      }
-
-      function _throw(err) {
-        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
-      }
-
-      _next(undefined);
-    });
-  };
-}
-
-module.exports = _asyncToGenerator;
-
-/***/ }),
-
 /***/ "cq/+":
 /*!*****************************************!*\
   !*** ./node_modules/lodash/_baseFor.js ***!
@@ -21512,21 +21447,6 @@ function constant(value) {
 
 module.exports = constant;
 
-
-/***/ }),
-
-/***/ "d8WC":
-/*!**********************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
-  \**********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableSpread;
 
 /***/ }),
 
@@ -22040,6 +21960,38 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "fdRb":
+/*!******************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/typeof/index.js ***!
+  \******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    module.exports = _typeof = function _typeof(obj) {
+      return typeof obj;
+    };
+
+    module.exports["default"] = module.exports, module.exports.__esModule = true;
+  } else {
+    module.exports = _typeof = function _typeof(obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+
+    module.exports["default"] = module.exports, module.exports.__esModule = true;
+  }
+
+  return _typeof(obj);
+}
+
+module.exports = _typeof;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+
+/***/ }),
+
 /***/ "fmRc":
 /*!***************************************!*\
   !*** ./node_modules/lodash/_Stack.js ***!
@@ -22168,27 +22120,6 @@ function baseAssignValue(object, key, value) {
 
 module.exports = baseAssignValue;
 
-
-/***/ }),
-
-/***/ "iQ7j":
-/*!*********************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
-  \*********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-module.exports = _arrayLikeToArray;
 
 /***/ }),
 
@@ -22789,7 +22720,7 @@ module.exports = mapCacheHas;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "KEM+");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "9nKk");
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "dTf1");
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "MMqm");
@@ -22821,28 +22752,6 @@ function pseudosHandler(_ref, _ref2) {
 
 /***/ }),
 
-/***/ "peMk":
-/*!*******************************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
-  \*******************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray */ "iQ7j");
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-
-module.exports = _unsupportedIterableToArray;
-
-/***/ }),
-
 /***/ "qvb8":
 /*!****************************************************!*\
   !*** ./node_modules/rgbaster/dist/rgbaster.umd.js ***!
@@ -22853,6 +22762,54 @@ module.exports = _unsupportedIterableToArray;
 !function(e,t){ true?module.exports=t():undefined}(this,function(){var e=function(e,t){void 0===t&&(t=1);var r=new Image;return e.startsWith("data")||(r.crossOrigin="Anonymous"),new Promise(function(n,o){r.onload=function(){var e=r.width*t,o=r.height*t,i=function(e,t){var r=document.createElement("canvas");return r.setAttribute("width",e),r.setAttribute("height",t),r.getContext("2d")}(e,o);i.drawImage(r,0,0,e,o);var a=i.getImageData(0,0,e,o);n(a.data)};var i=function(){return o(new Error("An error occurred attempting to load image"))};r.onerror=i,r.onabort=i,r.src=e})},t={ignore:[],scale:1};return function(r,n){void 0===n&&(n=t);try{var o=(n=Object.assign({},t,n)).ignore,i=n.scale;return(i>1||i<=0)&&console.warn("You set scale to "+i+", which isn't between 0-1. This is either pointless (> 1) or a no-op (≤ 0)"),Promise.resolve(e(r,i)).then(function(e){return function(e,t){for(var r={},n=0;n<e.length;n+=4){var o=e[n+3];if(0!==o){var i=Array.from(e.subarray(n,n+3));if(-1===i.indexOf(void 0)){var a=o&&255!==o?"rgba("+i.concat([o]).join(",")+")":"rgb("+i.join(",")+")";-1===t.indexOf(a)&&(r[a]?r[a].count++:r[a]={color:a,count:1})}}}return Object.values(r).sort(function(e,t){return t.count-e.count})}(e,o)})}catch(e){return Promise.reject(e)}}});
 //# sourceMappingURL=rgbaster.umd.js.map
 
+
+/***/ }),
+
+/***/ "rV7w":
+/*!****************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/asyncToGenerator/index.js ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+module.exports = _asyncToGenerator;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
@@ -22958,23 +22915,6 @@ module.exports = assignMergeValue;
 
 /***/ }),
 
-/***/ "tGbD":
-/*!**********************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
-  \**********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray */ "iQ7j");
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return arrayLikeToArray(arr);
-}
-
-module.exports = _arrayWithoutHoles;
-
-/***/ }),
-
 /***/ "tMB7":
 /*!**********************************************!*\
   !*** ./node_modules/lodash/_listCacheGet.js ***!
@@ -23005,18 +22945,25 @@ module.exports = listCacheGet;
 
 /***/ }),
 
-/***/ "twbh":
-/*!********************************************************************************************************!*\
-  !*** C:/Users/ASUS/Documents/GitHub/killblanks/node_modules/@babel/runtime/helpers/iterableToArray.js ***!
-  \********************************************************************************************************/
+/***/ "tQ1m":
+/*!****************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/arrayLikeToArray/index.js ***!
+  \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
 }
 
-module.exports = _iterableToArray;
+module.exports = _arrayLikeToArray;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 
@@ -23058,6 +23005,24 @@ function hashGet(key) {
 
 module.exports = hashGet;
 
+
+/***/ }),
+
+/***/ "vwgi":
+/*!*****************************************************************************************************************!*\
+  !*** /Users/lixichen/Documents/GitHub/killblank/node_modules/@babel/runtime/helpers/arrayWithoutHoles/index.js ***!
+  \*****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeToArray = __webpack_require__(/*! @babel/runtime/helpers/arrayLikeToArray */ "tQ1m");
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return arrayLikeToArray(arr);
+}
+
+module.exports = _arrayWithoutHoles;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
 
 /***/ }),
 

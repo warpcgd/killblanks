@@ -20,7 +20,7 @@ module.exports = {
         text: 'Docs▾',
         ariaLabel: 'Docs',
         items: [
-          { text: '@killblank/prerender', link: '/documents/prerender' },
+          { text: '@killblanks/prerender', link: '/documents/prerender' },
           { text: '@killblank/skeleton', link: '/documents/skeleton' }
         ]
       },

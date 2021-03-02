@@ -60,7 +60,8 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
     },
     render(h, context) {
       const { show } = context.props
-      if (!show || window.__PRERENDER_INJECTED__) {
+      const inBrowser = typeof window !== 'undefined'
+      if (inBrowser && (!show || window.__PRERENDER_INJECTED__)) {
         const html = \`${cleanedHtml}\`
         const component = Vue.compile(html)
         return h(component)
