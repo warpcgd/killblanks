@@ -12,7 +12,8 @@ const skeletonLoader = {
   },
   render(h, context) {
     const { show } = context.props
-    if (!show || window.__PRERENDER_INJECTED__) {
+    const inBrowser = typeof window !== 'undefined'
+    if (inBrowser && (!show || window.__PRERENDER_INJECTED__)) {
       const html = `<div class="productionList skeleton--animate skeleton--843045"><div class="production sk-transparent"><div class="logoWrap sk-transparent sk-image-4005 sk-rect"><div class="tag">new</div> <!----> <img src="https://o-static.ihago.net/ikxd/e62403ac0d365c57b4dbc1a0ab7e9cf4/128.png" class="logo"> <div class="tip">recharge</div></div> <div class="detailWrap sk-transparent"><div class="name sk-transparent sk-text-12-5000 sk-text" style="background-size: 49.0804% 16px;">skeleton-test</div> <div class="prizeWrap sk-transparent"><div class="prizeDetail sk-transparent"><div class="dia sk-image-615243 sk-rect"></div> <div class="prize sk-transparent sk-text-16-6667 sk-text" style="background-size: 91.9361% 30px;">199</div> <div class="originPrize sk-transparent sk-text-16-6667 sk-text" style="text-decoration-color: transparent; background-size: 91.9479% 18px;">
                 299
               </div></div> <div class="off sk-transparent sk-text-16-6667 sk-text" style="border: none; background-size: 100% 15px;">

@@ -3,6 +3,8 @@ logs
 *.log
 npm-debug.log*
 
+packages/docs/docs/.vuepress/dist
+
 # Dependencies
 node_modules/
 node_modules/*
