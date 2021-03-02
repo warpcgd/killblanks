@@ -21,18 +21,12 @@ sidebarDepth: 2
 #### 1. 安装
 
 ```sh
-  npm i @kiilblank/prerender -D
+  git clone https://github.com/warpcgd/killblanks.git
 ```
+
+[skeleton-install](https://o-static.ihago.net/skeleton/4e19720a16e0f8b3057ea76958f1d542/anzhuangskeletonext.mp4)
 
 #### 2. 使用
 
-```ts
-// webpack.config.js
-const prerender = require('@killblanks/prerender')
 
-export default {
-  ...
-  plugins: [new prerender()]
-  ...
-}
-```
+[skeleton-use](https://o-static.ihago.net/skeleton/d1349a7ee99d255649b38616f26de70f/shiyongskeletonext.mp4)

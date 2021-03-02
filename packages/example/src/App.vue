@@ -19,6 +19,8 @@ export default {
 html,
 body,
 #app {
+  max-width: 750px;
+  max-height: 1624px;
   width: 100%;
   height: 100%;
   margin: 0 auto;

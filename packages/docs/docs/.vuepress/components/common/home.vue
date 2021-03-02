@@ -6,7 +6,7 @@
           <img src="./imgs/skeleton.gif" alt="" />
         </div>
         <div class="skeleton-intro" :class="isActive ? 'fadeInUp' : ''">
-          <div class="container">
+          <div class="skeleton-container">
             <h2>Killblanks</h2>
             <ul :class="isActive ? 'fadeIn' : ''">
               <li>帮助你解决页面白屏问题</li>

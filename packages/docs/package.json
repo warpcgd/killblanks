@@ -16,5 +16,8 @@
     "sass-loader": "10.1.1",
     "vuepress": "^1.8.2",
     "vuepress-theme-antdocs": "^1.2.2"
+  },
+  "dependencies": {
+    "core-js": "^2.4.0"
   }
 }
