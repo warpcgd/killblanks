@@ -1,5 +1,8 @@
 language: node_js
 sudo: required
+branches:
+  only:
+    - main
 node_js:
   - lts/*
 install:
