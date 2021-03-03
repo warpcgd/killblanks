@@ -126,7 +126,7 @@ section.cover {
 
 .cover-main {
   flex: 0 0 auto;
-  width: 60rem;
+  width: 65rem;
   display: flex;
   height: 100%;
   overflow: hidden;
