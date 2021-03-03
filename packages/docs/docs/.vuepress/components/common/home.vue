@@ -133,19 +133,19 @@ section.cover {
 }
 
 .skeleton-demo {
-  width: 50%;
+  width: 40%;
   flex: 0 0 auto;
   padding-top: 20px;
   transform: translate3d(0, 100%, 0);
   img {
-    width: 300px;
+    width: 20rem;
     display: block;
     margin: 0 auto;
   }
 }
 
 .skeleton-intro {
-  width: 50%;
+  width: 55%;
   flex: 0 0 auto;
   color: #fff;
   display: flex;
