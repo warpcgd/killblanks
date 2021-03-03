@@ -12,8 +12,8 @@
   border-right: 0 !important;
 }
 
-.search-box input {
-  border: 0 !important;
+#app .search-box input {
+  border-left: 0!important;
 }
 
 .navbar .logo {
