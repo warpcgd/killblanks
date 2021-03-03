@@ -37,5 +37,15 @@ module.exports = {
   },
   chainWebpack(config, isServer) {
     config.resolve.alias.set('vue$', 'vue/dist/vue.esm.js')
+  },
+  markdown: {
+    extendMarkdown: md => {
+      md.use(require('markdown-it-html5-embed'), {
+        html5embed: {
+          useImageSyntax: true,
+          useLinkSyntax: false
+        }
+      })
+    }
   }
 }

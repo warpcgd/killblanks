@@ -1,5 +1,4 @@
-
-  <script>
+<script>
 import Vue from 'vue'
 const skeletonLoader = {
   name: 'skeletocnLoader',

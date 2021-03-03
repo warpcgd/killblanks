@@ -18,6 +18,7 @@
     "vuepress-theme-antdocs": "^1.2.2"
   },
   "dependencies": {
-    "core-js": "^2.4.0"
+    "core-js": "^2.4.0",
+    "markdown-it-html5-embed": "^1.0.0"
   }
 }

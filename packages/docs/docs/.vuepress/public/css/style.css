@@ -12,17 +12,13 @@
   border-right: 0 !important;
 }
 
-.theme-antdocs-content code {
-  /* color: #3eaf7c !important; */
-}
-
-.navbar .site-name {
-  opacity: 0 !important;
-  width: 0 !important;
-}
-
 .search-box input {
   border: 0 !important;
+}
+
+.navbar .logo {
+  margin-right: 0.1rem!important;
+  width: auto;
 }
 
 h1,
@@ -32,4 +28,8 @@ h4,
 h5,
 h6 {
   font-weight: bold !important;
+}
+
+video {
+  max-width: 100%;
 }

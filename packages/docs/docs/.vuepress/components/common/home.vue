@@ -3,7 +3,7 @@
     <section class="cover">
       <div class="cover-main">
         <div class="skeleton-demo" :class="isActive ? 'fadeInUp' : ''">
-          <img src="./imgs/skeleton.gif" alt="" />
+          <img src="./imgs/preview.gif" alt="" />
         </div>
         <div class="skeleton-intro" :class="isActive ? 'fadeInUp' : ''">
           <div class="skeleton-container">
@@ -126,7 +126,7 @@ section.cover {
 
 .cover-main {
   flex: 0 0 auto;
-  width: 62.5rem;
+  width: 60rem;
   display: flex;
   height: 100%;
   overflow: hidden;
@@ -134,7 +134,7 @@ section.cover {
 
 .skeleton-demo {
   width: 50%;
-  flex:: 0 0 auto;
+  flex: 0 0 auto;
   padding-top: 20px;
   transform: translate3d(0, 100%, 0);
   img {
@@ -146,7 +146,7 @@ section.cover {
 
 .skeleton-intro {
   width: 50%;
-  flex:: 0 0 auto;
+  flex: 0 0 auto;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -162,7 +162,7 @@ section.cover {
 
 section .row {
   margin: 0 auto;
-  max-width: 62.5rem;
+  max-width: 60rem;
   width: 100%;
 }
 section h3 {
@@ -258,8 +258,11 @@ section .features {
   }
 }
 
-
-
+@media (max-width: 767px) {
+  .home .feature {
+    max-width: 80%;
+  }
+}
 
 </style>
 
