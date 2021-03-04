@@ -8,23 +8,31 @@
 
 ## 目录
 
-- [Kiilblanks](#kiilblanks)
-  - [目录](#目录)
-  - [你将会用到](#你将会用到)
-  - [安装](#安装)
-  - [文档](#文档)
-  - [使用](#使用)
-  - [API](#api)
-  - [Maintainers](#maintainers)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [框架](#框架)
+- [安装](#安装)
+- [文档](#文档)
+- [使用](#使用)
+- [API](#api)
+- [Maintainers](#maintainers)
+- [Contributing](#contributing)
+- [License](#license)
 
-## 你将会用到
+## 框架
+
+<p align="center">
+  <img src="./assets/@killblanks_framework.png">
+</p>
 
 - [@kiilblank/example]('./packages/example') 骨架屏 demo
 - [@kiilblank/prerender]('./packages/prerender') 预渲染工具
 - [@kiilblank/skeleton]('./packages/skeleton') 骨架屏核心代码
 - [@kiilblank/skeleton-chrome-ext]('./packages/skeleton-chrome-ext') 骨架屏 chrome 插件
+
+## 效果
+
+<p align="center">
+  <img src="./assets/preview.gif" width="150" />
+</p>
 
 ## 安装
 
@@ -56,7 +64,7 @@
 
 ## 文档
 
-- [文档](https://warpcgd.github.io/killblanks/guides/)
+- [guides](https://warpcgd.github.io/killblanks/guides/)
 - [demo](https://warpcgd.github.io/killblanks/demos/)
 
 ## 使用
