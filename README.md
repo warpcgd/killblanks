@@ -1,6 +1,6 @@
-# Kiilblanks
-
-![logo](./assets/killblanks-logo.png)
+<p align="center">
+  <img src="./assets/killblanks-logo.png" width="300">
+</p>
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
@@ -11,8 +11,9 @@
 - [Kiilblanks](#kiilblanks)
   - [目录](#目录)
   - [你将会用到](#你将会用到)
-  - [Install](#install)
-  - [Usage](#usage)
+  - [安装](#安装)
+  - [文档](#文档)
+  - [使用](#使用)
   - [API](#api)
   - [Maintainers](#maintainers)
   - [Contributing](#contributing)
@@ -25,66 +26,76 @@
 - [@kiilblank/skeleton]('./packages/skeleton') 骨架屏核心代码
 - [@kiilblank/skeleton-chrome-ext]('./packages/skeleton-chrome-ext') 骨架屏 chrome 插件
 
-## Install
+## 安装
 
 @kiilblank 使用 lerna 进行包管理，可以运行以下指令构建项目
 
 1. 安装依赖
 
 ```
-  npm run bootstrap
+  npm bootstrap
 ```
 
 2. 启动监听
 
 ```
-  npm run watch
+  npm watch
 ```
 
 3. 启动开发环境
 
 ```
-  npm run dev
+  npm dev
 ```
 
-## Usage
-
-1. @kiilblank 在项目中主要使用@kiilblank/prerender 和@kiilblank/skeleton-chrome-ext
-
-首先，安装@kiilblank/prerender
+4. 打包
 
 ```
-npm i @kiilblank/prerender -D
+  yarn build
 ```
 
-2. webpack.config.js
+## 文档
 
+- [文档](https://warpcgd.github.io/killblanks/guides/)
+- [demo](https://warpcgd.github.io/killblanks/demos/)
+
+## 使用
+
+@kiilblank 在项目中主要使用@kiilblank/prerender 和@kiilblank/skeleton-chrome-ext
+
+#### 1. 安装
+
+```sh
+  npm i @kiilblank/prerender -D
 ```
-<!-- webpack.config.js -->
 
+#### 2. 配置webpack
+
+```ts
+// webpack.config.js
 const prerender = require('@killblanks/prerender')
 
 export default {
-  mode: 'xxx',
-  entry: {},
-  output: {},
+  ...
   plugins: [new prerender()]
+  ...
 }
-
-
 ```
+- 详细步骤请查看[@killblanks/prerender](https://warpcgd.github.io/killblanks/guides/prerender/)
 
-2. Chrome 上搜索并安装@kiilblank
+#### 3. 使用`@killblanks/skeleton-ext`
 
-3. 在页面中打开`检查`
+- 详细步骤请查看[@killblanks/skeleton-ext](https://warpcgd.github.io/killblanks/guides/skeleton-ext/) 
 
-4. 使用@kiilblank/skeleton
+#### 4. 将生成的骨架屏组件使用在项目中
 
-5. 在项目中使用@kiilblank/skeleton 生成的模版
+- [DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)中所做的一样
 
-6. 运行项目
+#### 5. 在浏览器的`console`输入`PRERENDER_SKELETON`
 
-7. 在 Console 中`输入PRENDER_SKELETON`打开预览
+```sh
+ 在Chrome console中输入`PRERENDER_SKELETON`启动骨架屏预览
+```
 
 ## API
 
@@ -102,7 +113,7 @@ export default {
 - Create your feature branch: `git checkout -b my-new-feature`
 - Commit your changes: `git commit -am 'Add some feature'`
 - Push to the branch: `git push origin my-new-feature`
-- Submit a pull request
+- Submit a pull request to branch `dev`
 
 ## License
 

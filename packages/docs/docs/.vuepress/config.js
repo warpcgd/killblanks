@@ -9,8 +9,8 @@ module.exports = {
     logo: '/imgs/docs-logo.png',
     nav: [
       {
-        text: 'Home',
-        link: '/'
+        text: 'Guide',
+        link: '/guides/'
       },
       {
         text: 'Demos',
@@ -23,10 +23,6 @@ module.exports = {
           { text: '@killblanks/prerender', link: '/documents/prerender' },
           { text: '@killblank/skeleton', link: '/documents/skeleton' }
         ]
-      },
-      {
-        text: 'Guide',
-        link: '/guides/'
       }
     ],
     sidebar: [
