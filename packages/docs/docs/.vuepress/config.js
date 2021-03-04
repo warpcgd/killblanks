@@ -23,7 +23,8 @@ module.exports = {
           { text: '@killblanks/prerender', link: '/documents/prerender' },
           { text: '@killblank/skeleton', link: '/documents/skeleton' }
         ]
-      }
+      },
+      { text: 'Github', link: 'https://github.com/warpcgd/killblanks' }
     ],
     sidebar: [
       ['/guides/', '@killblanks'],

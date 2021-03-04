@@ -64,8 +64,8 @@
 
 ## 文档
 
-- [guides](https://warpcgd.github.io/killblanks/guides/)
-- [demo](https://warpcgd.github.io/killblanks/demos/)
+- [Guides](https://warpcgd.github.io/killblanks/guides/)
+- [Demo](https://warpcgd.github.io/killblanks/demos/)
 
 ## 使用
 
