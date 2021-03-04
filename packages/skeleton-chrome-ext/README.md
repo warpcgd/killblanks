@@ -30,7 +30,7 @@
 
 - 视频教程
 
-[skeleton-install](https://o-static.ihago.net/skeleton/4e19720a16e0f8b3057ea76958f1d542/anzhuangskeletonext.mp4)
+![skeleton-install](https://o-static.ihago.net/skeleton/4e19720a16e0f8b3057ea76958f1d542/anzhuangskeletonext.mp4)
 
 ### 2. 使用
 
@@ -42,4 +42,4 @@
 
 - 视频教程
 
-[skeleton-use](https://o-static.ihago.net/skeleton/d1349a7ee99d255649b38616f26de70f/shiyongskeletonext.mp4)
+![skeleton-use](https://o-static.ihago.net/skeleton/d1349a7ee99d255649b38616f26de70f/shiyongskeletonext.mp4)
