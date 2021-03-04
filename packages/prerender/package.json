@@ -59,8 +59,8 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org",
+    "registry": "https://registry.npmjs.org/",
     "tag": "latest"
   },
-  "gitHead": "381556b8f87880633805023ed386db0211da9a60"
+  "gitHead": "2feb69b15bcff91c97405e6a7a0488350df54dce"
 }
