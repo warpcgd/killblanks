@@ -17,6 +17,11 @@
     "test:watch": "jest --watch",
     "build:doc": "typedoc"
   },
+  "keywords": [
+    "vue",
+    "prerender",
+    "skeleton"
+  ],
   "publishConfig": {
     "access": "public"
   },

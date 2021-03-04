@@ -32,11 +32,10 @@ class Server {
         }
         else {
             const { outputDir } = this.option;
-            console.log(path_1.default.resolve(cwd, outputDir));
             app.use('/', express_1.default.static(path_1.default.resolve(cwd, outputDir)));
         }
-        // @ts-ignore
-        app.get('/preview.html', async (req, res) => {
+        app.get('/preview.html', async (res) => {
+            // @ts-ignore
             fs_1.default.createReadStream(path_1.default.resolve(__dirname, '../', 'preview/index.html')).pipe(res);
         });
         app.get('/:filename', async (req, res) => {

@@ -38,11 +38,11 @@ class Server {
       app.use('/', express.static(path.resolve(__dirname, '../', 'preview')))
     } else {
       const { outputDir } = this.option
-      console.log(path.resolve(cwd, outputDir))
       app.use('/', express.static(path.resolve(cwd, outputDir)))
     }
-    // @ts-ignore
-    app.get('/preview.html', async (req, res) => {
+
+    app.get('/preview.html', async res => {
+      // @ts-ignore
       fs.createReadStream(path.resolve(__dirname, '../', 'preview/index.html')).pipe(res)
     })
 

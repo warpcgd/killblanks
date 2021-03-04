@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 ## 背景
 
-> 白屏一直是 spa 应用诞生来困扰用户的一大问题，如何在低成本的情况下，增加用户的等待时间，减少跳出率？ @killblank 作为一种解决方案，将在等待内容加载时显示内容的轮廓。与传统的 loading 相比，它提供了更好的用户体验，并使内容感觉更快。
+> 白屏一直是CSR项目诞生来困扰前端的一大问题，如何在低成本的情况下，增加用户的等待时间，减少跳出率，以及提高页面性能，是前端一直在解决的难题，killblanks 作为其中一种的解决方案，将页面节点直接生成骨架屏，通过预渲染让用户能在等待内容加载时显示内容的轮廓，提供了更好的用户体验，并使内容感觉更快。
 
 ## 原理
 
@@ -24,13 +24,13 @@ sidebarDepth: 3
 
 ## 快速开始
 
-#### 1. 安装
+### 1. 安装
 
 ```sh
   yarn add @killblanks/prerender -D
 ```
 
-#### 2. 配置
+### 2. 配置
 
 ```ts
 // webpack.config.js
@@ -43,13 +43,15 @@ export default {
 }
 ```
 
-- 更多细节请查看[@killblanks/prerender](./prerender/)
+- 更多配置请查看[@killblanks/prerender](./prerender/)
 
-#### 3. 使用`@killblanks/skeleton-ext`
+### 3. 使用@killblanks/skeleton-ext
 
-- 更多细节请查看[@killblanks/skeleton-ext](./skeleton-ext/)
 
-#### 4. 将生成的骨架屏组件使用在项目中
+
+- 更多配置请查看[@killblanks/skeleton-ext](./skeleton-ext/)
+
+### 4. 将生成的骨架屏组件使用在项目中
 
 比如像[DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)中所做的一样
 
@@ -118,7 +120,7 @@ export default skeletonLoader
 </script>
 ```
 
-#### 5. 在浏览器的`console`启用`PRERENDER_SKELETON`
+### 5. 在浏览器的`console`启用`PRERENDER_SKELETON`
 
 ```sh
  1. 在Chrome console中输入`PRERENDER_SKELETON`启动骨架屏预览
@@ -126,18 +128,18 @@ export default skeletonLoader
 
 ## 性能
 
-#### 数据来源:
+### 数据来源:
 
 利用公司在印度尼西亚上线的活动，进行 abtest 得出相关数据
 
-#### 数据:
+### 数据:
 
 | type        | total | fcp | lcp |
 | ----------- | :---: | --: | --: |
 | @killblanks | 1532  | 536 | 661 |
 | Normal      | 1730  | 990 | 993 |
 
-#### [First-contentful-paint(fcp)](https://github.com/w3c/paint-timing)
+### [First-contentful-paint(fcp)](https://github.com/w3c/paint-timing)
 
 <p align="center">
   <img src="./imgs/fcp.png" />
@@ -145,7 +147,7 @@ export default skeletonLoader
 
 - FCP 平均值对比：536 : 990 @killblanks 能提升`454ms`, 平均提高`45%`
 
-#### [Largest-contentful-paint(lcp)](https://github.com/WICG/largest-contentful-paint)
+### [Largest-contentful-paint(lcp)](https://github.com/WICG/largest-contentful-paint)
 
 <p align="center">
   <img src="./imgs/lcp.png" />
