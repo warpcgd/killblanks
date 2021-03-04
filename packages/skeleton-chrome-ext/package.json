@@ -48,8 +48,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org",
-    "tag": "flippin-sweet"
+    "registry": "https://registry.npmjs.org"
   },
   "gitHead": "42f253db64540ca21e98257a1fd890770019d3da"
 }

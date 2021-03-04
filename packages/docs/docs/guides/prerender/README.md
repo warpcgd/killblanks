@@ -19,7 +19,7 @@ sidebarDepth: 2
 ### 1. 安装
 
 ```sh
-  npm i @kiilblank/prerender -D
+  yarn add @killblanks/prerender -D
 ```
 
 ### 2. 配置
