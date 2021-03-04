@@ -40,7 +40,6 @@ export declare const DEFAULTMOD: {
     text: {
         color: string;
     };
-    loading: string;
     image: {
         shape: string;
         color: string;
@@ -76,7 +75,6 @@ export declare const AUTOMATICMOD: {
     text: {
         color: string;
     };
-    loading: string;
     image: {
         shape: string;
         color: string;

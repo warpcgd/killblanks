@@ -108,7 +108,7 @@ interface ModType {
    * @default 'rem'
    * @description css单位
    */
-  cssUnit: 'px' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax'
+  cssUnit: 'px' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax' | string
   /**
    * @type {number}
    * @default '4'

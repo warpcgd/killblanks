@@ -120,7 +120,7 @@ export const injectStyle = (rootHashClass: string, style: string): HTMLStyleElem
 
 export const px2relativeUtil = (
   px: string | number,
-  unit: 'px' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax' = 'rem',
+  unit: 'px' | 'rem' | 'vw' | 'vh' | 'vmin' | 'vmax' | string = 'rem',
   decimal = 4
 ) => {
   const pxValue = typeof px === 'string' ? parseFloat(px) : px
