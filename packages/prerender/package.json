@@ -1,6 +1,6 @@
 {
   "name": "@killblanks/prerender",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "prerender the HTML",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
