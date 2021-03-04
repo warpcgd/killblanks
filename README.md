@@ -2,7 +2,7 @@
   <img src="./assets/killblanks-logo.png" width="300">
 </p>
 
-[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme) [![GitHub license](https://img.shields.io/github/license/warpcgd/killblanks)](https://github.com/warpcgd/killblanks/blob/main/LICENSE)
 
 > 白屏一直是 spa 应用诞生来困扰用户的一大问题，如何在低成本的情况下，增加用户的等待时间，减少跳出率？ @killblank 作为一种解决方案，将在等待内容加载时显示内容的轮廓。与传统的 loading 相比，它提供了更好的用户体验，并使内容感觉更快。
 
@@ -33,19 +33,19 @@
 1. 安装依赖
 
 ```
-  npm bootstrap
+  yarn bootstrap
 ```
 
 2. 启动监听
 
 ```
-  npm watch
+  yarn watch
 ```
 
 3. 启动开发环境
 
 ```
-  npm dev
+  yarn dev
 ```
 
 4. 打包
@@ -89,7 +89,7 @@ export default {
 
 #### 4. 将生成的骨架屏组件使用在项目中
 
-- [DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)中所做的一样
+- 像[DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)中所做的一样
 
 #### 5. 在浏览器的`console`输入`PRERENDER_SKELETON`
 
