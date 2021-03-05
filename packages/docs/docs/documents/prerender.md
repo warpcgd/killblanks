@@ -2,7 +2,7 @@
 sidebar: auto
 sidebarDepth: 3
 ---
-# @killblanks/prerender
+# @killblanks/prerender 配置
 ## 基本配置
 
 ### entryPath
