@@ -20,7 +20,7 @@
 
 ### 2. 配置
 
-- webpack配置
+- webpack 配置
 
 ```ts
 // webpack.config.js
@@ -64,8 +64,5 @@ module.exports = {
 ### 4. 预览
 
 - 打开开发环境启动的本地页面
-- 开启`dev-tools`,进入console
+- 开启`dev-tools`,进入 console
 - 输入`PRERENDER_SKELETON`，即可实时预览，需要更新骨架屏页面时，请点击右上角`refresh`按钮
-
-
-

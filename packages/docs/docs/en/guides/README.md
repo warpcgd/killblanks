@@ -2,35 +2,35 @@
 sidebarDepth: 3
 ---
 
-## 背景
+## Background
 
-> 白屏一直是 CSR 项目诞生来困扰前端的一大问题，如何在低成本的情况下，增加用户的等待时间，减少跳出率，以及提高页面性能，是前端一直在解决的难题，killblanks 作为其中一种的解决方案，将页面节点直接生成骨架屏，通过预渲染让用户能在等待内容加载时显示内容的轮廓，提供了更好的用户体验，并使内容感觉更快。
+> White screens have always been a major problem that has plagued the front-end when the CSR project was born. How to increase the waiting time of users, reduce the bounce rate, and improve the page performance at low cost is the front-end has been solving problems, killblanks is one This kind of solution directly generates a skeleton screen from the page node, and pre-renders the user to display the outline of the content while waiting for the content to load, providing a better user experience and making the content feel faster.
 
-## 原理
+## Principle
 
-利用`Purpeteer`能模拟浏览器请求页面的功能，加载`@killblanks/skeleton-ext`生成骨架屏组件的页面，直出 `html` 文件
+Use `Purpeteer` to simulate the browser request page function, load the page of `@killblanks/skeleton-ext` to generate the skeleton screen component, and directly output the `html` file
 
-## 框架
+## Frame
 
 <p align="center">
   <img src="./imgs/@killblanks_framework.png" />
 </p>
 
-## 效果
+## Effect
 
 <p align="center">
   <img src="./imgs/preview.gif" width="300" />
 </p>
 
-## 快速开始
+## Quick start
 
-### 1. 安装
+### 1. Install
 
 ```sh
   yarn add @killblanks/prerender -D
 ```
 
-### 2. 配置
+### 2. Config
 
 ```ts
 // webpack.config.js
@@ -43,15 +43,15 @@ export default {
 }
 ```
 
-- 更多配置请查看[@killblanks/prerender](./prerender/)
+- For more information, please check[@killblanks/prerender](./prerender/)
 
-### 3. 使用@killblanks/skeleton-ext
+### 3. Use `@killblanks/skeleton-ext`
 
-- 更多配置请查看[@killblanks/skeleton-ext](./skeleton-ext/)
+- For more information, please check[@killblanks/skeleton-ext](./skeleton-ext/)
 
-### 4. 将生成的骨架屏组件使用在项目中
+### 4. Use the generated skeleton screen components in the project
 
-- 比如像[DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)中所做的一样
+- For example, like what is done in [DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)
 
 ```js
 // index.vue
@@ -118,19 +118,15 @@ export default skeletonLoader
 </script>
 ```
 
-### 5. 在浏览器的`console`启用`PRERENDER_SKELETON`
+### 5. Enter `PRERENDER_SKELETON` in the Chrome console to start the skeleton screen preview
 
-```sh
-  在Chrome console中输入`PRERENDER_SKELETON`启动骨架屏预览
-```
+## Performance
 
-## 性能
+### Data Sources:
 
-### 数据来源:
+Use the company's online activities in Indonesia to conduct abtest to obtain relevant data
 
-利用公司在印度尼西亚上线的活动，进行 abtest 得出相关数据
-
-### 数据:
+### Data:
 
 | type        | total | fcp | lcp |
 | ----------- | :---: | --: | --: |
@@ -143,7 +139,7 @@ export default skeletonLoader
   <img src="./imgs/fcp.png" />
 </p>
 
-- FCP 平均值对比：536 : 990 @killblanks 能提升`454ms`, 平均提高`45%`
+- FCP average comparison: 536: 990 @killblanks can increase `454ms`, an average increase of `45%`
 
 ### [Largest-contentful-paint(lcp)](https://github.com/WICG/largest-contentful-paint)
 
@@ -151,4 +147,4 @@ export default skeletonLoader
   <img src="./imgs/lcp.png" />
 </p>
 
-- LCP 平均值对比：661 : 993 @killblanks 能提升`332ms`, 平均提高`33.4%`
+- LCP average comparison: 661: 993 @killblanks can increase `332ms`, an average increase of `33.4%`

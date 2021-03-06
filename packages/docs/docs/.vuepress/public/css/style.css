@@ -4,6 +4,10 @@
   margin-bottom: 0 !important;
 }
 
+.home .feature {
+  max-width: 30% !important;
+}
+
 .loading-dot i {
   background-color: #435d7b !important;
 }
@@ -13,11 +17,11 @@
 }
 
 #app .search-box input {
-  border-left: 0!important;
+  border-left: 0 !important;
 }
 
 .navbar .logo {
-  margin-right: 0.1rem!important;
+  margin-right: 0.1rem !important;
   width: auto;
 }
 

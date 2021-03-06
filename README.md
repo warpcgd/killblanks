@@ -4,14 +4,23 @@
 
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme) [![GitHub license](https://img.shields.io/github/license/warpcgd/killblanks)](https://github.com/warpcgd/killblanks/blob/main/LICENSE)
 
-> 白屏一直是CSR项目诞生来困扰前端的一大问题，如何在低成本的情况下，增加用户的等待时间，减少跳出率，以及提高页面性能，是前端一直在解决的难题，killblanks 作为其中一种的解决方案，将页面节点直接生成骨架屏，通过预渲染让用户能在等待内容加载时显示内容的轮廓，提供了更好的用户体验，并使内容感觉更快。
+> 白屏一直是 CSR 项目诞生来困扰前端的一大问题，如何在低成本的情况下，增加用户的等待时间，减少跳出率，以及提高页面性能，是前端一直在解决的难题，killblanks 作为其中一种的解决方案，将页面节点直接生成骨架屏，通过预渲染让用户能在等待内容加载时显示内容的轮廓，提供了更好的用户体验，并使内容感觉更快。
+
+中文 | [English](https://github.com/warpcgd/killblanks/blob/main/README_EN.md)
 
 ## 目录
 
+- [目录](#目录)
 - [框架](#框架)
+- [效果](#效果)
 - [安装](#安装)
 - [文档](#文档)
 - [使用](#使用)
+    - [1. 安装](#1-安装)
+    - [2. 配置 webpack](#2-配置-webpack)
+    - [3. 使用`@killblanks/skeleton-ext`](#3-使用killblanksskeleton-ext)
+    - [4. 将生成的骨架屏组件使用在项目中](#4-将生成的骨架屏组件使用在项目中)
+    - [5. 在浏览器的`console`输入`PRERENDER_SKELETON`](#5-在浏览器的console输入prerender_skeleton)
 - [API](#api)
 - [Maintainers](#maintainers)
 - [Contributing](#contributing)
@@ -77,7 +86,7 @@
   yarn add @killblanks/prerender -D
 ```
 
-#### 2. 配置webpack
+#### 2. 配置 webpack
 
 ```ts
 // webpack.config.js
@@ -89,11 +98,12 @@ export default {
   ...
 }
 ```
+
 - 详细步骤请查看[@killblanks/prerender](https://warpcgd.github.io/killblanks/guides/prerender/)
 
 #### 3. 使用`@killblanks/skeleton-ext`
 
-- 详细步骤请查看[@killblanks/skeleton-ext](https://warpcgd.github.io/killblanks/guides/skeleton-ext/) 
+- 详细步骤请查看[@killblanks/skeleton-ext](https://warpcgd.github.io/killblanks/guides/skeleton-ext/)
 
 #### 4. 将生成的骨架屏组件使用在项目中
 

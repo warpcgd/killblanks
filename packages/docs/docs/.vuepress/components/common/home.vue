@@ -9,9 +9,9 @@
           <div class="skeleton-container">
             <h2>Killblanks</h2>
             <ul :class="isActive ? 'fadeIn' : ''">
-              <li>帮助你解决页面白屏问题</li>
-              <li>更好的用户体验</li>
-              <li>内容加载更快</li>
+              <li>Help you solve the problem of white screen</li>
+              <li>Better user experience</li>
+              <li>Content loads faster</li>
             </ul>
             <div class="badge" :class="isActive ? 'fadeIn' : ''">
               <a href="https://github.com/warpcgd/killblanks/network"
@@ -43,7 +43,8 @@
       <div class="row">
         <!-- <h3>Features</h3> -->
         <div class="features">
-          <div class="feature">
+          <Content slot-key="features" />
+          <!-- <div class="feature">
             <h2>简单配置⚙️</h2>
             <p>通过简单的配置即可为页面添加预渲染和骨架屏</p>
           </div>
@@ -54,13 +55,13 @@
           <div class="feature">
             <h2>提升页面性能⚡</h2>
             <p>通过使用预渲染和骨架屏可以明显提升页面FCP和LCP</p>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
     <section>
       <div class="row">
-        <h3>快速开始🦴</h3>
+        <h3>Quick start 🦴</h3>
         <Content slot-key="startDemo" />
       </div>
     </section>
@@ -169,45 +170,25 @@ section h3 {
   font-size: 1.5rem;
   text-align: center;
   margin: 2rem;
-  margin-top: 3.5rem;
+  margin-top: 0rem;
   font-weight: bold;
 }
-section .features {
+section .content__features {
   padding: 1.2rem 0;
-  margin-top: 3.5rem;
+  // margin-top: 3.5rem;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   align-content: stretch;
   justify-content: space-between;
 }
-.features {
-  .feature {
-    flex-grow: 1;
-    flex-basis: 25%;
-    max-width: 25%;
-    h2 {
-      font-size: 1.5rem;
-      font-weight: bold;
-      border-bottom: none;
-      padding-bottom: 0;
-      color: #333;
-      text-align: center;
-    }
-    p {
-      margin-top: 1rem;
-      font-size: 1rem;
-      color: #333;
-    }
-  }
-}
 
 .footer {
-    clear: both;
-    font-size: 0.875rem;
-    background-color: #000;
-    position: relative;
-    color: rgba(255, 255, 255, 0.4);
+  clear: both;
+  font-size: 0.875rem;
+  background-color: #000;
+  position: relative;
+  color: rgba(255, 255, 255, 0.4);
   .footer-bottom {
     max-width: 1200px;
     text-align: center;
@@ -219,8 +200,6 @@ section .features {
     font-variant: tabular-nums;
   }
 }
-
-
 
 .fadeInUp {
   animation-name: fadeInUp;
@@ -239,7 +218,6 @@ section .features {
     transform: translate3d(0, 0, 0);
   }
 }
-
 
 .fadeIn {
   animation-delay: 500ms;
@@ -263,6 +241,4 @@ section .features {
     max-width: 80%;
   }
 }
-
 </style>
-
