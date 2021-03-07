@@ -2,6 +2,8 @@
 
 > 预渲染是解决白屏问题的核心，通过`Purpeteer`读取请求内容，能直出有更多内容的`html`,从而干掉白屏
 
+中文 | [English](https://github.com/warpcgd/killblanks/blob/main/packages/prerender/README_EN.md)
+
 ## 原理
 
 利用`Purpeteer`能模拟浏览器请求页面的功能，在页面 onload 成功后，读取并输出 html
