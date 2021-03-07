@@ -8,23 +8,7 @@
 
 English | [中文](https://github.com/warpcgd/killblanks)
 
-## TOC
-
-- [TOC](#toc)
-- [Frame](#frame)
-- [Effect](#effect)
-- [Install](#install)
-- [Documentation](#documentation)
-- [Use](#use)
-    - [1. Installation](#1-installation)
-    - [2. webpack Config](#2-webpack-config)
-    - [3. Use `@killblanks/skeleton-ext`](#3-use-killblanksskeleton-ext)
-    - [4. Use the generated skeleton screen components in the project](#4-use-the-generated-skeleton-screen-components-in-the-project)
-    - [5. Enter `PRERENDER_SKELETON` in the browser's `console`](#5-enter-prerender_skeleton-in-the-browsers-console)
-- [API](#api)
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
-- [License](#license)
+[Frame](#frame) | [Effect](#effect) | [Install](#install) | [Documentation](#documentation) | [Use](#use) | [API](#api) | [Maintainers](#maintainers) | [Contributing](#contributing) | [License](#license)
 
 ## Frame
 

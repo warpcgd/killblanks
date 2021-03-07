@@ -8,23 +8,7 @@
 
 中文 | [English](https://github.com/warpcgd/killblanks/blob/main/README_EN.md)
 
-## 目录
-
-- [目录](#目录)
-- [框架](#框架)
-- [效果](#效果)
-- [安装](#安装)
-- [文档](#文档)
-- [使用](#使用)
-    - [1. 安装](#1-安装)
-    - [2. 配置 webpack](#2-配置-webpack)
-    - [3. 使用`@killblanks/skeleton-ext`](#3-使用killblanksskeleton-ext)
-    - [4. 将生成的骨架屏组件使用在项目中](#4-将生成的骨架屏组件使用在项目中)
-    - [5. 在浏览器的`console`输入`PRERENDER_SKELETON`](#5-在浏览器的console输入prerender_skeleton)
-- [API](#api)
-- [Maintainers](#maintainers)
-- [Contributing](#contributing)
-- [License](#license)
+[框架](#框架) | [效果](#效果) | [安装](#安装) | [文档](#文档) | [使用](#使用) | [API](#api) | [Maintainers](#maintainers) | [Contributing](#contributing) | [License](#license)
 
 ## 框架
 
