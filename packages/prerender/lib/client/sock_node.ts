@@ -1,19 +1,7 @@
 import * as sockjs from 'sockjs'
 import * as http from 'http'
 import log from '../log/index'
-import {
-  arrayToObj,
-  getMagicHtml,
-  htmlToJson,
-  deepMergeSkeleton,
-  htmlMinify,
-  jsonToHtml,
-  writeMagicHtml,
-  getHtmlAndStyleFromJson,
-  renderShellHtml,
-  generateQR,
-  writeShell
-} from '../utils/index'
+import { arrayToObj } from '../utils/index'
 import { SOCK_NODE_EVENTS } from '../config'
 import { RENDER } from '../core/init'
 
@@ -111,38 +99,6 @@ class NodeSock {
 
   getUrl(): void {
     this.sockWrite('preview', 'update', JSON.stringify(this.routesData))
-  }
-
-  async saveShellFile(msg: Msg): Promise<void> {
-    let { html } = msg.data
-    html = htmlMinify(html, true)
-    const originHtml = getMagicHtml(this.routesData.fileName, this.option)
-    const jsonForHtml = htmlToJson(html)
-    const jsonForOriginHtml = htmlToJson(originHtml)
-    deepMergeSkeleton(jsonForOriginHtml, jsonForHtml)
-    const { cleanedHtml, styles } = getHtmlAndStyleFromJson(jsonForOriginHtml)
-    const shellHtml = renderShellHtml(styles, cleanedHtml)
-    const newHtml = jsonToHtml(jsonForOriginHtml)
-    const fileName = await writeMagicHtml(newHtml, this.option)
-    this.routesData.skeletonPageUrl = `http://${this.option.host}:${this.option.port}/${fileName}`
-    this.routesData.fileName = fileName
-    this.routesData.html = htmlMinify(shellHtml, false)
-    this.routesData.qrCode = await generateQR(this.routesData.skeletonPageUrl)
-    this.sockWrite('preview', 'update', JSON.stringify(this.routesData))
-  }
-
-  async writeShellFile(): Promise<void> {
-    this.sockWrite('preview', 'console', 'before write shell files...')
-    const { routesData } = this
-    let filePath = ''
-    try {
-      filePath = await writeShell(routesData.html, this.option)
-    } catch (err) {
-      log.warn(err)
-    }
-    const afterWriteMsg = `Write files success, file path ${filePath}`
-    log.info(afterWriteMsg)
-    this.sockWrite('preview', 'console', afterWriteMsg)
   }
 
   sockWrite(name: SOCKETS_TYPE, type: string, data: string): void {

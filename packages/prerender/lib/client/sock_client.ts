@@ -1,7 +1,7 @@
 import SockJS from 'sockjs-client'
 import { log } from './log'
 
-const port: number | string = window._pageSkeletonSocketPort // eslint-disable-line no-underscore-dangle
+const port: number | string = window._killblanksSocketPort_ // eslint-disable-line no-underscore-dangle
 
 // TODO headless 打开的页面不连接 socket
 const sock: WebSocket = new SockJS(`http://localhost:${port}/socket`)

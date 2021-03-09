@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.types.json",
-  "include": ["../../types/**/*", "lib"],
+  "include": ["../../typings/**/*", "lib"],
   "compilerOptions": {
     "baseUrl": "./lib",
     "outDir": "dist/typings"

@@ -19,22 +19,20 @@ class Render {
             const url = origin;
             await page.goto(url, { waitUntil: 'networkidle0' });
             await this.waitForRender(page);
-            // await this.makeScreen(page)
-            const { rawHtml, styles, cleanedHtml } = await this.getCleanHtmlAndStyle(page);
-            const _rawHtml = index_1.htmlMinify(rawHtml, true).replace('<!DOCTYPE html>', '');
+            const { rawHtml } = await this.getCleanHtmlAndStyle(page);
+            const _rawHtml = index_1.htmlMinify(rawHtml).replace('<!DOCTYPE html>', '');
             const fileName = await index_1.writeMagicHtml(_rawHtml, this.option);
             const skeletonPageUrl = `http://${this.option.host}:${this.option.port}/${fileName}`;
             if (open) {
                 this.openNewWindow(sockets);
             }
-            const shellHtml = index_1.renderShellHtml(styles, cleanedHtml);
             init_1.PUPPETEER.closePage(page);
             return {
                 fileName,
                 originUrl: url,
                 skeletonPageUrl,
                 qrCode: await index_1.generateQR(skeletonPageUrl),
-                html: index_1.htmlMinify(shellHtml, false)
+                html: ''
             };
         }
         catch (error) {
@@ -45,18 +43,6 @@ class Render {
     async waitForRender(page) {
         // @ts-ignore
         await page.evaluate(init_1.PUPPETEER.waitForRender, this.option);
-    }
-    async makeScreen(page) {
-        const js = fs.readFileSync(path.resolve(cwd, './node_modules/@killblanks/skeleton/dist/index.js'), 'utf8');
-        // return page
-        const { mod } = this.option;
-        await page.evaluate(async (option, js) => {
-            eval(js);
-            // @ts-ignore
-            await Skeleton.genSkeleton(option);
-        }, 
-        // @ts-ignore
-        mod, js.toString());
     }
     async getCleanHtmlAndStyle(page, clean = 'true') {
         function inject(state) {
@@ -83,7 +69,6 @@ class Render {
                 cleanedHtml
             };
         }
-        // await page.addScriptTag({ content: genHtmlStyle.toString(), type: '_puppeteer_' })
         return await page.evaluate((js, clean) => {
             eval(js);
             return inject(clean);
@@ -114,7 +99,6 @@ class Render {
     }
     async renderScreen(lang) {
         try {
-            // const shellHtml = await getShellHtml(this.option)
             const { outputDir, entryPath, outPutPath, host, port } = this.option;
             const page = await init_1.PUPPETEER.newPage();
             const langPath = lang && lang.length ? `?lang=${lang}` : '';
@@ -122,7 +106,7 @@ class Render {
             await page.goto(url, { waitUntil: 'networkidle0' });
             await this.waitForRender(page);
             const { rawHtml } = await this.getCleanHtmlAndStyle(page, 'true');
-            const newHtml = index_1.htmlMinify(rawHtml, true);
+            const newHtml = index_1.htmlMinify(rawHtml);
             const outputPath = lang && lang.length ? `${outPutPath}.${lang}.html` : `${outPutPath}.html`;
             fs.writeFileSync(path.resolve(cwd, outputDir, outputPath), newHtml, 'utf8');
             log_1.default.info(`output ${outputPath} success`);

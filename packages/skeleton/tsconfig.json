@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["../../types/**/*", "lib"],
+  "include": ["../../typings/**/*", "lib"],
   "compilerOptions": {
     "baseUrl": "./lib",
     "outDir": "dist/esm",

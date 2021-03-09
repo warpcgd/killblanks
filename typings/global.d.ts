@@ -2,7 +2,7 @@
  * @ignore
  */
 interface Window {
-  _pageSkeletonSocketPort: number
+  _killblanksSocketPort_: number
   sock: WebSocket
   generate: Function
   sockWrite: Function
@@ -187,7 +187,7 @@ interface Options {
    *   }
    * ```
    */
-  requestHandle: (req: import('puppeteer').Request, option: Options) => Promise<void>
+  requestHandle: null | ((req: import('puppeteer').Request, option: Options) => Promise<void>)
 
   /**
    * 设置webpack output输出文件路径
@@ -284,21 +284,7 @@ interface Sockets {
   preview?: import('sockjs').Connection[]
   dev?: import('sockjs').Connection[]
 }
-/**
- * @ignore
- */
-interface Html2json {
-  (html: string): object
-}
-interface Json2html {
-  (json: object): string
-}
-interface Css2json {
-  (css: string): object
-}
-/**
- * @ignore
- */
+
 declare class MemoryFileSystem {
   data: any
 

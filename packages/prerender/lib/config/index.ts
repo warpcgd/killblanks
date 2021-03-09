@@ -6,15 +6,21 @@ const getFreePort = async function(): Promise<number> {
 }
 
 const getLocalIpAddress = async (): Promise<string | void> => {
-  const interfaces = os.networkInterfaces()
-  for (const devName in interfaces) {
-    // eslint-disable-line guard-for-in
-    const iface = interfaces[devName]
-    for (const alias of iface) {
-      if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
-        return alias.address
+  const interfaces = os?.networkInterfaces() || null
+  if (interfaces) {
+    for (const devName in interfaces) {
+      // eslint-disable-line guard-for-in
+      const iface = interfaces?.[devName] || null
+      if (iface) {
+        for (const alias of iface) {
+          if (alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal) {
+            return alias.address
+          }
+        }
       }
     }
+  } else {
+    throw 'Error obtaining free address'
   }
 }
 

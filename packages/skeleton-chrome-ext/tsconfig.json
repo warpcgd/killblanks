@@ -35,7 +35,7 @@
     "src/**/*.tsx",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "../../types/**/*"
+    "../../typings/**/*"
   ],
   "exclude": [
     "node_modules",

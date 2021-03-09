@@ -74,37 +74,6 @@ class NodeSock {
     getUrl() {
         this.sockWrite('preview', 'update', JSON.stringify(this.routesData));
     }
-    async saveShellFile(msg) {
-        let { html } = msg.data;
-        html = index_2.htmlMinify(html, true);
-        const originHtml = index_2.getMagicHtml(this.routesData.fileName, this.option);
-        const jsonForHtml = index_2.htmlToJson(html);
-        const jsonForOriginHtml = index_2.htmlToJson(originHtml);
-        index_2.deepMergeSkeleton(jsonForOriginHtml, jsonForHtml);
-        const { cleanedHtml, styles } = index_2.getHtmlAndStyleFromJson(jsonForOriginHtml);
-        const shellHtml = index_2.renderShellHtml(styles, cleanedHtml);
-        const newHtml = index_2.jsonToHtml(jsonForOriginHtml);
-        const fileName = await index_2.writeMagicHtml(newHtml, this.option);
-        this.routesData.skeletonPageUrl = `http://${this.option.host}:${this.option.port}/${fileName}`;
-        this.routesData.fileName = fileName;
-        this.routesData.html = index_2.htmlMinify(shellHtml, false);
-        this.routesData.qrCode = await index_2.generateQR(this.routesData.skeletonPageUrl);
-        this.sockWrite('preview', 'update', JSON.stringify(this.routesData));
-    }
-    async writeShellFile() {
-        this.sockWrite('preview', 'console', 'before write shell files...');
-        const { routesData } = this;
-        let filePath = '';
-        try {
-            filePath = await index_2.writeShell(routesData.html, this.option);
-        }
-        catch (err) {
-            index_1.default.warn(err);
-        }
-        const afterWriteMsg = `Write files success, file path ${filePath}`;
-        index_1.default.info(afterWriteMsg);
-        this.sockWrite('preview', 'console', afterWriteMsg);
-    }
     sockWrite(name, type, data) {
         const sock = (this.sockets && this.sockets[name]) || [];
         sock &&

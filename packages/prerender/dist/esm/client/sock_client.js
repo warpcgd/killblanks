@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const sockjs_client_1 = tslib_1.__importDefault(require("sockjs-client"));
 const log_1 = require("./log");
-const port = window._pageSkeletonSocketPort; // eslint-disable-line no-underscore-dangle
+const port = window._killblanksSocketPort_; // eslint-disable-line no-underscore-dangle
 // TODO headless 打开的页面不连接 socket
 const sock = new sockjs_client_1.default(`http://localhost:${port}/socket`);
 function socketWrite(type, data) {

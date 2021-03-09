@@ -11,10 +11,13 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types/", "./typings"],
     "types": [
       "@types/node",
       "webpack-env",
-      "chrome"
+      "chrome",
+      "jest",
+      "node"
     ],
     "paths": {
       "@/*": [
@@ -29,12 +32,11 @@
     ]
   },
   "include": [
-    "typing/*.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "../../types/**/*"
+    "_test_/**/*.ts",
+    "_test_/**/*.tsx",
+    "typings/*.ts"
   ],
   "exclude": [
     "node_modules",

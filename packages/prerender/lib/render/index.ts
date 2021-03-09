@@ -1,6 +1,6 @@
 import * as puppeteer from 'puppeteer'
 import { PUPPETEER } from '../core/init'
-import { htmlMinify, writeMagicHtml, renderShellHtml, generateQR } from '../utils/index'
+import { htmlMinify, writeMagicHtml, generateQR } from '../utils/index'
 import log from '../log'
 
 const open = require('open')
@@ -23,22 +23,20 @@ class Render {
       const url = origin
       await page.goto(url, { waitUntil: 'networkidle0' })
       await this.waitForRender(page)
-      // await this.makeScreen(page)
-      const { rawHtml, styles, cleanedHtml } = await this.getCleanHtmlAndStyle(page)
-      const _rawHtml = htmlMinify(rawHtml, true).replace('<!DOCTYPE html>', '')
+      const { rawHtml } = await this.getCleanHtmlAndStyle(page)
+      const _rawHtml = htmlMinify(rawHtml).replace('<!DOCTYPE html>', '')
       const fileName = await writeMagicHtml(_rawHtml, this.option)
       const skeletonPageUrl = `http://${this.option.host}:${this.option.port}/${fileName}`
       if (open) {
         this.openNewWindow(sockets)
       }
-      const shellHtml = renderShellHtml(styles, cleanedHtml)
       PUPPETEER.closePage(page)
       return {
         fileName,
         originUrl: url,
         skeletonPageUrl,
         qrCode: await generateQR(skeletonPageUrl),
-        html: htmlMinify(shellHtml, false)
+        html: ''
       }
     } catch (error) {
       log.error(error)
@@ -49,25 +47,6 @@ class Render {
   async waitForRender(page: puppeteer.Page) {
     // @ts-ignore
     await page.evaluate(PUPPETEER.waitForRender, this.option)
-  }
-
-  async makeScreen(page: puppeteer.Page) {
-    const js = fs.readFileSync(
-      path.resolve(cwd, './node_modules/@killblanks/skeleton/dist/index.js'),
-      'utf8'
-    )
-    // return page
-    const { mod } = this.option
-    await page.evaluate(
-      async (option, js) => {
-        eval(js)
-        // @ts-ignore
-        await Skeleton.genSkeleton(option)
-      },
-      // @ts-ignore
-      mod,
-      js.toString()
-    )
   }
 
   async getCleanHtmlAndStyle(page: puppeteer.Page, clean = 'true') {
@@ -96,7 +75,6 @@ class Render {
         cleanedHtml
       }
     }
-    // await page.addScriptTag({ content: genHtmlStyle.toString(), type: '_puppeteer_' })
     return await page.evaluate(
       (js, clean) => {
         eval(js)
@@ -133,7 +111,6 @@ class Render {
 
   async renderScreen(lang?: string) {
     try {
-      // const shellHtml = await getShellHtml(this.option)
       const { outputDir, entryPath, outPutPath, host, port } = this.option
       const page = await PUPPETEER.newPage()
       const langPath = lang && lang.length ? `?lang=${lang}` : ''
@@ -141,7 +118,7 @@ class Render {
       await page.goto(url, { waitUntil: 'networkidle0' })
       await this.waitForRender(page)
       const { rawHtml } = await this.getCleanHtmlAndStyle(page, 'true')
-      const newHtml = htmlMinify(rawHtml, true)
+      const newHtml = htmlMinify(rawHtml)
       const outputPath = lang && lang.length ? `${outPutPath}.${lang}.html` : `${outPutPath}.html`
       fs.writeFileSync(path.resolve(cwd, outputDir, outputPath), newHtml, 'utf8')
       log.info(`output ${outputPath} success`)
