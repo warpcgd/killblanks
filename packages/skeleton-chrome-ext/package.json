@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --config webpack.dev.js --mode=development --watch ",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js",
-    "zip": "run(){ zip -r -X releases/extension.zip dist; }; run"
+    "zip": "run(){ zip -r -X releases/skeleton-chrome-ext-1.0.2.zip dist; }; run"
   },
   "license": "Apache-2.0",
   "dependencies": {

@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "@killblanks/skeleton-ext",
   "short_name": "skeleton",
-  "description": "skeleton chrome extention",
-  "version": "1.0.0",
+  "description": "Plug-in to generate skeleton screen",
+  "version": "1.0.2",
   "icons": {
     "16": "./icons/16.png",
     "48": "./icons/48.png",

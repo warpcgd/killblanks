@@ -3,7 +3,7 @@
     <div class="logo">
       <img :src="logoSrc" alt />
     </div>
-    <p class="title">@killblanks/skeleton-ext<span class="verstion">v:1.0.0</span></p>
+    <p class="title">{{ name }}<span class="verstion">v:{{ version }}</span></p>
     <div class="panel-bar">
       <Menu mode="horizontal" active-name="htmlEdit" @on-select="onSelectPanel">
         <MenuItem name="htmlEdit">
@@ -21,10 +21,13 @@
 </template>
 <script>
 import logo from '../../icons/128.png'
+import manifest from '../../../manifest.json'
 export default {
   data() {
     return {
-      logoSrc: logo
+      logoSrc: logo,
+      version: manifest.version,
+      name: manifest.name
     }
   },
   methods: {
