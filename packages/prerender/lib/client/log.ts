@@ -1,11 +1,13 @@
 import tiza from 'tiza'
 
-export const log = (msg: string, type = 'success'): void => {
+export const log = (msg: string, type = 'success') => {
   const color = type === 'success' ? '#006633' : 'red'
-  tiza
-    .color(color)
-    // .italic()
-    .size(14)
-    .text(`[PRERENDER] ${msg}`)
-    .log()
+  return (
+    tiza
+      .color(color)
+      // .italic()
+      .size(12)
+      .text(`[PRERENDER] ${msg}`)
+      .log()
+  )
 }

@@ -37,8 +37,7 @@ const defaultOptions: Options = {
   outPutPath: 'index',
   shellName: 'shell',
   langs: [],
-  magicPath: '__webpack_prerender_skeleton__',
-  mod: 'default'
+  magicPath: '__webpack_prerender_skeleton__'
 }
 
 const htmlBeautifyConfig = {

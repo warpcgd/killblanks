@@ -19,7 +19,7 @@
     "noUnusedParameters": true,
     "noImplicitAny": true,
     "noImplicitThis": false,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "esModuleInterop": true
   },
   "typedocOptions": {

@@ -2,11 +2,11 @@ import puppeteer from 'puppeteer'
 import log from '../log'
 
 class Puppeteer {
-  browser: puppeteer.Browser
+  browser: puppeteer.Browser | null = null
 
-  option: Options
+  option: Options | null = null
 
-  pages: Array<puppeteer.Page>
+  pages: Array<puppeteer.Page> = []
 
   constructor(option: Options) {
     this.option = option
@@ -25,16 +25,20 @@ class Puppeteer {
   }
 
   async newPage() {
-    const page = await this.browser.newPage()
-    const { cookies } = this.option
+    const page = await this.browser?.newPage()
+    const { cookies } = this?.option ?? {}
     // Request拦截
-    await this.interceptRequest(page)
-    // 插入变量
-    await this.injectProperty(page)
-    const { device } = this.option
+    if (page) {
+      await this.interceptRequest(page)
+      // 插入变量
+      await this.injectProperty(page)
+    }
+    const { device } = this?.option ?? {}
     const { devices } = puppeteer
-    await page.emulate(devices[device])
-    if (this.option.debug) {
+    if (device) {
+      await page?.emulate(devices[device])
+    }
+    if (this?.option?.debug) {
       // @ts-ignore
       page.on('console', (...args) => {
         log.info(...args)
@@ -55,7 +59,7 @@ class Puppeteer {
   async interceptRequest(page: puppeteer.Page): Promise<void> {
     await page.setRequestInterception(true)
     page.on('request', req => {
-      if (this.option.requestHandle) {
+      if (this?.option?.requestHandle) {
         return this.option.requestHandle(req, this.option)
       }
       return req.continue()
@@ -63,7 +67,7 @@ class Puppeteer {
   }
 
   async injectProperty(page: puppeteer.Page) {
-    if (this.option.injectProperty) {
+    if (this?.option?.injectProperty) {
       await page.evaluateOnNewDocument(
         `(function () { window['${this.option.injectProperty}'] = true; })();`
       )

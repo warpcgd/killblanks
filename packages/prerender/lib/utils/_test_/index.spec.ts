@@ -1,9 +1,8 @@
-import { addScriptTag, writeMagicHtml, getMagicHtml } from '../index'
-import { initMemoryFileSystem } from '../MemoryFileSystem'
+import { addScriptTag, writeMagicHtml, getMagicHtml, arrayToObj, sleep, generateQR } from '../index'
 
 describe('test util methods', () => {
   beforeEach(() => {
-    initMemoryFileSystem()
+    jest.useFakeTimers()
   })
   test('addScriptTag should add script behind the </body>', () => {
     const source = '<body></body>'
@@ -35,5 +34,29 @@ describe('test util methods', () => {
     const result = await getMagicHtml(fileName, defaultOptions)
     expect(result).toBeDefined()
     expect(result).toEqual(testHtml)
+  })
+
+  test('arrayToObj work', () => {
+    const testArray = ['a', 'b', 'c']
+    const result = arrayToObj(testArray)
+    expect(result).toBeDefined()
+    expect(result).toEqual({
+      a: 'a',
+      b: 'b',
+      c: 'c'
+    })
+  })
+
+  test('sleep work', () => {
+    sleep(1000)
+    expect(setTimeout).toHaveBeenCalledTimes(1)
+    expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 1000)
+  })
+
+  test('generateQR work', async () => {
+    const testURL = 'https://github.com/warpcgd/killblanks'
+    const result = await generateQR(testURL)
+    expect(result).toBeDefined()
+    expect(result).toEqual(expect.any(String))
   })
 })

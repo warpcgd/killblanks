@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { Compiler } from 'webpack'
-import { addScriptTag, resolveMod } from '../utils'
+import webpack, { Compiler } from 'webpack'
+import { addScriptTag } from '../utils'
 import log from '../log/index'
 import { initMediator, RENDER, SERVER } from './init'
 import { defaultOptions, getFreePort, getLocalIpAddress } from '../config'
@@ -31,7 +31,7 @@ class PrerenderPlugin {
   /**
    * @internal
    */
-  option: Options
+  option: Options | null = null
 
   /**
    * @internal
@@ -45,7 +45,7 @@ class PrerenderPlugin {
    */
   apply(compiler: Compiler): void {
     compiler.hooks.compilation.tap(PLUGIN_NAME, compilation => {
-      const htmlWebpackPlugin = compiler.options.plugins
+      const htmlWebpackPlugin = (compiler.options.plugins as webpack.Plugin[])
         .map(({ constructor }) => constructor)
         .find(({ name }) => name === 'HtmlWebpackPlugin')
       if (htmlWebpackPlugin) {
@@ -93,7 +93,7 @@ class PrerenderPlugin {
       const host = await getLocalIpAddress()
       const port = await getFreePort()
       const mergeOption = merge({ host, port }, defaultOptions, option)
-      this.option = resolveMod(mergeOption)
+      this.option = mergeOption
       await initMediator(this.option)
       initMemoryFileSystem()
     } catch (error) {
@@ -107,15 +107,19 @@ class PrerenderPlugin {
   private injectJs(htmlPluginData: HtmlPluginData): HtmlPluginData {
     const script = fs.readFileSync(path.join(__dirname, '../client/sock_client.bundle.js'))
     const oldHtml = htmlPluginData.html
-    htmlPluginData.html = addScriptTag(oldHtml, script.toString(), this.option.port)
+    htmlPluginData.html = addScriptTag(
+      oldHtml as string,
+      script.toString(),
+      this?.option?.port ?? 8888
+    )
     return htmlPluginData
   }
 
   /**
    * @internal
    */
-  private async outputSkeletonScreen(): Promise<boolean> {
-    return await RENDER.outputScreen()
+  private async outputSkeletonScreen(): Promise<void> {
+    return await RENDER?.outputScreen()
   }
 }
 

@@ -240,13 +240,6 @@ interface Options {
   magicPath: string
 
   /**
-   * 设置预渲染模式, 可以传`object`，会和`default`模式做深度合并
-   * @type {('default' | 'automatic' |object)}
-   * @default 'default''
-   */
-  mod: 'default' | 'automatic' | object
-
-  /**
    * 设置主机地址，默认会取本机
    * @type {string}
    */

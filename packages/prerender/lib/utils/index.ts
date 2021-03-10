@@ -6,11 +6,9 @@
  */
 
 import qrcode from 'qrcode'
-import _ from 'lodash'
 import log from '../log/index'
 import { myFs } from '../utils/MemoryFileSystem'
 import { minifyOptions } from '../config'
-import skeletonConfig from '../config/skeletonConfig'
 import { minify } from 'html-minifier'
 const path = require('path')
 const md5 = require('md5')
@@ -77,22 +75,4 @@ export async function generateQR(url: string) {
   } catch (err) {
     return Promise.reject(err)
   }
-}
-
-export function resolveMod(option: Options) {
-  const { mod } = option
-  if (_.isString(mod)) {
-    // @ts-ignore
-    const modeObject = skeletonConfig[mod] || skeletonConfig.default
-    option.mod = modeObject
-  } else if (_.isObject(mod)) {
-    // @ts-ignore
-    const userMod = mod.name || 'default'
-    // @ts-ignore
-    const modeObject = skeletonConfig[userMod] || skeletonConfig.default
-    option.mod = _.merge(modeObject, mod)
-  } else {
-    option.mod = skeletonConfig.default
-  }
-  return option
 }

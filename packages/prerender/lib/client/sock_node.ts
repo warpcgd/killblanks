@@ -15,19 +15,21 @@ interface Msg {
 
 type SOCKETS_TYPE = keyof Sockets
 class NodeSock {
-  sockjsServer: sockjs.Server
+  sockjsServer: sockjs.Server | null = null
 
-  option: Options
+  option: Options | null = null
 
-  sockets: Sockets
+  sockets: Sockets | null = null
 
-  routesData: {
-    fileName: string
-    originUrl: string
-    skeletonPageUrl: string
-    qrCode: string
-    html: string
-  }
+  routesData:
+    | {
+        fileName: string
+        originUrl: string
+        skeletonPageUrl: string
+        qrCode: string
+        html: string
+      }
+    | undefined = undefined
 
   constructor(option: Options) {
     this.option = option
@@ -67,13 +69,13 @@ class NodeSock {
   }
 
   async update() {
-    this.routesData = await RENDER.renderPreivewScreen(originUrl, this.sockets, false)
+    this.routesData = await RENDER?.renderPreivewScreen(originUrl, this.sockets as Sockets, false)
     this.getUrl()
   }
 
   async generate(msg: Msg): Promise<void> {
     originUrl = msg.data
-    this.routesData = await RENDER.renderPreivewScreen(originUrl, this.sockets)
+    this.routesData = await RENDER?.renderPreivewScreen(originUrl, this.sockets as Sockets)
   }
 
   connect(msg: Msg, conn: sockjs.Connection): void {
@@ -113,6 +115,13 @@ class NodeSock {
           })
         )
       })
+  }
+
+  destroy() {
+    if (this.sockjsServer) {
+      this.sockets = {}
+      this.sockjsServer.removeAllListeners()
+    }
   }
 }
 

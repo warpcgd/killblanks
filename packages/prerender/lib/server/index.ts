@@ -8,11 +8,11 @@ import { PUPPETEER } from '../core/init'
 
 const cwd = process.cwd()
 class Server {
-  option: Options
+  option: Options | null = null
 
-  listenServer: http.Server
+  listenServer: http.Server | null = null
 
-  app: express.Application
+  app: express.Application | null = null
 
   constructor(option: Options) {
     this.option = option
@@ -27,33 +27,33 @@ class Server {
     const app = (this.app = express())
     this.listenServer = http.createServer(app)
     this.initRouters()
-    this.listenServer.listen(this.option.port, () => {
-      log.info(`prerender server listen at port:${this.option.port}`)
+    this.listenServer.listen(this?.option?.port, () => {
+      log.info(`prerender server listen at port:${this?.option?.port}`)
     })
   }
 
   async initRouters(): Promise<void> {
     const { app } = this
     if (process.env.NODE_ENV !== 'production') {
-      app.use('/', express.static(path.resolve(__dirname, '../', 'preview')))
+      app?.use('/', express.static(path.resolve(__dirname, '../', 'preview')))
     } else {
-      const { outputDir } = this.option
-      app.use('/', express.static(path.resolve(cwd, outputDir)))
+      const { outputDir } = this.option as Options
+      app?.use('/', express.static(path.resolve(cwd, outputDir)))
     }
 
-    app.get('/preview.html', async res => {
+    app?.get('/preview.html', async res => {
       // @ts-ignore
       fs.createReadStream(path.resolve(__dirname, '../', 'preview/index.html')).pipe(res)
     })
 
-    app.get(
+    app?.get(
       '/:filename',
       async (req, res): Promise<void> => {
         const { filename } = req.params
         if (!/\.html$/.test(filename)) return
         let html = 'Not Found'
         try {
-          html = getMagicHtml(filename, this.option)
+          html = getMagicHtml(filename, this.option as Options)
         } catch (err) {
           log.warn(`When you request the preview html, ${err} ${filename}`)
         }
@@ -62,11 +62,11 @@ class Server {
     )
   }
 
-  destroy(): void {
+  destroy() {
     if (PUPPETEER && PUPPETEER.destroy) {
       PUPPETEER.destroy()
     }
-    this.listenServer.close(() => {
+    this?.listenServer?.close(() => {
       log.info('server closed')
     })
   }
