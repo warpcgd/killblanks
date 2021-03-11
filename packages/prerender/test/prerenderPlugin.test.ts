@@ -18,7 +18,7 @@ const WEBPACK_CONFIG_BASE: webpack.Configuration = {
     path: OUTPUT_DIR,
     filename: '[name].bundle.js'
   },
-  plugins: [new HtmlWebpackPlugin(), new prerenderPlugin({})]
+  plugins: [new HtmlWebpackPlugin()]
 }
 
 jest.setTimeout(30000)
@@ -35,9 +35,18 @@ function runWebpack({
   expectWarnings?: boolean
   done: jest.DoneCallback
 }) {
-  const config = merge({}, WEBPACK_CONFIG_BASE, {
-    plugins: [new HtmlWebpackPlugin(), new prerenderPlugin(prerenderPluginConfig)]
-  })
+  const config = merge({}, WEBPACK_CONFIG_BASE)
+  config?.plugins?.push(
+    new prerenderPlugin(
+      merge(
+        {},
+        {
+          outputDir: 'output'
+        },
+        prerenderPluginConfig
+      )
+    )
+  )
   webpack(config, (err: any, stats: any) => {
     expect(err).toBeFalsy()
     const compilationErrors = (stats.compilation.errors || []).join('\n')
@@ -67,6 +76,7 @@ function runWebpack({
 }
 
 function checkProductEnvPlugin() {
+  process.env.NODE_ENV = 'production'
   test('generates a right prerender index.html file', done => {
     runWebpack({
       done

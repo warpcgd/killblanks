@@ -2,7 +2,7 @@
  * @Author: lixichen
  * @Date: 2020-05-31 01:27:49
  * @Last Modified by: lixichen
- * @Last Modified time: 2020-07-28 01:49:41
+ * @Last Modified time: 2021-03-12 01:56:07
  */
 
 import qrcode from 'qrcode'
@@ -34,7 +34,7 @@ export async function writeMagicHtml(html: string, option: Options) {
     const { magicPath } = option
     const pathName = path.resolve(__dirname, '../', magicPath)
     let fileName = await md5(html)
-    fileName += '.html'
+    fileName += '_prerender.html'
     myFs.mkdirpSync(pathName)
     myFs.writeFileSync(path.join(pathName, fileName), html, 'utf8')
     return fileName

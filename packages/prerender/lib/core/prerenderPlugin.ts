@@ -36,7 +36,7 @@ class PrerenderPlugin {
   /**
    * @internal
    */
-  constructor(option: Options) {
+  constructor(option: Options = {}) {
     this.init(option)
   }
 
@@ -59,6 +59,7 @@ class PrerenderPlugin {
             PLUGIN_NAME,
             (htmlPluginData: HtmlPluginData, callback: Function) => {
               if (process.env.NODE_ENV !== 'production') {
+                console.warn(process.env.NODE_ENV)
                 this.injectJs(htmlPluginData)
               }
               callback(null, htmlPluginData)
@@ -67,12 +68,11 @@ class PrerenderPlugin {
         }
       }
     })
-    compiler.hooks.afterEmit.tapAsync(PLUGIN_NAME, async (_compilation, callback) => {
+    compiler.hooks.afterEmit.tapAsync(PLUGIN_NAME, async (_compilation, callback: any) => {
       if (process.env.NODE_ENV === 'production') {
-        await this.outputSkeletonScreen()
-        SERVER.destroy()
+        console.log('yes')
+        await this.outputSkeletonScreen(callback)
       }
-      callback()
     })
     EVENT_LIST.forEach(event => {
       // @ts-ignore
@@ -87,7 +87,7 @@ class PrerenderPlugin {
   /**
    * @internal
    */
-  private async init(option: Options): Promise<void> {
+  private async init(option: Options = {}): Promise<void> {
     try {
       const host = await getLocalIpAddress()
       const port = await getFreePort()
@@ -117,8 +117,8 @@ class PrerenderPlugin {
   /**
    * @internal
    */
-  private async outputSkeletonScreen(): Promise<void> {
-    return await RENDER?.outputScreen()
+  private async outputSkeletonScreen(callback: any) {
+    return await RENDER?.outputScreen(callback)
   }
 }
 

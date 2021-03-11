@@ -50,12 +50,12 @@ class Server {
       '/:filename',
       async (req, res): Promise<void> => {
         const { filename } = req.params
-        if (!/\.html$/.test(filename)) return
+        if (!/prerender\.html$/.test(filename)) return
         let html = 'Not Found'
         try {
           html = getMagicHtml(filename, this.option as Options)
         } catch (err) {
-          log.warn(`When you request the preview html, ${err} ${filename}`)
+          log.warn(`When you request the prerender html, ${err} ${filename}`)
         }
         res.send(html)
       }
