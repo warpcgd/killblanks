@@ -38,7 +38,7 @@ class Server {
       app?.use('/', express.static(path.resolve(__dirname, '../', 'preview')))
     } else {
       const { outputDir } = this.option as Options
-      app?.use('/', express.static(path.resolve(cwd, outputDir)))
+      app?.use('/', express.static(path.resolve(cwd, outputDir as string)))
     }
 
     app?.get('/preview.html', async res => {

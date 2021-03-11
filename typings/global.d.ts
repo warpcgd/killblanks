@@ -136,7 +136,7 @@ interface Options {
    * @default 'iPhone X' 默认机型为iphone x
    * @description 可选值 [DeviceDescriptors](https://github.com/puppeteer/puppeteer/blob/main/src/common/DeviceDescriptors.ts#L30)
    */
-  device: string
+  device?: string
 
   /**
    * 设置注入页面变量
@@ -144,28 +144,28 @@ interface Options {
    * @default '\__PRERENDER_INJECTED__\'
    * @example 可在页面中进行判断 window.\__PRERENDER_INJECTED\__ === true
    */
-  injectProperty: string
+  injectProperty?: string
 
   /**
    * 设置puppeteer读取页面时的事件
    * @type {string}
    * @default 'prerender-skeleton''
    */
-  renderAfterDocumentEvent: string
+  renderAfterDocumentEvent?: string
 
   /**
    * 设置puppeteer读取页面时最长加载时间
    * @type {number}
    * @default 3000
    */
-  renderAfterTime: number
+  renderAfterTime?: number
 
   /**
    * 设置debugger模式，在puppeteer执行的时候会抛出错误
    * @type {boolean}
    * @default false
    */
-  debug: boolean
+  debug?: boolean
 
   /**
    * 对puppeteer request 请求进行拦截
@@ -187,7 +187,7 @@ interface Options {
    *   }
    * ```
    */
-  requestHandle: null | ((req: import('puppeteer').Request, option: Options) => Promise<void>)
+  requestHandle?: null | ((req: import('puppeteer').Request, option: Options) => Promise<void>)
 
   /**
    * 设置webpack output输出文件路径
@@ -195,49 +195,49 @@ interface Options {
    * @type {string}
    * @default 'dist''
    */
-  outputDir: string
+  outputDir?: string
 
   /**
    * 设置shell输出文件路径
    * @type {string}
    * @default '/''
    */
-  shellDir: string
+  shellDir?: string
 
   /**
    * 设置入口文件名
    * @type {string}
    * @default 'index''
    */
-  entryPath: 'index'
+  entryPath?: 'index'
 
   /**
    * 设置输出文件名
    * @type {'index'}
    * @default 'index''
    */
-  outPutPath: 'index'
+  outPutPath?: 'index'
 
   /**
    * 设置输出预渲染文件名
    * @type {string}
    * @default 'index''
    */
-  shellName: 'shell'
+  shellName?: 'shell'
 
   /**
    * 设置多语言
    * @type {Array<string>}
    * @default []
    */
-  langs: Array<string>
+  langs?: Array<string>
 
   /**
    * 设置内存目录
    * @type {string}
    * @default '/__webpack_prerender_skeleton/__''
    */
-  magicPath: string
+  magicPath?: string
 
   /**
    * 设置主机地址，默认会取本机

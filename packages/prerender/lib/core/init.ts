@@ -1,6 +1,6 @@
 import Puppeteer from '../pup/index'
 import Server from '../server/index'
-import NodeSock from '../client/sock_node'
+import NodeSock from '../sock/sock_node'
 import Render from '../render/index'
 
 let PUPPETEER: Puppeteer

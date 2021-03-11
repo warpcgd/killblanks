@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'node',
-  coveragePathIgnorePatterns: ["/test/", "/node_modules/"],
+  coveragePathIgnorePatterns: ["dist", "/node_modules/"],
   transform: {
     "^.+\\.tsx?$": "ts-jest"
   },
@@ -9,9 +9,9 @@ module.exports = {
     "js",
     "node",
   ],
-  testRegex: '(/__tests__/.*|(\\.|/)(test))\\.(ts)x?$',
+  testRegex: '(/tests/.*|(\\.|/)(test))\\.(ts)x?$',
   coverageDirectory: 'coverage',
-  testPathIgnorePatterns:["node_modules", "/dist/.*/__tests__"],
+  testPathIgnorePatterns:["node_modules", "dist"],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx,js,jsx}',
     '!src/**/*.d.ts',

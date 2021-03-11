@@ -34,8 +34,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "_test_/**/*.ts",
-    "_test_/**/*.tsx",
+    "test/**/*.ts",
+    "test/**/*.tsx",
     "typings/*.ts"
   ],
   "exclude": [

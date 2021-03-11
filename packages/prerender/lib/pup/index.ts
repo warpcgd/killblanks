@@ -96,8 +96,9 @@ class Puppeteer {
             if (window.sockWrite) {
               window.sockWrite(
                 'console',
-                `Waited for ${options.renderAfterTime /
-                  1000} seconds, renderAfterDocumentEvent event was not found, automatically exited the page`
+                `Waited for ${options?.renderAfterTime ??
+                  3000 /
+                    1000} seconds, renderAfterDocumentEvent event was not found, automatically exited the page`
               )
             }
             return resolve(true)

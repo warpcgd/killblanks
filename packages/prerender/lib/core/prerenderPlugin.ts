@@ -67,8 +67,7 @@ class PrerenderPlugin {
         }
       }
     })
-    // @ts-ignore
-    compiler.hooks.afterEmit.tapAsync(PLUGIN_NAME, async (compilation, callback) => {
+    compiler.hooks.afterEmit.tapAsync(PLUGIN_NAME, async (_compilation, callback) => {
       if (process.env.NODE_ENV === 'production') {
         await this.outputSkeletonScreen()
         SERVER.destroy()
@@ -105,7 +104,7 @@ class PrerenderPlugin {
    * @internal
    */
   private injectJs(htmlPluginData: HtmlPluginData): HtmlPluginData {
-    const script = fs.readFileSync(path.join(__dirname, '../client/sock_client.bundle.js'))
+    const script = fs.readFileSync(path.join(__dirname, '../sock/sock_client.bundle.js'))
     const oldHtml = htmlPluginData.html
     htmlPluginData.html = addScriptTag(
       oldHtml as string,
