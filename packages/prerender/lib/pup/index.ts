@@ -22,38 +22,45 @@ class Puppeteer {
       headless: true,
       args
     })
+    log.info('puppeteer has inited')
   }
 
   async newPage() {
-    const page = await this.browser?.newPage()
-    const { cookies } = this?.option ?? {}
-    // Request拦截
-    if (page) {
-      await this.interceptRequest(page)
-      // 插入变量
-      await this.injectProperty(page)
-    }
-    const { device } = this?.option ?? {}
-    const { devices } = puppeteer
-    if (device) {
-      await page?.emulate(devices[device])
-    }
-    if (this?.option?.debug) {
-      // @ts-ignore
-      page.on('console', (...args) => {
-        log.info(...args)
-      })
-    }
-    if ((cookies && cookies.length) || typeof cookies === 'function') {
-      let _cookie = cookies
-      if (typeof cookies === 'function') {
-        _cookie = await cookies()
-        // log.info(_cookie)
+    try {
+      const page = await this.browser?.newPage()
+      const { cookies } = this?.option ?? {}
+      // Request拦截
+      if (page) {
+        await this.interceptRequest(page)
+        // 插入变量
+        await this.injectProperty(page)
       }
-      // @ts-ignore
-      await page.setCookie(..._cookie.filter(cookie => typeof cookie === 'object'))
+      const { device } = this?.option ?? {}
+      const { devices } = puppeteer
+      if (device) {
+        await page?.emulate(devices[device])
+      }
+
+      if (this?.option?.debug) {
+        // @ts-ignore
+        page.on('console', (...args) => {
+          log.info(...args)
+        })
+      }
+      if ((cookies && cookies.length) || typeof cookies === 'function') {
+        let _cookie = cookies
+        if (typeof cookies === 'function') {
+          _cookie = await cookies()
+          // log.info(_cookie)
+        }
+        // @ts-ignore
+        await page.setCookie(..._cookie.filter(cookie => typeof cookie === 'object'))
+      }
+      return page
+    } catch (error) {
+      log.error(error)
+      return null
     }
-    return page
   }
 
   async interceptRequest(page: puppeteer.Page): Promise<void> {
@@ -96,9 +103,8 @@ class Puppeteer {
             if (window.sockWrite) {
               window.sockWrite(
                 'console',
-                `Waited for ${options?.renderAfterTime ??
-                  3000 /
-                    1000} seconds, renderAfterDocumentEvent event was not found, automatically exited the page`
+                `Waited for ${(options?.renderAfterTime ?? 3000) /
+                  1000} seconds, renderAfterDocumentEvent event was not found, automatically exited the page`
               )
             }
             return resolve(true)

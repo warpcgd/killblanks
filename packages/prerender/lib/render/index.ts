@@ -62,19 +62,8 @@ class Render {
       document?.querySelector('body')?.setAttribute('prerender', 'true')
       const root = document.documentElement
       const rawHtml = root.outerHTML
-      const styles =
-        document.querySelector('style[title="_skeleton_"]') &&
-        document?.querySelector('style[title="_skeleton_"]')?.outerHTML
-      const _skeleton_html = document.querySelectorAll('[_skeleton_]')
-      const cleanedHtml = _skeleton_html.length
-        ? Array.from(document.querySelectorAll('[_skeleton_]'))
-            .map(i => i.outerHTML.replace(/&quot;/g, "'"))
-            .join('')
-        : ''
       return {
-        rawHtml,
-        styles,
-        cleanedHtml
+        rawHtml
       }
     }
     return await page.evaluate(
@@ -99,16 +88,14 @@ class Render {
     }
   }
 
-  async outputScreen(callback: any) {
+  async outputScreen() {
     const { langs } = this.option as Options
     const hasLang = langs && langs.length
     if (hasLang) {
       log.info(`find langs:${langs}`)
       if (langs) await Promise.all(langs.map((lang: string) => this.renderScreen(lang)))
-      callback()
     }
     await this.renderScreen()
-    callback()
   }
 
   async renderScreen(lang?: string) {
@@ -121,7 +108,6 @@ class Render {
       await page?.goto(url, { waitUntil: 'networkidle0' })
       await this.waitForRender(page as puppeteer.Page)
       const { rawHtml } = await this.getCleanHtmlAndStyle(page as puppeteer.Page, 'true')
-      console.log(rawHtml)
       const newHtml = htmlMinify(rawHtml)
       const outputPath = lang && lang.length ? `${outPutPath}.${lang}.html` : `${outPutPath}.html`
       fs.writeFileSync(path.resolve(cwd, outputDir, outputPath), newHtml, 'utf8')

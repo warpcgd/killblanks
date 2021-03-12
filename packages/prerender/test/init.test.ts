@@ -27,6 +27,17 @@ afterAll(() => {
 })
 
 describe('test Mediator has init', () => {
+  beforeAll(async () => {
+    const host = await getLocalIpAddress()
+    const port = await getFreePort()
+    const mergeOption = merge({ host, port }, defaultOptions)
+    initMemoryFileSystem()
+    return initMediator(mergeOption)
+  })
+
+  afterAll(() => {
+    return destroyMediator()
+  })
   test('puppeteer class has Instanced', () => {
     expect(PUPPETEER).toEqual(expect.any(Puppeteer))
   })

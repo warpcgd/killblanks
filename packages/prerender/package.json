@@ -10,6 +10,7 @@
     "dist"
   ],
   "scripts": {
+    "start": "",
     "build": "yarn run build:sockjs && yarn run build:esm && yarn run build:typings",
     "dev": "yarn run dev:preview & yarn run dev:sockclientjs",
     "dev:sockclientjs": "cross-env NODE_ENV=development webpack ./lib/sock/sock_client.ts --config ./lib/sock/webpack.sockjs.config.ts --mode=development --watch",
@@ -55,7 +56,7 @@
     "webpack-log": "^3.0.1"
   },
   "optionalDependencies": {
-    "puppeteer": "^3.1.0"
+    "puppeteer": "^8.0.0"
   },
   "publishConfig": {
     "access": "public",

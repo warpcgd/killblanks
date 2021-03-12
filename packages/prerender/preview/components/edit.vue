@@ -51,7 +51,6 @@ export default {
         'change',
         debounce(cm => {
           const html = cm.getValue()
-          console.log(html)
           this.$store.dispatch('SAVE_CODE', { route: this.currentRoute, html })
         }, 500)
       )

@@ -31,13 +31,13 @@ class PrerenderPlugin {
   /**
    * @internal
    */
-  option: Options | null = null
+  option: Options | undefined = undefined
 
   /**
    * @internal
    */
   constructor(option: Options = {}) {
-    this.init(option)
+    this.option = option
   }
 
   /**
@@ -57,11 +57,11 @@ class PrerenderPlugin {
             htmlWebpackPlugin.getHooks(compilation).beforeEmit
           htmlWebpackPluginBeforeHtmlProcessing.tapAsync(
             PLUGIN_NAME,
-            (htmlPluginData: HtmlPluginData, callback: Function) => {
-              if (process.env.NODE_ENV !== 'production') {
-                console.warn(process.env.NODE_ENV)
-                this.injectJs(htmlPluginData)
-              }
+            async (htmlPluginData: HtmlPluginData, callback: Function) => {
+              await this.init(this.option)
+              // if (process.env.NODE_ENV !== 'production') {
+              htmlPluginData = this.injectJs(htmlPluginData)
+              // }
               callback(null, htmlPluginData)
             }
           )
@@ -70,8 +70,8 @@ class PrerenderPlugin {
     })
     compiler.hooks.afterEmit.tapAsync(PLUGIN_NAME, async (_compilation, callback: any) => {
       if (process.env.NODE_ENV === 'production') {
-        console.log('yes')
-        await this.outputSkeletonScreen(callback)
+        await this.outputSkeletonScreen()
+        callback()
       }
     })
     EVENT_LIST.forEach(event => {
@@ -117,8 +117,8 @@ class PrerenderPlugin {
   /**
    * @internal
    */
-  private async outputSkeletonScreen(callback: any) {
-    return await RENDER?.outputScreen(callback)
+  private async outputSkeletonScreen() {
+    await RENDER?.outputScreen()
   }
 }
 
