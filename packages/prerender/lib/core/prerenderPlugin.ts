@@ -1,5 +1,5 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import webpack, { Compiler } from 'webpack'
+import { Compiler } from 'webpack'
 import { addScriptTag } from '../utils'
 import log from '../log/index'
 import { initMediator, RENDER, SERVER } from './init'
@@ -45,7 +45,7 @@ class PrerenderPlugin {
    */
   apply(compiler: Compiler): void {
     compiler.hooks.compilation.tap(PLUGIN_NAME, compilation => {
-      const htmlWebpackPlugin = (compiler.options.plugins as webpack.Plugin[])
+      const htmlWebpackPlugin = compiler.options.plugins
         .map(({ constructor }) => constructor)
         .find(({ name }) => name === 'HtmlWebpackPlugin')
       if (htmlWebpackPlugin) {
@@ -71,8 +71,8 @@ class PrerenderPlugin {
     compiler.hooks.afterEmit.tapAsync(PLUGIN_NAME, async (_compilation, callback: any) => {
       if (process.env.NODE_ENV === 'production') {
         await this.outputSkeletonScreen()
-        callback()
       }
+      callback()
     })
     EVENT_LIST.forEach(event => {
       // @ts-ignore

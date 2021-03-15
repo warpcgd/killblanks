@@ -13,19 +13,16 @@ const ENTRY_DIR = path.join(__dirname, 'entry/index.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const WEBPACK_CONFIG_BASE: webpack.Configuration = {
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
   entry: {
     path: ENTRY_DIR
   },
-  watch: false,
   output: {
-    path: OUTPUT_DIR,
-    filename: '[name].bundle.js'
+    path: OUTPUT_DIR
   },
   plugins: [new HtmlWebpackPlugin()]
 }
-
-jest.setTimeout(30000)
+jest.setTimeout(600000)
 process.on('unhandledRejection', r => console.log(r))
 
 function runProductWebpack({
@@ -92,7 +89,7 @@ function runProductWebpack({
 async function runTestWebpack({
   prerenderPluginConfig = {},
   webpackConfig = {},
-  devlopHandle = () => true,
+  devlopeHandle = () => true,
   done
 }: {
   prerenderPluginConfig?: Record<string, any>
@@ -100,7 +97,7 @@ async function runTestWebpack({
   expectErrors?: boolean
   expectWarnings?: boolean
   buildedHandle?: Function
-  devlopHandle?: Function
+  devlopeHandle?: Function
   done: jest.DoneCallback
 }) {
   const config = merge({}, WEBPACK_CONFIG_BASE, webpackConfig)
@@ -115,18 +112,32 @@ async function runTestWebpack({
       )
     )
   )
-  const compiler: webpack.Compiler = webpack(config)
-  const devServerOptions = Object.assign({}, config?.devServer || {}, {})
-  // @ts-ignore
-  const server = new WebpackDevServer(compiler, devServerOptions)
   const host = 'http://localhost'
   const port = await getFreePort()
   const url = host + ':' + port
-  server.listen(port, '127.0.0.1', async () => {
+  const compiler: webpack.Compiler = webpack(config)
+  const devServerOptions = Object.assign(
+    {},
+    {
+      hot: true
+    },
+    config?.devServer || {}
+  )
+  // @ts-ignore
+  const server = new WebpackDevServer(compiler, devServerOptions)
+  server.listen(port, 'localhost', async () => {
     console.log(`Starting test server on ${url}`)
+  })
+  compiler.hooks.done.tapAsync('done', async state => {
+    console.log('yes')
     await page.goto(url)
-    await expect(page).toMatch(/body/gi)
-    devlopHandle()
+    await expect(page).toMatchElement('[id="_puppeteer_"]', { timeout: 1000 })
+    // @ts-ignore
+    devlopeHandle.call(this, {
+      page,
+      compiler,
+      state
+    })
     done()
   })
 }
