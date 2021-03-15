@@ -38,7 +38,7 @@ describe('test util methods', () => {
     const testHtml = '<div>test</div>'
     const fileName = await writeMagicHtml(testHtml, defaultOptions)
     expect(fileName).toBeDefined()
-    expect(fileName).toEqual((await md5(testHtml)) + '.html')
+    expect(fileName).toEqual((await md5(testHtml)) + '_prerender.html')
 
     const result = await getMagicHtml(fileName, defaultOptions)
     expect(result).toBeDefined()

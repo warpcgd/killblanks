@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve --open",
+    "dev:example": "vue-cli-service serve --open",
     "build:example": "vue-cli-service build --mode production",
     "test": "vue-cli-service serve --mode test",
     "lint": "vue-cli-service lint"
