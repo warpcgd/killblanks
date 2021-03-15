@@ -56,7 +56,7 @@ const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSke
 // @ts-ignore
 document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
   try {
-    if (!isDOM(window.$0)) {
+    if (!isDOM(window.$0 as HTMLElement)) {
       sendMessage({
         name: 'log',
         data: 'Page elements has not selected'
@@ -64,7 +64,7 @@ document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
       return
     }
 
-    if (!isInBody(window.$0)) {
+    if (!isInBody(window.$0 as HTMLElement)) {
       sendMessage({
         name: 'log',
         data: 'The page element is not in the body element'
@@ -72,9 +72,9 @@ document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
       return
     }
 
-    SKELETON_CACHE['lastSelectedNode'] = window.$0.cloneNode(true)
+    SKELETON_CACHE['lastSelectedNode'] = window?.$0?.cloneNode(true) ?? ''
     const option = detail || {}
-    const { html, style, rootHashClass } = await outputSkeleton(window.$0, option)
+    const { html, style, rootHashClass } = await outputSkeleton(window?.$0 as HTMLElement, option)
     SKELETON_CACHE.html = html
     SKELETON_CACHE.style = style
     SKELETON_CACHE['currentSkeletonNode'] = html

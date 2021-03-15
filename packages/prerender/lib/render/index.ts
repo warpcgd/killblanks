@@ -101,15 +101,20 @@ class Render {
   async renderScreen(lang?: string) {
     try {
       const { outputDir, entryPath, outPutPath, host, port } = this.option as Options
+      // 开启一个新页面
       const page = await PUPPETEER.newPage()
       const langPath = lang && lang.length ? `?lang=${lang}` : ''
       const url = `http://${host}:${port}/${entryPath}.html${langPath}`
       log.info(`page goto ${url}`)
+      // 请求目标页面
       await page?.goto(url, { waitUntil: 'networkidle0' })
       await this.waitForRender(page as puppeteer.Page)
+      // 得到目标源码并处理
       const { rawHtml } = await this.getCleanHtmlAndStyle(page as puppeteer.Page, 'true')
+      // 压缩源码
       const newHtml = htmlMinify(rawHtml)
       const outputPath = lang && lang.length ? `${outPutPath}.${lang}.html` : `${outPutPath}.html`
+      // 输出到目标文件夹
       fs.writeFileSync(path.resolve(cwd, outputDir, outputPath), newHtml, 'utf8')
       log.info(`output ${outputPath} success`)
       await PUPPETEER.closePage(page as puppeteer.Page)

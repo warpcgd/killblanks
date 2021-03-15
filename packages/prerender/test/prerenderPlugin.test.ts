@@ -129,7 +129,6 @@ async function runTestWebpack({
     console.log(`Starting test server on ${url}`)
   })
   compiler.hooks.done.tapAsync('done', async state => {
-    console.log('yes')
     await page.goto(url)
     await expect(page).toMatchElement('[id="_puppeteer_"]', { timeout: 1000 })
     // @ts-ignore
