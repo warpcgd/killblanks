@@ -48,6 +48,19 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
   if (cleanedHtml && styles) {
     const vueTemplate = `
   <script>
+
+  function creatSkeleton(h, context) {
+    const { show } = context.props
+    const inBrowser = typeof window !== 'undefined'
+    if (inBrowser && (!show || window.__PRERENDER_INJECTED__)) {
+      const html = \`${cleanedHtml}\`
+      const component = Vue.compile(html)
+      return h(component)
+    } else {
+      return context.children[0]
+    }
+  }
+
   import Vue from 'vue'
   const skeletonLoader = {
     name: 'skeletocnLoader',
@@ -59,15 +72,18 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
       }
     },
     render(h, context) {
-      const { show } = context.props
-      const inBrowser = typeof window !== 'undefined'
-      if (inBrowser && (!show || window.__PRERENDER_INJECTED__)) {
-        const html = \`${cleanedHtml}\`
-        const component = Vue.compile(html)
-        return h(component)
-      } else {
-        return context.children[0]
-      }
+      const output = creatSkeleton(h, context, inBrowser)
+      return h(
+        'transition',
+        {
+          props: {
+            type: 'transition',
+            name: 'fade',
+            mode: 'out-in'
+          }
+        },
+        [output]
+      )
     }
   }
   export default skeletonLoader
