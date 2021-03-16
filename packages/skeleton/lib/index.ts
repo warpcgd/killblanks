@@ -82,7 +82,7 @@ async function traverse(options: ModType, element: HTMLElement = document.docume
     if (noSkeleton(ele)) return false
     const styles = getComputedStyle(ele)
     const hasPseudoEle = checkHasPseudoEle(ele)
-    if (!inViewPort(ele) || DISPLAY_NONE.test(ele.getAttribute('style'))) {
+    if (!inViewPort(ele) || DISPLAY_NONE.test(ele?.getAttribute('style') ?? '')) {
       return toRemove.push(ele)
     }
     if (~grayEle.indexOf(ele)) {
@@ -144,7 +144,7 @@ async function traverse(options: ModType, element: HTMLElement = document.docume
       ele.childNodes &&
       ele.childNodes.length === 1 &&
       ele.childNodes[0].nodeType === Node.TEXT_NODE &&
-      /\S/.test(ele.childNodes[0].textContent)
+      /\S/.test(ele?.childNodes?.[0]?.textContent ?? '')
     ) {
       return texts.push(ele)
     }

@@ -130,7 +130,7 @@ function textHandler(
   if (lineCount > 1) {
     addTextMask(ele, comStyle)
   } else {
-    const textWidth = getTextWidth(text, {
+    const textWidth = getTextWidth(text ?? '', {
       fontSize,
       lineHeight,
       wordBreak,

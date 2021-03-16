@@ -95,7 +95,7 @@ export const hashCode = function(str: string) {
 
 export const injectStyle = (rootHashClass: string, style: string): HTMLStyleElement => {
   const id = `_${rootHashClass}_`
-  const query: HTMLStyleElement = document.querySelector(`[id=${id}]`)
+  const query: HTMLStyleElement | null = document.querySelector(`[id=${id}]`)
   const styleEle: HTMLStyleElement = query || document.createElement('style')
   // if (!window.createPopup) {
   //   // For Safari
@@ -137,7 +137,7 @@ export const px2relativeUtil = (
 }
 
 export const getTextWidth = (text: string, style: object) => {
-  let offScreenParagraph: HTMLElement = document.querySelector(`#${MOCK_TEXT_ID}`)
+  let offScreenParagraph: HTMLElement | null = document.querySelector(`#${MOCK_TEXT_ID}`)
   if (!offScreenParagraph) {
     const wrapper = document.createElement('p')
     offScreenParagraph = document.createElement('span')

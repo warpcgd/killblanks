@@ -690,7 +690,9 @@ function listHandle(ele) {
 
   if (firstChild.tagName !== 'LI') return listHandle(firstChild);
   Array.from(children).forEach(function (c, i) {
-    if (i > 0) c.parentNode.removeChild(c);
+    var _a;
+
+    if (i > 0) (_a = c === null || c === void 0 ? void 0 : c.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(c);
   }); // 将 li 所有兄弟元素设置成相同的元素，保证生成的页面骨架整齐
 
   for (var i = 1; i < len; i++) {
@@ -1003,7 +1005,7 @@ function textHandler(ele, _ref2, cssUnit, decimal) {
   if (lineCount > 1) {
     addTextMask(ele, comStyle);
   } else {
-    var textWidth = (0,_util__WEBPACK_IMPORTED_MODULE_0__.getTextWidth)(text, {
+    var textWidth = (0,_util__WEBPACK_IMPORTED_MODULE_0__.getTextWidth)(text !== null && text !== void 0 ? text : '', {
       fontSize: fontSize,
       lineHeight: lineHeight,
       wordBreak: wordBreak,
@@ -22836,11 +22838,13 @@ function _traverse() {
             });
 
             (function preTraverse(ele) {
+              var _a, _b, _c, _d;
+
               if ((0,_util__WEBPACK_IMPORTED_MODULE_4__.noSkeleton)(ele)) return false;
               var styles = (0,_util__WEBPACK_IMPORTED_MODULE_4__.getComputedStyle)(ele);
               var hasPseudoEle = (0,_util__WEBPACK_IMPORTED_MODULE_4__.checkHasPseudoEle)(ele);
 
-              if (!(0,_util__WEBPACK_IMPORTED_MODULE_4__.inViewPort)(ele) || _config__WEBPACK_IMPORTED_MODULE_5__.DISPLAY_NONE.test(ele.getAttribute('style'))) {
+              if (!(0,_util__WEBPACK_IMPORTED_MODULE_4__.inViewPort)(ele) || _config__WEBPACK_IMPORTED_MODULE_5__.DISPLAY_NONE.test((_a = ele === null || ele === void 0 ? void 0 : ele.getAttribute('style')) !== null && _a !== void 0 ? _a : '')) {
                 return toRemove.push(ele);
               }
 
@@ -22899,7 +22903,7 @@ function _traverse() {
                 return buttons.push(ele);
               }
 
-              if (ele.childNodes && ele.childNodes.length === 1 && ele.childNodes[0].nodeType === _config__WEBPACK_IMPORTED_MODULE_5__.Node.TEXT_NODE && /\S/.test(ele.childNodes[0].textContent)) {
+              if (ele.childNodes && ele.childNodes.length === 1 && ele.childNodes[0].nodeType === _config__WEBPACK_IMPORTED_MODULE_5__.Node.TEXT_NODE && /\S/.test((_d = (_c = (_b = ele === null || ele === void 0 ? void 0 : ele.childNodes) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.textContent) !== null && _d !== void 0 ? _d : '')) {
                 return texts.push(ele);
               }
 

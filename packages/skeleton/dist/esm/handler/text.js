@@ -101,7 +101,7 @@ function textHandler(ele, { color }, cssUnit, decimal) {
         addTextMask(ele, comStyle);
     }
     else {
-        const textWidth = getTextWidth(text, {
+        const textWidth = getTextWidth(text !== null && text !== void 0 ? text : '', {
             fontSize,
             lineHeight,
             wordBreak,

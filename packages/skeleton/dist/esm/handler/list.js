@@ -8,8 +8,9 @@ function listHandle(ele) {
     if (firstChild.tagName !== 'LI')
         return listHandle(firstChild);
     Array.from(children).forEach((c, i) => {
+        var _a;
         if (i > 0)
-            c.parentNode.removeChild(c);
+            (_a = c === null || c === void 0 ? void 0 : c.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(c);
     });
     // 将 li 所有兄弟元素设置成相同的元素，保证生成的页面骨架整齐
     for (let i = 1; i < len; i++) {

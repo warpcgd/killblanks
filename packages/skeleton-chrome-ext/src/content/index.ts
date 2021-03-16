@@ -13,11 +13,11 @@ function isInBody(node: HTMLElement) {
   return node === document.body ? false : document.body.contains(node)
 }
 
-let chromeRuntimePort = chrome.runtime.connect()
+let chromeRuntimePort: chrome.runtime.Port | null = chrome.runtime.connect()
 
 chromeRuntimePort.onDisconnect.addListener(() => {
   console.error('@killblanks/skeleton-ext has Disconnected, please refresh this page')
-  chromeRuntimePort = undefined
+  chromeRuntimePort = null
 })
 
 // when using the port, always check if valid/connected
@@ -32,18 +32,18 @@ function sendMessage(msg: any) {
 const isDOM =
   typeof HTMLElement === 'object'
     ? function(obj: HTMLElement) {
-        return obj instanceof HTMLElement
-      }
+      return obj instanceof HTMLElement
+    }
     : function(obj: HTMLElement) {
-        return (
-          obj &&
+      return (
+        obj &&
           typeof obj === 'object' &&
           obj.nodeType === 1 &&
           typeof obj.nodeName === 'string' &&
           obj.nodeName !== 'SCRIPT' &&
           obj.nodeName !== 'STYLE'
-        )
-      }
+      )
+    }
 
 const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSkeletonNode: any } = {
   html: '',
@@ -55,6 +55,7 @@ const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSke
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
+  debugger
   try {
     if (!isDOM(window.$0 as HTMLElement)) {
       sendMessage({
@@ -72,9 +73,9 @@ document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
       return
     }
 
-    SKELETON_CACHE['lastSelectedNode'] = window?.$0?.cloneNode(true) ?? ''
+    SKELETON_CACHE['lastSelectedNode'] = (window.$0 as HTMLElement).cloneNode(true)
     const option = detail || {}
-    const { html, style, rootHashClass } = await outputSkeleton(window?.$0 as HTMLElement, option)
+    const { html, style, rootHashClass } = await outputSkeleton(window.$0 as HTMLElement, option)
     SKELETON_CACHE.html = html
     SKELETON_CACHE.style = style
     SKELETON_CACHE['currentSkeletonNode'] = html

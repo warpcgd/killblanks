@@ -103,8 +103,8 @@ module.exports = {
         test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
         use: [
           {
-            loader: 'url-loader',
-          },
+            loader: 'url-loader'
+          }
         ]
       }
     ]

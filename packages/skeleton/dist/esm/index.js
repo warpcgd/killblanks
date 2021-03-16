@@ -36,11 +36,12 @@ async function traverse(options, element = document.documentElement) {
         }
     });
     (function preTraverse(ele) {
+        var _a, _b, _c, _d;
         if (noSkeleton(ele))
             return false;
         const styles = getComputedStyle(ele);
         const hasPseudoEle = checkHasPseudoEle(ele);
-        if (!inViewPort(ele) || DISPLAY_NONE.test(ele.getAttribute('style'))) {
+        if (!inViewPort(ele) || DISPLAY_NONE.test((_a = ele === null || ele === void 0 ? void 0 : ele.getAttribute('style')) !== null && _a !== void 0 ? _a : '')) {
             return toRemove.push(ele);
         }
         if (~grayEle.indexOf(ele)) {
@@ -91,7 +92,7 @@ async function traverse(options, element = document.documentElement) {
         if (ele.childNodes &&
             ele.childNodes.length === 1 &&
             ele.childNodes[0].nodeType === Node.TEXT_NODE &&
-            /\S/.test(ele.childNodes[0].textContent)) {
+            /\S/.test((_d = (_c = (_b = ele === null || ele === void 0 ? void 0 : ele.childNodes) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.textContent) !== null && _d !== void 0 ? _d : '')) {
             return texts.push(ele);
         }
         if (ele.children && ele.children.length > 0) {

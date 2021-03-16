@@ -58,8 +58,8 @@ class PrerenderPlugin {
         compiler.hooks.afterEmit.tapAsync(PLUGIN_NAME, async (_compilation, callback) => {
             if (process.env.NODE_ENV === 'production') {
                 await this.outputSkeletonScreen();
-                callback();
             }
+            callback();
         });
         EVENT_LIST.forEach(event => {
             // @ts-ignore

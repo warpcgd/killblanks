@@ -24,7 +24,7 @@ chrome.runtime.onConnect.addListener(function(port) {
 
 // 接收内容脚本的消息，并发送到devtool的消息
 chrome.runtime.onMessage.addListener((message, sender) => {
-  if (sender.tab) {
+  if (sender.tab && sender.tab.id) {
     const tabId = sender.tab.id
     if (tabId in connections) {
       connections[tabId].postMessage(message)

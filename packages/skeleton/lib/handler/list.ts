@@ -6,7 +6,7 @@ function listHandle(ele: Element): Element | boolean {
   // 解决有时ul元素子元素不是 li元素的 bug。
   if (firstChild.tagName !== 'LI') return listHandle(firstChild)
   Array.from(children).forEach((c, i) => {
-    if (i > 0) c.parentNode.removeChild(c)
+    if (i > 0) c?.parentNode?.removeChild(c)
   })
   // 将 li 所有兄弟元素设置成相同的元素，保证生成的页面骨架整齐
   for (let i = 1; i < len; i++) {

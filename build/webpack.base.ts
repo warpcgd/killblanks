@@ -1,6 +1,6 @@
 import path from 'path'
 import webpack from 'webpack'
-import TerserPlugin from 'terser-webpack-plugin'
+
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 
 const ROOT = path.dirname(__dirname)
@@ -22,12 +22,7 @@ const config: webpack.Configuration = {
     new webpack.ids.HashedModuleIdsPlugin()
   ],
   optimization: {
-    minimizer: [
-      new TerserPlugin({
-        extractComments: { condition: false }
-      }),
-      new CleanWebpackPlugin()
-    ]
+    minimizer: [new CleanWebpackPlugin()]
   },
   externals: {
     fsevents: "require('fsevents')"
