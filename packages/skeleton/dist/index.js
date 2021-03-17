@@ -262,7 +262,8 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "3yYM");
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "addBlick": () => (/* binding */ addBlick)
+/* harmony export */   "addBlick": () => (/* binding */ addBlick),
+/* harmony export */   "addTransition": () => (/* binding */ addTransition)
 /* harmony export */ });
 /* harmony import */ var _handler_styleCache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../handler/styleCache */ "gDgD");
 /* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util */ "u6+C");
@@ -274,6 +275,12 @@ var addBlick = function addBlick(ele) {
   (0,_handler_styleCache__WEBPACK_IMPORTED_MODULE_0__.addStyle)('.skeleton--animate', animateRule);
   (0,_handler_styleCache__WEBPACK_IMPORTED_MODULE_0__.addStyle)('@keyframes skeleton-blink', keyframesRule);
   (0,_util__WEBPACK_IMPORTED_MODULE_1__.addClassName)(ele, ['skeleton--animate']);
+};
+var addTransition = function addTransition() {
+  var transitionRule = "{\n    transition: opacity 0.3s;\n  }";
+  var opacityRule = "{\n    opacity: 0;\n  }";
+  (0,_handler_styleCache__WEBPACK_IMPORTED_MODULE_0__.addStyle)('.skeleton-enter-active', transitionRule);
+  (0,_handler_styleCache__WEBPACK_IMPORTED_MODULE_0__.addStyle)('.skeleton-enter, .skeleton-leave-to', opacityRule);
 };
 
 /***/ }),
@@ -361,7 +368,8 @@ var DEFAULTMOD = {
   skipPseudo: true,
   cssUnit: 'px',
   decimal: 4,
-  animation: true
+  animation: true,
+  transition: true
 };
 var AUTOMATICMOD = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, DEFAULTMOD, {
   name: 'automatic',
@@ -22786,6 +22794,7 @@ function _traverse() {
         decimal,
         skipBase64,
         animation,
+        transition,
         excludesEle,
         grayEle,
         rootElement,
@@ -22805,7 +22814,7 @@ function _traverse() {
         switch (_context.prev = _context.next) {
           case 0:
             element = _args.length > 1 && _args[1] !== undefined ? _args[1] : document.documentElement;
-            remove = options.remove, excludes = options.excludes, text = options.text, image = options.image, button = options.button, svg = options.svg, grayBlock = options.grayBlock, pseudo = options.pseudo, cssUnit = options.cssUnit, decimal = options.decimal, skipBase64 = options.skipBase64, animation = options.animation;
+            remove = options.remove, excludes = options.excludes, text = options.text, image = options.image, button = options.button, svg = options.svg, grayBlock = options.grayBlock, pseudo = options.pseudo, cssUnit = options.cssUnit, decimal = options.decimal, skipBase64 = options.skipBase64, animation = options.animation, transition = options.transition;
             excludesEle = excludes.length ? Array.from((0,_util__WEBPACK_IMPORTED_MODULE_4__.$$)(excludes.join(','))) : [];
             grayEle = grayBlock.length ? Array.from((0,_util__WEBPACK_IMPORTED_MODULE_4__.$$)(grayBlock.join(','))) : [];
             rootElement = element;
@@ -22962,13 +22971,17 @@ function _traverse() {
 
             if (animation) {
               (0,_animation_index__WEBPACK_IMPORTED_MODULE_8__.addBlick)(rootElement);
+            }
+
+            if (transition) {
+              (0,_animation_index__WEBPACK_IMPORTED_MODULE_8__.addTransition)();
             } // root add hash class
 
 
             rootHashClass = (0,_handler_root__WEBPACK_IMPORTED_MODULE_9__.addRootHashClass)(rootElement);
             return _context.abrupt("return", rootElement);
 
-          case 36:
+          case 37:
           case "end":
             return _context.stop();
         }
@@ -23018,7 +23031,7 @@ function _genSkeleton() {
             rules = '';
 
             for (selector in _handler_styleCache__WEBPACK_IMPORTED_MODULE_7__.styleCache) {
-              if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate') {
+              if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate' && selector !== '.skeleton-enter-active' && selector !== '.skeleton-enter, .skeleton-leave-to') {
                 rules += ".".concat(rootHashClass, " ").concat(selector, " ").concat(_handler_styleCache__WEBPACK_IMPORTED_MODULE_7__.styleCache[selector], "\n");
               } else {
                 rules += " ".concat(selector, " ").concat(_handler_styleCache__WEBPACK_IMPORTED_MODULE_7__.styleCache[selector], "\n");
@@ -23093,7 +23106,7 @@ function _outputSkeleton() {
             rules = '';
 
             for (selector in _handler_styleCache__WEBPACK_IMPORTED_MODULE_7__.styleCache) {
-              if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate') {
+              if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate' && selector !== '.skeleton-enter-active' && selector !== '.skeleton-enter, .skeleton-leave-to') {
                 rules += ".".concat(rootHashClass, " ").concat(selector, " ").concat(_handler_styleCache__WEBPACK_IMPORTED_MODULE_7__.styleCache[selector], "\n");
               } else {
                 rules += " ".concat(selector, " ").concat(_handler_styleCache__WEBPACK_IMPORTED_MODULE_7__.styleCache[selector], "\n");

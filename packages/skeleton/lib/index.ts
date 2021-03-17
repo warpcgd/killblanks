@@ -27,7 +27,7 @@ import {
 } from './config'
 import * as handler from './handler/index'
 import { styleCache, clearCache } from './handler/styleCache'
-import { addBlick } from './animation/index'
+import { addBlick, addTransition } from './animation/index'
 import { addRootHashClass } from './handler/root'
 import { merge } from 'lodash'
 
@@ -46,7 +46,8 @@ async function traverse(options: ModType, element: HTMLElement = document.docume
     cssUnit,
     decimal,
     skipBase64,
-    animation
+    animation,
+    transition
   } = options
   const excludesEle = excludes.length ? Array.from($$(excludes.join(','))) : []
   const grayEle = grayBlock.length ? Array.from($$(grayBlock.join(','))) : []
@@ -185,6 +186,10 @@ async function traverse(options: ModType, element: HTMLElement = document.docume
   if (animation) {
     addBlick(rootElement)
   }
+
+  if (transition) {
+    addTransition()
+  }
   // root add hash class
   rootHashClass = addRootHashClass(rootElement)
 
@@ -208,7 +213,12 @@ async function genSkeleton(options: ModType = AUTOMATICMOD) {
    */
   let rules = ''
   for (const selector in styleCache) {
-    if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate') {
+    if (
+      selector !== '@keyframes skeleton-blink' &&
+      selector !== '.skeleton--animate' &&
+      selector !== '.skeleton-enter-active' &&
+      selector !== '.skeleton-enter, .skeleton-leave-to'
+    ) {
       rules += `.${rootHashClass} ${selector} ${styleCache[selector]}\n`
     } else {
       rules += ` ${selector} ${styleCache[selector]}\n`
@@ -241,7 +251,12 @@ async function outputSkeleton(element: HTMLElement, options: ModType | string = 
    */
   let rules = ''
   for (const selector in styleCache) {
-    if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate') {
+    if (
+      selector !== '@keyframes skeleton-blink' &&
+      selector !== '.skeleton--animate' &&
+      selector !== '.skeleton-enter-active' &&
+      selector !== '.skeleton-enter, .skeleton-leave-to'
+    ) {
       rules += `.${rootHashClass} ${selector} ${styleCache[selector]}\n`
     } else {
       rules += ` ${selector} ${styleCache[selector]}\n`

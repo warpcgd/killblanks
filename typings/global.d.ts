@@ -93,6 +93,12 @@ interface ModType {
   animation: boolean
   /**
    * @type {boolean}
+   * @default true
+   * @description 是否开启transition
+   */
+  transition: boolean
+  /**
+   * @type {boolean}
    * @default false
    * @description 是否重复LI
    */

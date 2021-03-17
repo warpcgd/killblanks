@@ -95,6 +95,14 @@
         </Form>
       </Col>
       <Col span="12">
+        <span>transition</span>
+        <Form :model="mod" inline>
+          <FormItem label="condition" :label-width="60">
+            <i-switch v-model="mod.transition" size="small" />
+          </FormItem>
+        </Form>
+      </Col>
+      <Col span="12">
         <span>repeatLI</span>
         <Form :model="mod" inline>
           <FormItem label="condition" :label-width="60">

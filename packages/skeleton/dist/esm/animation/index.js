@@ -13,3 +13,13 @@ export const addBlick = (ele) => {
     addStyle('@keyframes skeleton-blink', keyframesRule);
     addClassName(ele, ['skeleton--animate']);
 };
+export const addTransition = () => {
+    const transitionRule = `{
+    transition: opacity 0.3s;
+  }`;
+    const opacityRule = `{
+    opacity: 0;
+  }`;
+    addStyle('.skeleton-enter-active', transitionRule);
+    addStyle('.skeleton-enter, .skeleton-leave-to', opacityRule);
+};

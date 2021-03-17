@@ -1,3 +1,5 @@
+import { DEFAULTMOD } from '@killblanks/skeleton'
+
 export const sendMessageToBackground = (message: string, callback: (val: any) => any): void => {
   chrome.devtools.inspectedWindow.eval(message, { useContentScriptContext: true }, value => {
     callback && callback(value)
@@ -48,7 +50,6 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
   if (cleanedHtml && styles) {
     const vueTemplate = `
   <script>
-
   function creatSkeleton(h, context) {
     const { show } = context.props
     const inBrowser = typeof window !== 'undefined'
@@ -60,7 +61,6 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
       return context.children[0]
     }
   }
-
   import Vue from 'vue'
   const skeletonLoader = {
     name: 'skeletocnLoader',
@@ -72,19 +72,20 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
       }
     },
     render(h, context) {
-      const output = creatSkeleton(h, context, inBrowser)
+      ${DEFAULTMOD.transition ?
+    `const output = creatSkeleton(h, context)
       return h(
         'transition',
         {
           props: {
             type: 'transition',
-            name: 'fade',
+            name: 'skeleton',
             mode: 'out-in'
           }
         },
         [output]
       )
-    }
+    }`: 'return h(output)'}
   }
   export default skeletonLoader
   </script>

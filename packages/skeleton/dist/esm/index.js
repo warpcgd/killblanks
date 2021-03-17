@@ -2,12 +2,12 @@ import { $$, $, getComputedStyle, checkHasPseudoEle, inViewPort, checkHasBorder,
 import { DISPLAY_NONE, Node, EXT_REG, TRANSPARENT, GRADIENT_REG, MOCK_TEXT_ID, CONSOLE_SELECTOR, BASE64, AUTOMATICMOD, DEFAULTMOD } from './config';
 import * as handler from './handler/index';
 import { styleCache, clearCache } from './handler/styleCache';
-import { addBlick } from './animation/index';
+import { addBlick, addTransition } from './animation/index';
 import { addRootHashClass } from './handler/root';
 import { merge } from 'lodash';
 let rootHashClass = '';
 async function traverse(options, element = document.documentElement) {
-    const { remove, excludes, text, image, button, svg, grayBlock, pseudo, cssUnit, decimal, skipBase64, animation } = options;
+    const { remove, excludes, text, image, button, svg, grayBlock, pseudo, cssUnit, decimal, skipBase64, animation, transition } = options;
     const excludesEle = excludes.length ? Array.from($$(excludes.join(','))) : [];
     const grayEle = grayBlock.length ? Array.from($$(grayBlock.join(','))) : [];
     const rootElement = element;
@@ -124,6 +124,9 @@ async function traverse(options, element = document.documentElement) {
     if (animation) {
         addBlick(rootElement);
     }
+    if (transition) {
+        addTransition();
+    }
     // root add hash class
     rootHashClass = addRootHashClass(rootElement);
     return rootElement;
@@ -144,7 +147,10 @@ async function genSkeleton(options = AUTOMATICMOD) {
      */
     let rules = '';
     for (const selector in styleCache) {
-        if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate') {
+        if (selector !== '@keyframes skeleton-blink' &&
+            selector !== '.skeleton--animate' &&
+            selector !== '.skeleton-enter-active' &&
+            selector !== '.skeleton-enter, .skeleton-leave-to') {
             rules += `.${rootHashClass} ${selector} ${styleCache[selector]}\n`;
         }
         else {
@@ -176,7 +182,10 @@ async function outputSkeleton(element, options = DEFAULTMOD) {
      */
     let rules = '';
     for (const selector in styleCache) {
-        if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate') {
+        if (selector !== '@keyframes skeleton-blink' &&
+            selector !== '.skeleton--animate' &&
+            selector !== '.skeleton-enter-active' &&
+            selector !== '.skeleton-enter, .skeleton-leave-to') {
             rules += `.${rootHashClass} ${selector} ${styleCache[selector]}\n`;
         }
         else {

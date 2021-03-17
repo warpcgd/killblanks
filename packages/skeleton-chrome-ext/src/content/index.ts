@@ -55,7 +55,6 @@ const SKELETON_CACHE: { html: any; style: any; lastSelectedNode: any; currentSke
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 document.addEventListener('_OUTPUT_SKELETON_', async ({ detail }) => {
-  debugger
   try {
     if (!isDOM(window.$0 as HTMLElement)) {
       sendMessage({
