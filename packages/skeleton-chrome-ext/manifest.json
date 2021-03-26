@@ -13,20 +13,29 @@
     "default_title": "test"
   },
   "devtools_page": "./devtools/devtools.html",
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["./contentScript/contentScript.js"],
-    "run_at": "document_start"
-  }],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "./contentScript/contentScript.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
   "background": {
-    "scripts": ["./background/background.js"]
+    "scripts": [
+      "./background/background.js"
+    ]
   },
   "permissions": [
-    "activeTab",
-    "tabs",
     "http://*/*",
     "https://*/*"
   ],
-  "web_accessible_resources": ["*.png", "*.gif"],
+  "web_accessible_resources": [
+    "*.png",
+    "*.gif"
+  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval' https://unpkg.com; object-src 'self'"
 }
