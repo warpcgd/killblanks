@@ -29,10 +29,6 @@
       "./background/background.js"
     ]
   },
-  "permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
   "web_accessible_resources": [
     "*.png",
     "*.gif"

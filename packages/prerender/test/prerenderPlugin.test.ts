@@ -141,14 +141,14 @@ async function runTestWebpack({
   })
 }
 
-// function checkProductEnvPlugin() {
-//   process.env.NODE_ENV = 'production'
-//   test('Test whether the pre-rendered output file in the production environment is normal', done => {
-//     runProductWebpack({
-//       done
-//     })
-//   })
-// }
+function checkProductEnvPlugin() {
+  process.env.NODE_ENV = 'production'
+  test('Test whether the pre-rendered output file in the production environment is normal', done => {
+    runProductWebpack({
+      done
+    })
+  })
+}
 
 function checkTestEnvPlugin() {
   process.env.NODE_ENV = 'development'
@@ -165,6 +165,6 @@ describe('test prerenderPlugin', () => {
   beforeEach(done => {
     rimraf(OUTPUT_DIR, done)
   })
-  // checkProductEnvPlugin()
+  checkProductEnvPlugin()
   checkTestEnvPlugin()
 })
