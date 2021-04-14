@@ -14,13 +14,17 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const WEBPACK_CONFIG_BASE: webpack.Configuration = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
+  devtool: 'inline-source-map',
   entry: {
     path: ENTRY_DIR
   },
   output: {
     path: OUTPUT_DIR
   },
-  plugins: [new HtmlWebpackPlugin()]
+  plugins: [new HtmlWebpackPlugin()],
+  performance: {
+    hints: false
+  }
 }
 jest.setTimeout(600000)
 process.on('unhandledRejection', r => console.log(r))
@@ -143,7 +147,7 @@ async function runTestWebpack({
 
 function checkProductEnvPlugin() {
   process.env.NODE_ENV = 'production'
-  test('Test whether the pre-rendered output file in the production environment is normal', done => {
+  test('Test whether 1the pre-rendered output file in the production environment is normal', done => {
     runProductWebpack({
       done
     })
@@ -158,8 +162,6 @@ function checkTestEnvPlugin() {
     })
   })
 }
-
-// function checkTestEnvPlugin() {}
 
 describe('test prerenderPlugin', () => {
   beforeEach(done => {

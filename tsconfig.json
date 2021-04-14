@@ -38,6 +38,7 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "test/**/*.ts",
+    "example/**/*.tsx",
     "test/**/*.tsx",
     "typings/*.ts"
   ],

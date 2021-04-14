@@ -36,10 +36,8 @@ const defaultOptions = {
     debug: false,
     requestHandle: null,
     outputDir: 'dist',
-    shellDir: '/',
     entryPath: 'index',
     outPutPath: 'index',
-    shellName: 'shell',
     langs: [],
     magicPath: '__webpack_prerender_skeleton__'
 };

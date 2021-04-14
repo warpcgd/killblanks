@@ -1,6 +1,7 @@
-/**
- * @ignore
- */
+declare module '*.vue' {
+  import Vue from 'vue'
+  export = Vue
+}
 interface Window {
   _killblanksSocketPort_: number
   sock: WebSocket

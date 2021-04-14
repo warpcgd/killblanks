@@ -7,7 +7,7 @@ const ROOT = path.dirname(__dirname)
 
 const config: webpack.Configuration = {
   mode: 'production',
-  devtool: 'cheap-module-source-map',
+  devtool: process.env.NODE_ENV === 'development' ? 'eval-source-map' : 'source-map',
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.vue']
   },

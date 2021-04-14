@@ -15,6 +15,7 @@
     "dev": "yarn run dev:preview & yarn run dev:sockclientjs",
     "dev:sockclientjs": "cross-env NODE_ENV=development webpack ./lib/sock/sock_client.ts --config ./lib/sock/webpack.sockjs.config.ts --mode=development --watch",
     "dev:preview": "cross-env NODE_ENV=development webpack --config ./preview/webpack.preview.config.js --mode=development --watch",
+    "build:demo": "cross-env NODE_ENV=production webpack --config ./example/vue/webpack.config.js",
     "watch": "tsc -w -p ./tsconfig.json",
     "build:umd": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
     "build:esm": "tsc -p ./tsconfig.json",
@@ -29,7 +30,6 @@
   "author": "lixichen<warpcgd@qq.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@killblanks/skeleton": "^1.0.0",
     "cross-env": "^7.0.2",
     "css2json": "^1.1.1",
     "deepmerge": "^4.2.2",

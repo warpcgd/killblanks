@@ -45,7 +45,7 @@ class PrerenderPlugin {
    */
   apply(compiler: Compiler): void {
     compiler.hooks.compilation.tap(PLUGIN_NAME, compilation => {
-      const htmlWebpackPlugin = compiler.options.plugins
+      const htmlWebpackPlugin = (compiler?.options?.plugins ?? [])
         .map(({ constructor }) => constructor)
         .find(({ name }) => name === 'HtmlWebpackPlugin')
       if (htmlWebpackPlugin) {
