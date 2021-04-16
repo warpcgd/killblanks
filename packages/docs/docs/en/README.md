@@ -54,6 +54,6 @@ export default {
 
 - For example, like what is done in [DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)
 
-### 5. Enter `PRERENDER_SKELETON` in the Chrome console to start the skeleton screen preview
+### 5. Enter `PRERENDER_PREVIEW` in the Chrome console to start the skeleton screen preview
 
 :::

@@ -69,4 +69,4 @@ For detailed parameters, please see [prerender](../../documents/prerender)
 
 - Open the local page launched by the development environment
 - Open `dev-tools` and enter the console
-- Enter `PRERENDER_SKELETON` to preview in real time. When you need to update the skeleton screen page, please click the `refresh` button in the upper right corner
+- Enter `PRERENDER_PREVIEW` to preview in real time. When you need to update the skeleton screen page, please click the `refresh` button in the upper right corner

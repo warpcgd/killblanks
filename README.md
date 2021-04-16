@@ -93,10 +93,10 @@ export default {
 
 - 像[DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)中所做的一样
 
-#### 5. 在浏览器的`console`输入`PRERENDER_SKELETON`
+#### 5. 在浏览器的`console`输入`PRERENDER_PREVIEW`
 
 ```sh
- 在Chrome console中输入`PRERENDER_SKELETON`启动骨架屏预览
+ 在Chrome console中输入`PRERENDER_PREVIEW`启动骨架屏预览
 ```
 
 ## API

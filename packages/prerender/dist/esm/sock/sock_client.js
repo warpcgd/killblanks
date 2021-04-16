@@ -18,7 +18,7 @@ window.sock = sock;
 window.log = log_1.log;
 window.sockWrite = socketWrite;
 // 用于输出
-Object.defineProperty(window, 'PRERENDER_SKELETON', {
+Object.defineProperty(window, 'PRERENDER_PREVIEW', {
     get() {
         log_1.log('GENERATIND...');
         socketWrite('generate', window.location.href);

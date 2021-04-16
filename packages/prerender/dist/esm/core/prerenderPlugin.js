@@ -48,9 +48,9 @@ class PrerenderPlugin {
                         htmlWebpackPlugin.getHooks(compilation).beforeEmit;
                     htmlWebpackPluginBeforeHtmlProcessing.tapAsync(PLUGIN_NAME, async (htmlPluginData, callback) => {
                         await this.init(this.option);
-                        // if (process.env.NODE_ENV !== 'production') {
-                        htmlPluginData = this.injectJs(htmlPluginData);
-                        // }
+                        if (process.env.NODE_ENV !== 'production') {
+                            htmlPluginData = this.injectJs(htmlPluginData);
+                        }
                         callback(null, htmlPluginData);
                     });
                 }

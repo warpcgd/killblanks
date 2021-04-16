@@ -205,13 +205,6 @@ interface Options {
   outputDir?: string
 
   /**
-   * 设置shell输出文件路径
-   * @type {string}
-   * @default '/''
-   */
-  shellDir?: string
-
-  /**
    * 设置入口文件名
    * @type {string}
    * @default 'index''
@@ -224,13 +217,6 @@ interface Options {
    * @default 'index''
    */
   outPutPath?: 'index'
-
-  /**
-   * 设置输出预渲染文件名
-   * @type {string}
-   * @default 'index''
-   */
-  shellName?: 'shell'
 
   /**
    * 设置多语言

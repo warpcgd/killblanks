@@ -69,7 +69,7 @@ module.exports = {
 
 - 打开开发环境启动的本地页面
 - 开启`dev-tools`,进入console
-- 输入`PRERENDER_SKELETON`，即可实时预览，需要更新骨架屏页面时，请点击右上角`refresh`按钮
+- 输入`PRERENDER_PREVIEW`，即可实时预览，需要更新骨架屏页面时，请点击右上角`refresh`按钮
 
 
 

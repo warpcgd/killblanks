@@ -22,7 +22,7 @@ module.exports = {
         symbolId: 'icon-[name]'
       })
     const prerender = require('@killblanks/prerender')
-    config.plugin('prerender').use(prerender.default, [
+    config.plugin('prerender').use(prerender, [
       {
         langs: ['zh', 'en', 'id', 'vi', 'hi', 'ar']
       }

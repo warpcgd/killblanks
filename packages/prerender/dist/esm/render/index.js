@@ -13,7 +13,7 @@ class Render {
         this.option = null;
         this.previewPageUrl = '';
         this.option = option;
-        this.previewPageUrl = `http://${this.option.host}:${this.option.port}/preview.html`;
+        this.previewPageUrl = `http://${this.option.host}:${this.option.port}/index.html`;
     }
     async renderPreivewScreen(origin, sockets, open = true) {
         var _a, _b;
@@ -87,8 +87,10 @@ class Render {
         const hasLang = langs && langs.length;
         if (hasLang) {
             log_1.default.info(`find langs:${langs}`);
-            if (langs)
+            if (langs) {
                 await Promise.all(langs.map((lang) => this.renderScreen(lang)));
+                return;
+            }
         }
         await this.renderScreen();
     }

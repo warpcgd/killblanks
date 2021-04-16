@@ -59,9 +59,9 @@ class PrerenderPlugin {
             PLUGIN_NAME,
             async (htmlPluginData: HtmlPluginData, callback: Function) => {
               await this.init(this.option)
-              // if (process.env.NODE_ENV !== 'production') {
-              htmlPluginData = this.injectJs(htmlPluginData)
-              // }
+              if (process.env.NODE_ENV !== 'production') {
+                htmlPluginData = this.injectJs(htmlPluginData)
+              }
               callback(null, htmlPluginData)
             }
           )

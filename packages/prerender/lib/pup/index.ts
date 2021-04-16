@@ -37,8 +37,8 @@ class Puppeteer {
       }
       const { device } = this?.option ?? {}
       const { devices } = puppeteer
-      if (device) {
-        await page?.emulate(devices[device])
+      if (device && devices[device]) {
+        await page?.emulate(devices?.[device] ?? {})
       }
 
       if (this?.option?.debug) {

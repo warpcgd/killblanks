@@ -93,10 +93,10 @@ export default {
 
 - Like what is done in [DEMO](https://github.com/warpcgd/killblanks/blob/main/packages/docs%26demo/docs/.vuepress/components/effect/basic/index.vue)
 
-#### 5. Enter `PRERENDER_SKELETON` in the browser's `console`
+#### 5. Enter `PRERENDER_PREVIEW` in the browser's `console`
 
 ```sh
- Enter `PRERENDER_SKELETON` in the Chrome console to start the skeleton screen preview
+ Enter `PRERENDER_PREVIEW` in the Chrome console to start the skeleton screen preview
 ```
 
 ## API

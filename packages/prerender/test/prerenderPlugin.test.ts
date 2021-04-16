@@ -1,6 +1,5 @@
 import { merge } from 'lodash'
 import webpack from 'webpack'
-import prerenderPlugin from '../lib/core/prerenderPlugin'
 import WebpackDevServer from 'webpack-dev-server'
 import 'expect-puppeteer'
 import { getFreePort } from '../lib/config'
@@ -11,6 +10,7 @@ const fs = require('fs')
 const OUTPUT_DIR = path.resolve(__dirname, 'output')
 const ENTRY_DIR = path.join(__dirname, 'entry/index.js')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const prerenderPlugin = require('../dist/esm/index')
 
 const WEBPACK_CONFIG_BASE: webpack.Configuration = {
   mode: process.env.NODE_ENV === 'development' ? 'development' : 'production',
@@ -26,7 +26,7 @@ const WEBPACK_CONFIG_BASE: webpack.Configuration = {
     hints: false
   }
 }
-jest.setTimeout(600000)
+jest.setTimeout(60000000)
 process.on('unhandledRejection', r => console.log(r))
 
 function runProductWebpack({
@@ -42,7 +42,6 @@ function runProductWebpack({
   expectErrors?: boolean
   expectWarnings?: boolean
   buildedHandle?: Function
-  devlopHandle?: Function
   done: jest.DoneCallback
 }) {
   const config = merge({}, WEBPACK_CONFIG_BASE, webpackConfig)
@@ -84,8 +83,9 @@ function runProductWebpack({
       expect(htmlContent.length > 0).not.toBeFalsy()
       // Test whether the pre-rendering is successful
       expect(htmlContent).toMatch(/prerender=true/gi)
+
+      buildedHandle()
     }
-    buildedHandle()
     done()
   })
 }
@@ -94,6 +94,8 @@ async function runTestWebpack({
   prerenderPluginConfig = {},
   webpackConfig = {},
   devlopeHandle = () => true,
+  expectErrors = false,
+  expectWarnings = false,
   done
 }: {
   prerenderPluginConfig?: Record<string, any>
@@ -119,7 +121,24 @@ async function runTestWebpack({
   const host = 'http://localhost'
   const port = await getFreePort()
   const url = host + ':' + port
-  const compiler: webpack.Compiler = webpack(config)
+  const compiler: webpack.Compiler = webpack(config, (err: any, stats: any) => {
+    expect(err).toBeFalsy()
+    const compilationErrors = (stats.compilation.errors || []).join('\n')
+    // Check whether there is an error
+    if (expectErrors) {
+      expect(compilationErrors).not.toBe('')
+    } else {
+      expect(compilationErrors).toBe('')
+    }
+    // Check whether there is an warnning
+    const compilationWarnings = (stats.compilation.warnings || []).join('\n')
+    if (expectWarnings) {
+      expect(compilationWarnings).not.toBe('')
+    } else {
+      expect(compilationWarnings).toBe('')
+    }
+  })
+
   const devServerOptions = Object.assign(
     {},
     {
@@ -141,7 +160,7 @@ async function runTestWebpack({
       compiler,
       state
     })
-    done()
+    // done()
   })
 }
 

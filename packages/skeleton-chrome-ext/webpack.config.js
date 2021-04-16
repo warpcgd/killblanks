@@ -1,10 +1,10 @@
-// eslint-disable-next-line
-const { VueLoaderPlugin } = require('vue-loader')
-// eslint-disable-next-line
+
+const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5')
+
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-// eslint-disable-next-line
+
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-// eslint-disable-next-line
+
 const path = require('path')
 
 module.exports = {
@@ -69,7 +69,10 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loaders: 'vue-loader'
+        loaders: 'vue-loader',
+        options: {
+          extractCSS: false
+        }
       },
       {
         test: /\.css$/,

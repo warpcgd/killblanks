@@ -12,10 +12,10 @@
   "scripts": {
     "start": "",
     "build": "yarn run build:sockjs && yarn run build:esm && yarn run build:typings",
-    "dev": "yarn run dev:preview & yarn run dev:sockclientjs",
+    "dev": "yarn run dev:preview && yarn run dev:sockclientjs",
     "dev:sockclientjs": "cross-env NODE_ENV=development webpack ./lib/sock/sock_client.ts --config ./lib/sock/webpack.sockjs.config.ts --mode=development --watch",
-    "dev:preview": "cross-env NODE_ENV=development webpack --config ./preview/webpack.preview.config.js --mode=development --watch",
-    "build:demo": "cross-env NODE_ENV=production webpack --config ./example/vue/webpack.config.js",
+    "dev:preview": "cross-env NODE_ENV=development webpack --config ./preview/webpack.preview.config.js",
+    "build:demo": "cross-env NODE_ENV=production webpack --config ./example/vue/webpack.config.ts",
     "watch": "tsc -w -p ./tsconfig.json",
     "build:umd": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
     "build:esm": "tsc -p ./tsconfig.json",
@@ -30,9 +30,11 @@
   "author": "lixichen<warpcgd@qq.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    "codemirror": "^5.60.0",
     "cross-env": "^7.0.2",
     "css2json": "^1.1.1",
     "deepmerge": "^4.2.2",
+    "element-ui": "^2.15.1",
     "express": "^4.17.1",
     "get-port": "^5.1.1",
     "html-minifier": "^4.0.0",
@@ -53,6 +55,7 @@
     "tree-model": "^1.0.7",
     "typescript": "^3.9.7",
     "vue": "^2.6.11",
+    "vuex": "^3.6.2",
     "webpack-log": "^3.0.1"
   },
   "optionalDependencies": {

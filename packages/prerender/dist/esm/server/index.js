@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const http_1 = tslib_1.__importDefault(require("http"));
 const express_1 = tslib_1.__importDefault(require("express"));
-const fs_1 = tslib_1.__importDefault(require("fs"));
 const index_1 = tslib_1.__importDefault(require("../log/index"));
 const path_1 = tslib_1.__importDefault(require("path"));
 const index_2 = require("../utils/index");
@@ -32,6 +31,7 @@ class Server {
     }
     async initRouters() {
         const { app } = this;
+        console.log(path_1.default.resolve(__dirname, '../', 'preview'));
         if (process.env.NODE_ENV !== 'production') {
             app === null || app === void 0 ? void 0 : app.use('/', express_1.default.static(path_1.default.resolve(__dirname, '../', 'preview')));
         }
@@ -39,10 +39,8 @@ class Server {
             const { outputDir } = this.option;
             app === null || app === void 0 ? void 0 : app.use('/', express_1.default.static(path_1.default.resolve(cwd, outputDir)));
         }
-        app === null || app === void 0 ? void 0 : app.get('/preview.html', async (res) => {
-            // @ts-ignore
-            fs_1.default.createReadStream(path_1.default.resolve(__dirname, '../', 'preview/index.html')).pipe(res);
-        });
+        // app?.get('/preview.html', async (req, res) => {
+        // })
         app === null || app === void 0 ? void 0 : app.get('/:filename', async (req, res) => {
             const { filename } = req.params;
             if (!/prerender\.html$/.test(filename))

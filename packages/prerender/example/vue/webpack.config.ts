@@ -4,10 +4,10 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: path.resolve(__dirname, './index.js'),
+  entry: path.resolve(__dirname, './index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].[fullhash].js',
     publicPath: '/'
   },
   module: {
@@ -55,5 +55,14 @@ module.exports = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin(), new VueLoaderPlugin(), new prerenderPlugin({})]
+  plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, 'index.html'), // 引入模版
+      filename: 'index.html'
+    }),
+    new prerenderPlugin({
+      outputDir: path.resolve(__dirname, 'dist')
+    })
+  ]
 }

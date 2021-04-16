@@ -118,10 +118,10 @@ export default skeletonLoader
 </script>
 ```
 
-### 5. 在浏览器的`console`启用`PRERENDER_SKELETON`
+### 5. 在浏览器的`console`启用`PRERENDER_PREVIEW`
 
 ```sh
-  在Chrome console中输入`PRERENDER_SKELETON`启动骨架屏预览
+  在Chrome console中输入`PRERENDER_PREVIEW`启动骨架屏预览
 ```
 
 ## 性能

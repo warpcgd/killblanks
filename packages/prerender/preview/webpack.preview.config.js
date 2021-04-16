@@ -1,6 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5')
 
 const PATH = {
   app: __dirname,
@@ -15,35 +15,37 @@ module.exports = {
     path: path.join(PATH.build, '../', 'dist/esm/preview')
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      use: {
-        loader: 'babel-loader',
-      },
-      exclude: /node_modules/
-    }, {
-      test: /\.vue$/,
-      loader: 'vue-loader',
-      options: {
-        extractCSS: false
-      }
-    }, {
-      test: /\.css$/,
-      use: [
-        'style-loader',
-        "css-loader"
-      ]
-    }, {
-      test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 5000
+    rules: [
+      {
+        test: /\.ts|js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader'
           }
-        }
-      ]
-    }]
+        ]
+      },
+      {
+        test: /\.vue$/,
+        use: [
+          {
+            loader: 'vue-loader'
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(jpe?g|png|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
+        use: [
+          {
+            loader: 'url-loader'
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new VueLoaderPlugin(),
@@ -53,8 +55,4 @@ module.exports = {
       inject: true
     })
   ]
-}
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.mode = 'production'
 }

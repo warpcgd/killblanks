@@ -34,6 +34,7 @@ class Server {
 
   async initRouters(): Promise<void> {
     const { app } = this
+    console.log(path.resolve(__dirname, '../', 'preview'))
     if (process.env.NODE_ENV !== 'production') {
       app?.use('/', express.static(path.resolve(__dirname, '../', 'preview')))
     } else {
@@ -41,10 +42,9 @@ class Server {
       app?.use('/', express.static(path.resolve(cwd, outputDir as string)))
     }
 
-    app?.get('/preview.html', async res => {
-      // @ts-ignore
-      fs.createReadStream(path.resolve(__dirname, '../', 'preview/index.html')).pipe(res)
-    })
+    // app?.get('/preview.html', async (req, res) => {
+
+    // })
 
     app?.get(
       '/:filename',

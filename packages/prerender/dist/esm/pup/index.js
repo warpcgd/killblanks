@@ -23,7 +23,7 @@ class Puppeteer {
         log_1.default.info('puppeteer has inited');
     }
     async newPage() {
-        var _a, _b, _c, _d;
+        var _a, _b, _c, _d, _e;
         try {
             const page = await ((_a = this.browser) === null || _a === void 0 ? void 0 : _a.newPage());
             const { cookies } = (_b = this === null || this === void 0 ? void 0 : this.option) !== null && _b !== void 0 ? _b : {};
@@ -35,10 +35,10 @@ class Puppeteer {
             }
             const { device } = (_c = this === null || this === void 0 ? void 0 : this.option) !== null && _c !== void 0 ? _c : {};
             const { devices } = puppeteer_1.default;
-            if (device) {
-                await (page === null || page === void 0 ? void 0 : page.emulate(devices[device]));
+            if (device && devices[device]) {
+                await (page === null || page === void 0 ? void 0 : page.emulate((_d = devices === null || devices === void 0 ? void 0 : devices[device]) !== null && _d !== void 0 ? _d : {}));
             }
-            if ((_d = this === null || this === void 0 ? void 0 : this.option) === null || _d === void 0 ? void 0 : _d.debug) {
+            if ((_e = this === null || this === void 0 ? void 0 : this.option) === null || _e === void 0 ? void 0 : _e.debug) {
                 // @ts-ignore
                 page.on('console', (...args) => {
                     log_1.default.info(...args);

@@ -1,7 +1,7 @@
 // eslint-disable-next-line
 const ExtensionReloader = require('webpack-extension-reloader')
 // eslint-disable-next-line
-const { VueLoaderPlugin } = require('vue-loader')
+const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5')
 // eslint-disable-next-line
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // eslint-disable-next-line

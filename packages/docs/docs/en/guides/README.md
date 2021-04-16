@@ -118,7 +118,7 @@ export default skeletonLoader
 </script>
 ```
 
-### 5. Enter `PRERENDER_SKELETON` in the Chrome console to start the skeleton screen preview
+### 5. Enter `PRERENDER_PREVIEW` in the Chrome console to start the skeleton screen preview
 
 ## Performance
 
