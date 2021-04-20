@@ -18,8 +18,7 @@ const config: webpack.Configuration = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new webpack.ids.HashedModuleIdsPlugin()
+    })
   ],
   optimization: {
     minimizer: [new CleanWebpackPlugin()]

@@ -1,6 +1,6 @@
 const path = require('path')
 const prerenderPlugin = require('../../dist/esm/index')
-const VueLoaderPlugin = require('vue-loader/lib/plugin-webpack5')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
