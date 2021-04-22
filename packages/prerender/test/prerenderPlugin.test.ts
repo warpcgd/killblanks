@@ -121,7 +121,7 @@ async function runTestWebpack({
   const host = 'http://localhost'
   const port = await getFreePort()
   const url = host + ':' + port
-  const compiler: webpack.Compiler = webpack(config, (err: any, stats: any) => {
+  const compiler = webpack(config, (err: any, stats: any) => {
     expect(err).toBeFalsy()
     const compilationErrors = (stats.compilation.errors || []).join('\n')
     // Check whether there is an error
@@ -151,7 +151,7 @@ async function runTestWebpack({
   server.listen(port, 'localhost', async () => {
     console.log(`Starting test server on ${url}`)
   })
-  compiler.hooks.done.tapAsync('done', async state => {
+  ;(compiler as webpack.Compiler).hooks.done.tapAsync('done', async state => {
     await page.goto(url)
     await expect(page).toMatchElement('[id="_puppeteer_"]', { timeout: 1000 })
     // @ts-ignore
@@ -160,7 +160,7 @@ async function runTestWebpack({
       compiler,
       state
     })
-    // done()
+    done()
   })
 }
 
