@@ -1,6 +1,5 @@
 import http from 'http'
 import express from 'express'
-import fs from 'fs'
 import log from '../log/index'
 import path from 'path'
 import { getMagicHtml } from '../utils/index'

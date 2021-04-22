@@ -1270,7 +1270,7 @@ var DEFAULTMOD = {
   skipPseudo: true,
   cssUnit: 'px',
   decimal: 4,
-  animation: true,
+  animation: false,
   transition: true
 };
 var AUTOMATICMOD = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, DEFAULTMOD, {
@@ -1354,9 +1354,10 @@ function _backgroundHandler() {
             rule = "{\n    background: ".concat(color, " !important;\n  }");
             Object(_styleCache__WEBPACK_IMPORTED_MODULE_2__["addStyle"])(".".concat(imageClass), rule);
             Object(_styleCache__WEBPACK_IMPORTED_MODULE_2__["shapeStyle"])(shape);
+            Object(_util__WEBPACK_IMPORTED_MODULE_4__["cleanText"])(ele);
             Object(_util__WEBPACK_IMPORTED_MODULE_4__["addClassName"])(ele, [imageClass, shapeClass]);
 
-          case 18:
+          case 19:
           case "end":
             return _context.stop();
         }
@@ -1888,8 +1889,6 @@ function textHandler(ele, _ref2, cssUnit, decimal) {
   if (Number.isNaN(textHeightRatio)) {
     textHeightRatio = 1 / 1.4; // default number
   }
-  /* eslint-disable no-mixed-operators */
-
 
   var firstColorPoint = ((1 - textHeightRatio) / 2 * 100).toFixed(decimal);
   var secondColorPoint = (((1 - textHeightRatio) / 2 + textHeightRatio) * 100).toFixed(decimal);
@@ -1901,8 +1900,7 @@ function textHandler(ele, _ref2, cssUnit, decimal) {
   Object(_styleCache__WEBPACK_IMPORTED_MODULE_1__["addStyle"])(".".concat(className), rule);
   Object(_styleCache__WEBPACK_IMPORTED_MODULE_1__["addStyle"])(".".concat(invariableClassName), invariableRule);
   Object(_util__WEBPACK_IMPORTED_MODULE_0__["addClassName"])(ele, [className, invariableClassName]);
-  /* eslint-enable no-mixed-operators */
-  // add white mask
+  Object(_util__WEBPACK_IMPORTED_MODULE_0__["cleanText"])(ele); // add white mask
 
   if (lineCount > 1) {
     addTextMask(ele, comStyle);
@@ -2077,16 +2075,20 @@ function _traverse() {
               if (ele.children.length > 0 && /UL|OL/.test(ele.tagName) && options.repeatLI) {
                 _handler_index__WEBPACK_IMPORTED_MODULE_6__["list"](ele);
               } // 将所有拥有 textChildNode 子元素的元素的文字颜色设置成背景色，这样就不会在显示文字了。
+              // if (ele.childNodes && Array.from(ele.childNodes).some(n => n.nodeType === Node.TEXT_NODE)) {
+              //   transparent(ele)
+              // }
 
-
-              if (ele.childNodes && Array.from(ele.childNodes).some(function (n) {
-                return n.nodeType === _config__WEBPACK_IMPORTED_MODULE_5__["Node"].TEXT_NODE;
-              })) {
-                Object(_util__WEBPACK_IMPORTED_MODULE_4__["transparent"])(ele);
-              }
 
               if (Object(_util__WEBPACK_IMPORTED_MODULE_4__["checkHasTextDecoration"])(styles)) {
                 ele.style.textDecorationColor = _config__WEBPACK_IMPORTED_MODULE_5__["TRANSPARENT"];
+              } // 先处理子节点
+
+
+              if (ele.children && ele.children.length > 0) {
+                Array.from(ele.children).forEach(function (child) {
+                  return preTraverse(child);
+                });
               } // 隐藏所有 svg 元素
 
 
@@ -2117,12 +2119,6 @@ function _traverse() {
 
               if (ele.childNodes && ele.childNodes.length === 1 && ele.childNodes[0].nodeType === _config__WEBPACK_IMPORTED_MODULE_5__["Node"].TEXT_NODE && /\S/.test((_d = (_c = (_b = ele === null || ele === void 0 ? void 0 : ele.childNodes) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.textContent) !== null && _d !== void 0 ? _d : '')) {
                 return texts.push(ele);
-              }
-
-              if (ele.children && ele.children.length > 0) {
-                Array.from(ele.children).forEach(function (child) {
-                  return preTraverse(child);
-                });
               }
 
               return false;
@@ -2310,7 +2306,7 @@ function _outputSkeleton() {
 
             for (selector in _handler_styleCache__WEBPACK_IMPORTED_MODULE_7__["styleCache"]) {
               if (selector !== '@keyframes skeleton-blink' && selector !== '.skeleton--animate' && selector !== '.skeleton-enter-active' && selector !== '.skeleton-enter, .skeleton-leave-to') {
-                rules += ".".concat(rootHashClass, " ").concat(selector, " ").concat(_handler_styleCache__WEBPACK_IMPORTED_MODULE_7__["styleCache"][selector], "\n");
+                rules += ".".concat(rootHashClass, " ").concat(selector, ", .").concat(rootHashClass).concat(selector, " ").concat(_handler_styleCache__WEBPACK_IMPORTED_MODULE_7__["styleCache"][selector], "\n");
               } else {
                 rules += " ".concat(selector, " ").concat(_handler_styleCache__WEBPACK_IMPORTED_MODULE_7__["styleCache"][selector], "\n");
               }
@@ -2341,7 +2337,7 @@ function _outputSkeleton() {
 /*!*********************!*\
   !*** ./lib/util.ts ***!
   \*********************/
-/*! exports provided: getComputedStyle, $$, $, isBase64Img, setAttributes, inViewPort, checkHasPseudoEle, checkHasBorder, canSkeleton, noSkeleton, getOppositeShape, checkHasTextDecoration, getViewPort, hashCode, injectStyle, px2relativeUtil, getTextWidth, addClassName, setOpacity, transparent, removeElement, emptyElement */
+/*! exports provided: getComputedStyle, $$, $, isBase64Img, setAttributes, inViewPort, checkHasPseudoEle, checkHasBorder, canSkeleton, noSkeleton, getOppositeShape, checkHasTextDecoration, getViewPort, hashCode, injectStyle, px2relativeUtil, getTextWidth, addClassName, setOpacity, transparent, removeElement, emptyElement, byteLength, cleanText */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2368,6 +2364,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "transparent", function() { return transparent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeElement", function() { return removeElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "emptyElement", function() { return emptyElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "byteLength", function() { return byteLength; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanText", function() { return cleanText; });
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ "./lib/config.ts");
 /* harmony import */ var _handler_styleCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./handler/styleCache */ "./lib/handler/styleCache.ts");
 function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
@@ -2573,6 +2571,37 @@ var removeElement = function removeElement(ele) {
 };
 var emptyElement = function emptyElement(ele) {
   ele.innerHTML = '';
+};
+var byteLength = function byteLength(ele) {
+  //获取字符串的字节数，扩展string类型方法
+  var b = 0;
+  var innerText = ele.innerText;
+  var length = ele.innerText.length; //初始化字节数递加变量并获取字符串参数的字符个数
+
+  if (length) {
+    //如果存在字符串，则执行计划
+    for (var i = 0; i < length; i++) {
+      //遍历字符串，枚举每个字符
+      if (innerText.charCodeAt(i) > 255) {
+        //字符编码大于255，说明是双字节字符
+        b += 2; //则累加2个
+      } else {
+        b++; //否则递加一次
+      }
+    }
+
+    return b; //返回字节数
+  } else {
+    return 0; //如果参数为空，则返回0个
+  }
+};
+var cleanText = function cleanText(ele) {
+  var textContent = ele.textContent;
+
+  if (textContent === ele.innerHTML && (textContent === null || textContent === void 0 ? void 0 : textContent.length)) {
+    var length = byteLength(ele);
+    ele.innerHTML = Array(length).fill("&#160;").join('');
+  }
 };
 
 /***/ }),

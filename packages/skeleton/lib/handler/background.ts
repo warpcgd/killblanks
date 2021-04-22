@@ -3,7 +3,7 @@
  */
 import { addStyle, shapeStyle } from './styleCache'
 import { CLASS_NAME_PREFEX, EXT_REG, BASE64, GRADIENT_REG } from '../config'
-import { addClassName, hashCode } from '../util'
+import { addClassName, hashCode, cleanText } from '../util'
 import * as analyze from 'rgbaster'
 async function backgroundHandler(ele: HTMLElement, { color, shape }: ModType['image']) {
   let imageClass = CLASS_NAME_PREFEX + 'image'
@@ -31,7 +31,7 @@ async function backgroundHandler(ele: HTMLElement, { color, shape }: ModType['im
   }`
   addStyle(`.${imageClass}`, rule)
   shapeStyle(shape)
-
+  cleanText(ele)
   addClassName(ele, [imageClass, shapeClass])
 }
 

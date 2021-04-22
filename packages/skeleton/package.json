@@ -22,8 +22,7 @@
     "hashids": "^2.2.2",
     "js-base64": "^3.5.2",
     "lodash": "^4.17.20",
-    "rgbaster": "^2.1.1",
-    "typescript": "^3.9.7"
+    "rgbaster": "^2.1.1"
   },
   "author": "lixichen<warpcgd@qq.com>",
   "license": "Apache-2.0",

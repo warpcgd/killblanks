@@ -19,7 +19,7 @@ export default {
   props: {},
   watch: {
     '$root.$data.store.skeletonInfo': {
-      handler: function (val) {
+      handler: function(val) {
         if (val) {
           this.setCode()
           log('success', 'render skeleton success')
@@ -28,7 +28,7 @@ export default {
       deep: true
     },
     '$root.$data.store.inspectedDomName': {
-      handler: function (val) {
+      handler: function(val) {
         this.setCode()
       }
     }

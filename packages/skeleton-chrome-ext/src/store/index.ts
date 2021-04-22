@@ -3,7 +3,7 @@ interface Store {
     skeletonInfo: any
     inspectedDomName: string
   }
-  setSkeletonInfo: (name:string, data:any) => void
+  setSkeletonInfo: (name: string, data: any) => void
   setInspectedDomName: (name: string) => void
 }
 

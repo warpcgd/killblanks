@@ -19,8 +19,8 @@ export const sendEventToBackground = (
   })
 }
 
-export const getSkeletonClass =  (classList: Array<string>): string => {
-  const skeletonClass = classList.filter((e) => {
+export const getSkeletonClass = (classList: Array<string>): string => {
+  const skeletonClass = classList.filter(e => {
     return /skeleton--\d+/gi.test(e)
   })
   if (skeletonClass && skeletonClass.length) {
@@ -72,8 +72,9 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
       }
     },
     render(h, context) {
-      ${DEFAULTMOD.transition ?
-    `const output = creatSkeleton(h, context)
+      ${
+        DEFAULTMOD.transition
+          ? `const output = creatSkeleton(h, context)
       return h(
         'transition',
         {
@@ -85,7 +86,9 @@ export function renderVueTemplate(styles: string, cleanedHtml: string): string {
         },
         [output]
       )
-    }`: 'return h(output)'}
+    }`
+          : 'return h(output)'
+      }
   }
   export default skeletonLoader
   </script>

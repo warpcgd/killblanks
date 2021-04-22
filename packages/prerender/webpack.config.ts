@@ -1,6 +1,7 @@
-const path = require('path')
-const { merge } = require('webpack-merge')
-const base = require('../../build/webpack.base.ts')
+import path from 'path'
+import { merge } from 'webpack-merge'
+import base from '../../build/webpack.base'
+
 module.exports = merge(base, {
   entry: path.resolve(__dirname, 'lib', 'index.ts'),
   output: {

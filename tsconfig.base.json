@@ -11,6 +11,7 @@
     "alwaysStrict": true,
     "sourceMap": false,
     "strict": true,
+    "strictFunctionTypes": false,
     "noEmitHelpers": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,

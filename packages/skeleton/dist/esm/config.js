@@ -54,7 +54,7 @@ export const DEFAULTMOD = {
     skipPseudo: true,
     cssUnit: 'px',
     decimal: 4,
-    animation: true,
+    animation: false,
     transition: true
 };
 export const AUTOMATICMOD = Merge({}, DEFAULTMOD, {

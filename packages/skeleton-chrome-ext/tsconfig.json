@@ -35,10 +35,10 @@
     "src/**/*.tsx",
     "tests/**/*.ts",
     "tests/**/*.tsx",
+    "src/**/*.vue",
     "../../typings/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "src/**/*.vue"
+    "node_modules"
   ]
 }

@@ -1095,7 +1095,7 @@ html-minifier@^4.0.0:
     relateurl "^0.2.7"
     uglify-js "^3.5.1"
 
-html-webpack-plugin@4.5.2:
+html-webpack-plugin@^4.5.2:
   version "4.5.2"
   resolved "http://npm-registry.duowan.com/html-webpack-plugin/download/html-webpack-plugin-4.5.2.tgz#76fc83fa1a0f12dd5f7da0404a54e2699666bc12"
   integrity sha1-dvyD+hoPEt1ffaBASlTiaZZmvBI=

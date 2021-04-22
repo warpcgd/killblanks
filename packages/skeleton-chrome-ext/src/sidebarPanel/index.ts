@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ViewUI from 'view-design'
-import { store } from '../store/index';
+import { store } from '../store/index'
 
 import 'view-design/dist/styles/iview.css'
 import { log } from './log/index'
@@ -11,11 +11,12 @@ Vue.config.ignoredElements = [/^ion-/]
 Vue.use(ViewUI)
 
 window.$app = new Vue({
+  el: '#app',
   render: h => h(App),
   data: {
     store: store.state
   }
-}).$mount('#app')
+})
 
 window.Vue = Vue
 

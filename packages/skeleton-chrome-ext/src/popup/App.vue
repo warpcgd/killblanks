@@ -1,30 +1,25 @@
 <template>
-    <div id="popup">
-        <div class="header">
-            <h1>タイトル</h1>
-            <p>Ver 1.0.0</p>
-        </div>
+  <div id="popup">
+    <div class="header">
+      <h1>skeleton-chrome-ext</h1>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from 'vue'
+import { Component } from "vue-property-decorator"
 
+@Component({
+  components: {}
+})
 export default class App extends Vue {}
 </script>
 
 <style lang="scss" scoped>
-
 #popup {
-    width: 560px;
-    height: auto;
-    margin: 5px;
+  width: 560px;
+  height: auto;
+  margin: 5px;
 }
-
-#popup h1{
-    font-size: 24px;
-    color: #ff3860;
-    font-weight: bold;
-}
-
 </style>

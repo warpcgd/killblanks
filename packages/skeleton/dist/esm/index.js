@@ -1,4 +1,4 @@
-import { $$, $, getComputedStyle, checkHasPseudoEle, inViewPort, checkHasBorder, isBase64Img, transparent, checkHasTextDecoration, removeElement, setOpacity, noSkeleton, injectStyle } from './util';
+import { $$, $, getComputedStyle, checkHasPseudoEle, inViewPort, checkHasBorder, isBase64Img, checkHasTextDecoration, removeElement, setOpacity, noSkeleton, injectStyle } from './util';
 import { DISPLAY_NONE, Node, EXT_REG, TRANSPARENT, GRADIENT_REG, MOCK_TEXT_ID, CONSOLE_SELECTOR, BASE64, AUTOMATICMOD, DEFAULTMOD } from './config';
 import * as handler from './handler/index';
 import { styleCache, clearCache } from './handler/styleCache';
@@ -59,11 +59,15 @@ async function traverse(options, element = document.documentElement) {
             handler.list(ele);
         }
         // 将所有拥有 textChildNode 子元素的元素的文字颜色设置成背景色，这样就不会在显示文字了。
-        if (ele.childNodes && Array.from(ele.childNodes).some(n => n.nodeType === Node.TEXT_NODE)) {
-            transparent(ele);
-        }
+        // if (ele.childNodes && Array.from(ele.childNodes).some(n => n.nodeType === Node.TEXT_NODE)) {
+        //   transparent(ele)
+        // }
         if (checkHasTextDecoration(styles)) {
             ele.style.textDecorationColor = TRANSPARENT;
+        }
+        // 先处理子节点
+        if (ele.children && ele.children.length > 0) {
+            Array.from(ele.children).forEach(child => preTraverse(child));
         }
         // 隐藏所有 svg 元素
         if (ele.tagName === 'svg') {
@@ -94,9 +98,6 @@ async function traverse(options, element = document.documentElement) {
             ele.childNodes[0].nodeType === Node.TEXT_NODE &&
             /\S/.test((_d = (_c = (_b = ele === null || ele === void 0 ? void 0 : ele.childNodes) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.textContent) !== null && _d !== void 0 ? _d : '')) {
             return texts.push(ele);
-        }
-        if (ele.children && ele.children.length > 0) {
-            Array.from(ele.children).forEach(child => preTraverse(child));
         }
         return false;
     })(rootElement);
@@ -186,7 +187,7 @@ async function outputSkeleton(element, options = DEFAULTMOD) {
             selector !== '.skeleton--animate' &&
             selector !== '.skeleton-enter-active' &&
             selector !== '.skeleton-enter, .skeleton-leave-to') {
-            rules += `.${rootHashClass} ${selector} ${styleCache[selector]}\n`;
+            rules += `.${rootHashClass} ${selector}, .${rootHashClass}${selector} ${styleCache[selector]}\n`;
         }
         else {
             rules += ` ${selector} ${styleCache[selector]}\n`;

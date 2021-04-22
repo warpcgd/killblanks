@@ -3,7 +3,9 @@
     <div class="logo">
       <img :src="logoSrc" alt />
     </div>
-    <p class="title">{{ name }}<span class="verstion">v:{{ version }}</span></p>
+    <p class="title">
+      {{ name }}<span class="verstion">v:{{ version }}</span>
+    </p>
     <div class="panel-bar">
       <Menu mode="horizontal" active-name="htmlEdit" @on-select="onSelectPanel">
         <MenuItem name="htmlEdit">

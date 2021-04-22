@@ -3,7 +3,7 @@
  */
 import { addStyle, shapeStyle } from './styleCache';
 import { CLASS_NAME_PREFEX, EXT_REG, BASE64, GRADIENT_REG } from '../config';
-import { addClassName, hashCode } from '../util';
+import { addClassName, hashCode, cleanText } from '../util';
 import * as analyze from 'rgbaster';
 async function backgroundHandler(ele, { color, shape }) {
     let imageClass = CLASS_NAME_PREFEX + 'image';
@@ -31,6 +31,7 @@ async function backgroundHandler(ele, { color, shape }) {
   }`;
     addStyle(`.${imageClass}`, rule);
     shapeStyle(shape);
+    cleanText(ele);
     addClassName(ele, [imageClass, shapeClass]);
 }
 export default backgroundHandler;

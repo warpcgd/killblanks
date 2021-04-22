@@ -104,13 +104,18 @@ async function traverse(options: ModType, element: HTMLElement = document.docume
     }
 
     // 将所有拥有 textChildNode 子元素的元素的文字颜色设置成背景色，这样就不会在显示文字了。
-    if (ele.childNodes && Array.from(ele.childNodes).some(n => n.nodeType === Node.TEXT_NODE)) {
-      transparent(ele)
-    }
+    // if (ele.childNodes && Array.from(ele.childNodes).some(n => n.nodeType === Node.TEXT_NODE)) {
+    //   transparent(ele)
+    // }
 
     if (checkHasTextDecoration(styles)) {
       ele.style.textDecorationColor = TRANSPARENT
     }
+    // 先处理子节点
+    if (ele.children && ele.children.length > 0) {
+      Array.from(ele.children).forEach(child => preTraverse(child as HTMLElement))
+    }
+
     // 隐藏所有 svg 元素
     if (ele.tagName === 'svg') {
       return svgs.push(ele)
@@ -148,10 +153,6 @@ async function traverse(options: ModType, element: HTMLElement = document.docume
       /\S/.test(ele?.childNodes?.[0]?.textContent ?? '')
     ) {
       return texts.push(ele)
-    }
-
-    if (ele.children && ele.children.length > 0) {
-      Array.from(ele.children).forEach(child => preTraverse(child as HTMLElement))
     }
     return false
   })(rootElement)
@@ -257,7 +258,7 @@ async function outputSkeleton(element: HTMLElement, options: ModType | string = 
       selector !== '.skeleton-enter-active' &&
       selector !== '.skeleton-enter, .skeleton-leave-to'
     ) {
-      rules += `.${rootHashClass} ${selector} ${styleCache[selector]}\n`
+      rules += `.${rootHashClass} ${selector}, .${rootHashClass}${selector} ${styleCache[selector]}\n`
     } else {
       rules += ` ${selector} ${styleCache[selector]}\n`
     }

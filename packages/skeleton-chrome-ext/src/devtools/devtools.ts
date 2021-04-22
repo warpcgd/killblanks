@@ -1,3 +1,5 @@
+// <reference types="chrome"/>
+
 const devtools = '../sidebarPanel/index.html'
 const browser = chrome
 

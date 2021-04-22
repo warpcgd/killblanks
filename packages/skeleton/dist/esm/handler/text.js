@@ -1,4 +1,4 @@
-import { getComputedStyle, px2relativeUtil, getTextWidth, setOpacity, addClassName } from '../util';
+import { getComputedStyle, px2relativeUtil, getTextWidth, setOpacity, addClassName, cleanText } from '../util';
 import { addStyle } from './styleCache';
 import { CLASS_NAME_PREFEX } from '../config';
 function addTextMask(paragraph, { textAlign, lineHeight, paddingBottom, paddingLeft, paddingRight }, maskWidthPercent = 0.5) {
@@ -74,7 +74,6 @@ function textHandler(ele, { color }, cssUnit, decimal) {
     if (Number.isNaN(textHeightRatio)) {
         textHeightRatio = 1 / 1.4; // default number
     }
-    /* eslint-disable no-mixed-operators */
     const firstColorPoint = (((1 - textHeightRatio) / 2) * 100).toFixed(decimal);
     const secondColorPoint = (((1 - textHeightRatio) / 2 + textHeightRatio) * 100).toFixed(decimal);
     const backgroundSize = `100% ${px2relativeUtil(lineHeight, cssUnit, decimal)}`;
@@ -95,7 +94,7 @@ function textHandler(ele, { color }, cssUnit, decimal) {
     addStyle(`.${className}`, rule);
     addStyle(`.${invariableClassName}`, invariableRule);
     addClassName(ele, [className, invariableClassName]);
-    /* eslint-enable no-mixed-operators */
+    cleanText(ele);
     // add white mask
     if (lineCount > 1) {
         addTextMask(ele, comStyle);
