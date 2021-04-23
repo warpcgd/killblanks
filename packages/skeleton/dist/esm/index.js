@@ -1,4 +1,6 @@
-import { $$, $, getComputedStyle, checkHasPseudoEle, inViewPort, checkHasBorder, isBase64Img, checkHasTextDecoration, removeElement, setOpacity, noSkeleton, injectStyle } from './util';
+import { $$, $, getComputedStyle, checkHasPseudoEle, inViewPort, checkHasBorder, isBase64Img, 
+// transparent,
+checkHasTextDecoration, removeElement, setOpacity, noSkeleton, injectStyle } from './util';
 import { DISPLAY_NONE, Node, EXT_REG, TRANSPARENT, GRADIENT_REG, MOCK_TEXT_ID, CONSOLE_SELECTOR, BASE64, AUTOMATICMOD, DEFAULTMOD } from './config';
 import * as handler from './handler/index';
 import { styleCache, clearCache } from './handler/styleCache';

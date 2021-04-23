@@ -35,10 +35,10 @@ class Puppeteer {
         // 插入变量
         await this.injectProperty(page)
       }
-      const { device } = this?.option ?? {}
+      const { device } = this.option as Options
       const { devices } = puppeteer
       if (device && devices[device]) {
-        await page?.emulate(devices?.[device] ?? {})
+        await page?.emulate(devices[device])
       }
 
       if (this?.option?.debug) {

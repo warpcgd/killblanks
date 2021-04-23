@@ -8,43 +8,45 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
 import { sendEventToBackground } from './util'
 import { DEFAULTMOD } from '@killblanks/skeleton'
-import htmlEdit from './htmlEdit/index'
-import vueTemplateEdit from './vueTemplateEdit/index'
-import topBar from './topBar/index'
-import toolBar from './toolBar/index'
-import toolEdit from './toolEdit/index'
-export default {
-  data() {
-    return {
-      type: 'htmlEdit'
-    }
-  },
+import htmlEdit from './htmlEdit/index.vue'
+import vueTemplateEdit from './vueTemplateEdit/index.vue'
+import topBar from './topBar/index.vue'
+import toolBar from './toolBar/index.vue'
+import toolEdit from './toolEdit/index.vue'
+
+@Component({
   components: {
     htmlEdit,
     vueTemplateEdit,
     topBar,
     toolBar,
     toolEdit
-  },
-  methods: {
-    runSkeleton() {
-      sendEventToBackground('_OUTPUT_SKELETON_', DEFAULTMOD)
-    },
-    refresh() {
-      sendEventToBackground('_REFRESH_SKELETON_', {})
-    },
-    goBack() {
-      sendEventToBackground('_GO_BACK_SKELETON_', {})
-    },
-    changePanel(type) {
-      this.type = type
-    },
-    runTool(type) {
-      this[type] && this[type]()
-    }
+  }
+})
+export default class App extends Vue {
+  type = 'htmlEdit'
+
+  runSkeleton() {
+    sendEventToBackground('_OUTPUT_SKELETON_', DEFAULTMOD)
+  }
+  refresh() {
+    sendEventToBackground('_REFRESH_SKELETON_', {})
+  }
+  goBack() {
+    sendEventToBackground('_GO_BACK_SKELETON_', {})
+  }
+
+  changePanel(type: string) {
+    this.type = type
+  }
+
+  runTool(type: 'runSkeleton' | 'refresh' | 'goBack') {
+    this[type] && this[type]()
   }
 }
 </script>

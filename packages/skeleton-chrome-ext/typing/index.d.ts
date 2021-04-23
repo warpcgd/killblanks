@@ -1,5 +1,7 @@
-
-
+declare module '*.vue' {
+  import Vue from 'vue'
+  export default Vue
+}
 interface domInspectorOptions {
   root?: HTMLElement | string
   exclude?: HTMLElement[] | string[]

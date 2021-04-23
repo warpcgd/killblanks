@@ -1,6 +1,6 @@
 {
   "name": "@killblanks/prerender",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "prerender the HTML",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
@@ -17,7 +17,7 @@
     "dev:preview": "cross-env NODE_ENV=development webpack --config ./preview/webpack.preview.config.js",
     "build:demo": "cross-env NODE_ENV=production webpack --config ./example/vue/webpack.config.ts",
     "watch": "tsc -w -p ./tsconfig.json",
-    "build:umd": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
+    "build:umd": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
     "build:esm": "tsc -p ./tsconfig.json",
     "build:typings": "tsc --p ./tsconfig.typings.json",
     "build:sockjs": "cross-env NODE_ENV=production webpack ./lib/sock/sock_client.ts --config ./lib/sock/webpack.sockjs.config.ts",
@@ -52,7 +52,6 @@
     "tiza": "^2.2.1",
     "traverse": "^0.6.6",
     "tree-model": "^1.0.7",
-    "typescript": "^3.9.7",
     "vue": "^2.6.11",
     "vuex": "^3.6.2",
     "webpack-log": "^3.0.1"

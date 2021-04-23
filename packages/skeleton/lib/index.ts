@@ -6,7 +6,7 @@ import {
   inViewPort,
   checkHasBorder,
   isBase64Img,
-  transparent,
+  // transparent,
   checkHasTextDecoration,
   removeElement,
   setOpacity,

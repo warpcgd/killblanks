@@ -3,6 +3,8 @@
     "module": "commonjs",
     "target": "es6",
     "esModuleInterop": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "strictFunctionTypes": false
   }
 }

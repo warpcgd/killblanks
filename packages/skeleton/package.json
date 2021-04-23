@@ -1,6 +1,6 @@
 {
   "name": "@killblanks/skeleton",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "skeleton",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
@@ -13,7 +13,7 @@
   "scripts": {
     "watch": "tsc -w -p ./tsconfig.json",
     "dev": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts --mode=development --watch ",
-    "build:umd": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
+    "build:umd": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
     "build:esm": "tsc -p ./tsconfig.json",
     "build:typings": "tsc -p ./tsconfig.typings.json",
     "build": "npm run build:umd && npm run build:esm && npm run build:typings"
@@ -26,9 +26,6 @@
   },
   "author": "lixichen<warpcgd@qq.com>",
   "license": "Apache-2.0",
-  "devDependencies": {
-    "typescript": "^3.9.7"
-  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",

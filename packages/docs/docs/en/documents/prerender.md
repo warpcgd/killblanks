@@ -73,7 +73,7 @@ Set the debugger mode, an error will be thrown when puppeteer is executed
 
 ### requestHandle
 
-- Types：`requestHandle(request:puppeteer.Request, option: Options): Promise<void>`
+- Types：`requestHandle(request:Function, option: Options): Promise<void>`
 
 When `puppeteer` loads HTML, all requested `intercept hook` functions must return `request.continue()`
 

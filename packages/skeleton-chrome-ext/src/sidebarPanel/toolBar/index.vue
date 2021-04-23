@@ -20,15 +20,15 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {}
-  },
-  methods: {
-    onClickTool(type) {
-      this.$emit('run-tool', type)
-    }
+
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+@Component
+export default class topBar extends Vue {
+  onClickTool(type: string) {
+    this.$emit('run-tool', type)
   }
 }
 </script>

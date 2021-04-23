@@ -1,7 +1,7 @@
 <template>
   <div class="skeleton-top-bar">
     <div class="logo">
-      <img :src="logoSrc" alt />
+      <img :src="logo" alt />
     </div>
     <p class="title">
       {{ name }}<span class="verstion">v:{{ version }}</span>
@@ -21,21 +21,31 @@
     </div>
   </div>
 </template>
-<script>
-import logo from '../../icons/128.png'
-import manifest from '../../../manifest.json'
-export default {
-  data() {
-    return {
-      logoSrc: logo,
-      version: manifest.version,
-      name: manifest.name
-    }
-  },
-  methods: {
-    onSelectPanel(name) {
-      this.$emit('change-panel', name)
-    }
+
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+@Component
+export default class topBar extends Vue {
+  onSelectPanel(name: string) {
+    this.$emit('change-panel', name)
+  }
+
+  get logo () {
+    return require('../../icons/128.png')
+  }
+
+  get manifest() {
+    return require('../../../manifest.json')
+  }
+
+  get version() {
+    return this.manifest.version
+  }
+
+  get name() {
+    return this.manifest.name
   }
 }
 </script>

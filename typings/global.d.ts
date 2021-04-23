@@ -194,7 +194,7 @@ interface Options {
    *   }
    * ```
    */
-  requestHandle?: null | ((req: import('puppeteer').Request, option: Options) => Promise<void>)
+  requestHandle?: null | ((req: Function, option: Options) => Promise<void>)
 
   /**
    * 设置webpack output输出文件路径
@@ -260,7 +260,7 @@ interface Options {
    *  }]
    * ```
    */
-  cookies?: import('puppeteer').SetCookie[] | Function
+  cookies?: Function
 }
 
 /**

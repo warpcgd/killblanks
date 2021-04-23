@@ -23,7 +23,7 @@ class Puppeteer {
         log_1.default.info('puppeteer has inited');
     }
     async newPage() {
-        var _a, _b, _c, _d, _e;
+        var _a, _b, _c;
         try {
             const page = await ((_a = this.browser) === null || _a === void 0 ? void 0 : _a.newPage());
             const { cookies } = (_b = this === null || this === void 0 ? void 0 : this.option) !== null && _b !== void 0 ? _b : {};
@@ -33,12 +33,12 @@ class Puppeteer {
                 // 插入变量
                 await this.injectProperty(page);
             }
-            const { device } = (_c = this === null || this === void 0 ? void 0 : this.option) !== null && _c !== void 0 ? _c : {};
+            const { device } = this.option;
             const { devices } = puppeteer_1.default;
             if (device && devices[device]) {
-                await (page === null || page === void 0 ? void 0 : page.emulate((_d = devices === null || devices === void 0 ? void 0 : devices[device]) !== null && _d !== void 0 ? _d : {}));
+                await (page === null || page === void 0 ? void 0 : page.emulate(devices[device]));
             }
-            if ((_e = this === null || this === void 0 ? void 0 : this.option) === null || _e === void 0 ? void 0 : _e.debug) {
+            if ((_c = this === null || this === void 0 ? void 0 : this.option) === null || _c === void 0 ? void 0 : _c.debug) {
                 // @ts-ignore
                 page.on('console', (...args) => {
                     log_1.default.info(...args);

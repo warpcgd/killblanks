@@ -2,7 +2,7 @@ import path from 'path'
 import webpack from 'webpack'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 const ROOT = path.dirname(__dirname)
 
 const config: webpack.Configuration = {
@@ -21,7 +21,7 @@ const config: webpack.Configuration = {
     })
   ],
   optimization: {
-    minimizer: [new CleanWebpackPlugin()]
+    minimizer: [new CleanWebpackPlugin(), new UglifyJsPlugin()]
   },
   externals: {
     fsevents: "require('fsevents')"

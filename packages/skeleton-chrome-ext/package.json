@@ -2,8 +2,8 @@
   "name": "@killblanks/skeleton-chrome-ext",
   "version": "1.0.3",
   "scripts": {
-    "dev": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" NODE_ENV=development webpack --config webpack.config.ts --mode=development --watch ",
-    "build": "cross-env TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" NODE_ENV=production webpack --config webpack.config.ts --mode=production",
+    "dev": "cross-env NODE_ENV=development TS_NODE_PROJECT=\"../../tsconfig.webpack.json\"  webpack --config webpack.config.ts --mode=development --watch ",
+    "build": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config webpack.config.ts",
     "zip": "run(){ zip -r -X releases/skeleton-chrome-ext-1.0.3.zip dist; }; run"
   },
   "license": "Apache-2.0",

@@ -70,7 +70,7 @@ sidebarDepth: 3
 
 ### requestHandle
 
-- 类型：`requestHandle(request:puppeteer.Request, option: Options): Promise<void>`
+- 类型：`requestHandle(request:Function, option: Options): Promise<void>`
 
 `puppeteer`在加载HTML时，所有请求的`拦截钩子`函数，必须返回`request.continue()`
 

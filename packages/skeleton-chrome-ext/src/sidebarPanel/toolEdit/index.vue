@@ -122,14 +122,15 @@
     </Row>
   </div>
 </template>
-<script>
+
+<script lang="ts">
 import { DEFAULTMOD } from '@killblanks/skeleton'
-export default {
-  data() {
-    return {
-      mod: DEFAULTMOD
-    }
-  }
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+@Component
+export default class toolEdit extends Vue {
+  mod = DEFAULTMOD
 }
 </script>
 <style lang="scss">
