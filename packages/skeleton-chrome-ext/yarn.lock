@@ -2,17 +2,6 @@
 # yarn lockfile v1
 
 
-"@killblanks/skeleton@^1.0.0":
-  version "1.0.2"
-  resolved "http://npm-registry.duowan.com/@killblanks/skeleton/download/@killblanks/skeleton-1.0.2.tgz#6b9856fad6727e3478da7d27a32d68476eca3cd4"
-  integrity sha1-a5hW+tZyfjR42n0noy1oR27KPNQ=
-  dependencies:
-    hashids "^2.2.2"
-    js-base64 "^3.5.2"
-    lodash "^4.17.20"
-    rgbaster "^2.1.1"
-    typescript "^3.9.7"
-
 anymatch@^1.3.0:
   version "1.3.2"
   resolved "http://npm-registry.duowan.com/anymatch/download/anymatch-1.3.2.tgz#553dcb8f91e3c889845dfdba34c77721b90b9d7a"
@@ -559,11 +548,6 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-hashids@^2.2.2:
-  version "2.2.8"
-  resolved "http://npm-registry.duowan.com/hashids/download/hashids-2.2.8.tgz#d1e4e1be48e711ad6e5f27b32c37c399d5eeb5b4"
-  integrity sha1-0eThvkjnEa1uXyezLDfDmdXutbQ=
-
 inflight@^1.0.4:
   version "1.0.6"
   resolved "http://npm-registry.duowan.com/inflight/download/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -736,11 +720,6 @@ isobject@^3.0.0, isobject@^3.0.1:
   resolved "http://npm-registry.duowan.com/isobject/download/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
   integrity sha1-TkMekrEalzFjaqH5yNHMvP2reN8=
 
-js-base64@^3.5.2:
-  version "3.6.0"
-  resolved "http://npm-registry.duowan.com/js-base64/download/js-base64-3.6.0.tgz#773e1de628f4f298d65a7e9842c50244751f5756"
-  integrity sha1-dz4d5ij08pjWWn6YQsUCRHUfV1Y=
-
 js-calendar@^1.2.3:
   version "1.2.3"
   resolved "http://npm-registry.duowan.com/js-calendar/download/js-calendar-1.2.3.tgz#a583b0644b4e695ba394f344d103dbcc7a7a7d3e"
@@ -774,11 +753,6 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "http://npm-registry.duowan.com/lodash.throttle/download/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
-
-lodash@^4.17.20:
-  version "4.17.21"
-  resolved "http://npm-registry.duowan.com/lodash/download/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
-  integrity sha1-Z5WRxWTDv/quhFTPCz3zcMPWkRw=
 
 map-cache@^0.2.2:
   version "0.2.2"
@@ -1068,11 +1042,6 @@ ret@~0.1.10:
   resolved "http://npm-registry.duowan.com/ret/download/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha1-uKSCXVvbH8P29Twrwz+BOIaBx7w=
 
-rgbaster@^2.1.1:
-  version "2.1.1"
-  resolved "http://npm-registry.duowan.com/rgbaster/download/rgbaster-2.1.1.tgz#d83c0801ffd8887c0a96b0d2b756fc7e1fd68614"
-  integrity sha1-2DwIAf/YiHwKlrDSt1b8fh/WhhQ=
-
 safe-buffer@^5.0.1:
   version "5.2.1"
   resolved "http://npm-registry.duowan.com/safe-buffer/download/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
@@ -1214,11 +1183,6 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     extend-shallow "^3.0.2"
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
-
-typescript@^3.9.7:
-  version "3.9.9"
-  resolved "http://npm-registry.duowan.com/typescript/download/typescript-3.9.9.tgz#e69905c54bc0681d0518bd4d587cc6f2d0b1a674"
-  integrity sha1-5pkFxUvAaB0FGL1NWHzG8tCxpnQ=
 
 union-value@^1.0.0:
   version "1.0.1"

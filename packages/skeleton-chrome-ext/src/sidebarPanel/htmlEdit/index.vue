@@ -4,28 +4,21 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import codeMirror from '../codeMirror'
 import { log } from '../log'
 import { renderHtml } from '../util'
 import Vue from 'vue'
 import { Component, Watch } from 'vue-property-decorator'
 
-
 @Component
 export default class htmlEdit extends Vue {
-  data() {
-    return {
-      editor: null
-    }
-  }
+  editor: CodeMirror.Editor | null = null
 
   @Watch('$root.$data.store.skeletonInfo')
-  handler (val) {
-    if (val) {
-      this.setCode()
-      log('success', 'render skeleton success')
-    }
+  change() {
+    this.setCode()
+    log('success', 'render skeleton success')
   }
 
   @Watch('$root.$data.store.inspectedDomName')
@@ -62,7 +55,7 @@ export default class htmlEdit extends Vue {
       lineWrapping: true,
       styleActiveLine: true
     }
-    this.editor = codeMirror(container, codeMirrorConfig)
+    this.editor = codeMirror(container as HTMLElement, codeMirrorConfig)
   }
 }
 </script>

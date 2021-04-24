@@ -28,12 +28,7 @@ const plugins = [
       },
       {
         context: 'src/assets',
-        from: '*.png',
-        to: path.resolve(__dirname, 'dist', 'assets')
-      },
-      {
-        context: 'src/assets',
-        from: '*.gif',
+        from: '*.svg',
         to: path.resolve(__dirname, 'dist', 'assets')
       }
     ]
