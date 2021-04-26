@@ -106,11 +106,12 @@ class Render {
       const { outputDir, entryPath, outPutPath, host, port } = this.option as Options
       // 开启一个新页面
       const page = await PUPPETEER.newPage()
+      await page?.setDefaultNavigationTimeout(0)
       const langPath = lang && lang.length ? `?lang=${lang}` : ''
       const url = `http://${host}:${port}/${entryPath}.html${langPath}`
       log.info(`page goto ${url}`)
       // 请求目标页面
-      await page?.goto(url, { waitUntil: 'networkidle0' })
+      await page?.goto(url, { waitUntil: 'domcontentloaded' })
       await this.waitForRender(page as puppeteer.Page)
       // 得到目标源码并处理
       const { rawHtml } = await this.getCleanHtmlAndStyle(page as puppeteer.Page, 'true')
