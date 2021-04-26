@@ -1,6 +1,6 @@
 {
   "name": "@killblanks/prerender",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "prerender the HTML",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
@@ -11,10 +11,11 @@
   ],
   "scripts": {
     "start": "",
-    "build": "yarn run build:sockjs && yarn run build:esm && yarn run build:typings",
+    "build": "yarn run build:sockjs && yarn run build:preview && yarn run build:esm && yarn run build:typings",
     "dev": "yarn run dev:preview && yarn run dev:sockclientjs",
     "dev:sockclientjs": "cross-env NODE_ENV=development webpack ./lib/sock/sock_client.ts --config ./lib/sock/webpack.sockjs.config.ts --mode=development --watch",
     "dev:preview": "cross-env NODE_ENV=development webpack --config ./preview/webpack.preview.config.js",
+    "dev:demo": "cross-env NODE_ENV=development webpack --config ./example/vue/webpack.config.ts",
     "build:demo": "cross-env NODE_ENV=production webpack --config ./example/vue/webpack.config.ts",
     "watch": "tsc -w -p ./tsconfig.json",
     "build:umd": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",

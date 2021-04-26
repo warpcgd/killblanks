@@ -2,13 +2,20 @@ const path = require('path')
 const prerenderPlugin = require('../../dist/esm/index')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
   entry: path.resolve(__dirname, './index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[fullhash].js',
+    filename: '[name].[contenthash].js',
     publicPath: '/'
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    open: true,
+    port: 9000
   },
   module: {
     rules: [
@@ -51,7 +58,11 @@ module.exports = {
       {
         // webpack5 内置了 asset 模块, 用来代替 file-loader & url-loader & raw-loader 处理静态资源
         test: /\.png|jpg|gif|jpeg|svg/,
-        type: 'asset'
+        use: [
+          {
+            loader: 'url-loader'
+          }
+        ]
       }
     ]
   },
@@ -63,6 +74,7 @@ module.exports = {
     }),
     new prerenderPlugin({
       outputDir: path.resolve(__dirname, 'dist')
-    })
+    }),
+    new CleanWebpackPlugin()
   ]
 }

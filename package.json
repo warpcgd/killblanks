@@ -1,6 +1,6 @@
 {
   "name": "killblanks",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "prerender + skeletonScreen A solution to the white screen of the page",
   "scripts": {
     "start": "",
