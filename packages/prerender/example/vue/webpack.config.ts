@@ -73,7 +73,8 @@ module.exports = {
       filename: 'index.html'
     }),
     new prerenderPlugin({
-      outputDir: path.resolve(__dirname, 'dist')
+      outputDir: path.resolve(__dirname, 'dist'),
+      langs: ['en', 'zh']
     }),
     new CleanWebpackPlugin()
   ]

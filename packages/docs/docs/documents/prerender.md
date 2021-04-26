@@ -153,7 +153,7 @@ if (window.__PRERENDER_INJECTED__) {
   // 你可以在mouted事件中，派发事件
   ...
     mounted() {
-      document.dispatchevent(new CustomerEvent('prerender-skeleton'))
+      document.dispatchEvent(new CustomEvent('prerender-skeleton'))
     }
   ...
 ```

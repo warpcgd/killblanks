@@ -157,7 +157,7 @@ Set `puppeteer` to get the event when the HTML source code is available. If the 
   // You can dispatch the event in the mouted event
   ...
     mounted() {
-      document.dispatchevent(new CustomerEvent('prerender-skeleton'))
+      document.dispatchEvent(new CustomEvent('prerender-skeleton'))
     }
   ...
 ```
