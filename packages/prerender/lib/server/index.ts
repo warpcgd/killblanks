@@ -33,7 +33,6 @@ class Server {
 
   async initRouters(): Promise<void> {
     const { app } = this
-    console.log(path.resolve(__dirname, '../', 'preview'))
     if (process.env.NODE_ENV !== 'production') {
       app?.use('/', express.static(path.resolve(__dirname, '../', 'preview')))
     } else {

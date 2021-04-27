@@ -99,13 +99,14 @@ class Render {
             const { outputDir, entryPath, outPutPath, host, port } = this.option;
             // 开启一个新页面
             const page = await init_1.PUPPETEER.newPage();
-            await (page === null || page === void 0 ? void 0 : page.setDefaultNavigationTimeout(0));
             const langPath = lang && lang.length ? `?lang=${lang}` : '';
             const url = `http://${host}:${port}/${entryPath}.html${langPath}`;
             log_1.default.info(`page goto ${url}`);
-            // 请求目标页面
-            await (page === null || page === void 0 ? void 0 : page.goto(url, { waitUntil: 'domcontentloaded' }));
-            await this.waitForRender(page);
+            // 请求目标页面find langs
+            await (page === null || page === void 0 ? void 0 : page.goto(url, { waitUntil: 'networkidle0' }));
+            if (page) {
+                await this.waitForRender(page);
+            }
             // 得到目标源码并处理
             const { rawHtml } = await this.getCleanHtmlAndStyle(page, 'true');
             // 压缩源码

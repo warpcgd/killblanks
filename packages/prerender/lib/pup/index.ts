@@ -17,6 +17,7 @@ class Puppeteer {
     if (process.platform === 'linux') {
       args.push('--no-sandbox')
       args.push('--disable-setuid-sandbox')
+      args.push('–single-process')
     }
     this.browser = await puppeteer.launch({
       headless: true,

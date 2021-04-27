@@ -31,7 +31,6 @@ class Server {
     }
     async initRouters() {
         const { app } = this;
-        console.log(path_1.default.resolve(__dirname, '../', 'preview'));
         if (process.env.NODE_ENV !== 'production') {
             app === null || app === void 0 ? void 0 : app.use('/', express_1.default.static(path_1.default.resolve(__dirname, '../', 'preview')));
         }

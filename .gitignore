@@ -5,6 +5,8 @@ npm-debug.log*
 
 packages/docs/docs/.vuepress/dist
 
+packages/demo
+
 # Dependencies
 node_modules/
 node_modules/*

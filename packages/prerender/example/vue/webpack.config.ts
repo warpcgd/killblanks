@@ -56,11 +56,13 @@ module.exports = {
         ]
       },
       {
-        // webpack5 内置了 asset 模块, 用来代替 file-loader & url-loader & raw-loader 处理静态资源
-        test: /\.png|jpg|gif|jpeg|svg/,
+        test: /\.(gif|jpg|jpeg|png|svg)$/,
         use: [
           {
-            loader: 'url-loader'
+            loader: 'url-loader',
+            options: {
+              name: '[name].[ext]?[hash]'
+            }
           }
         ]
       }
