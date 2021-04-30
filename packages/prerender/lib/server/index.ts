@@ -65,7 +65,7 @@ class Server {
       PUPPETEER.destroy()
     }
     this?.listenServer?.close(() => {
-      log.info('server closed')
+      log.info('Server closed')
     })
   }
 }

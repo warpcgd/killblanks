@@ -15,14 +15,17 @@
     "dev": "yarn run dev:preview && yarn run dev:sockclientjs",
     "dev:sockclientjs": "cross-env NODE_ENV=development webpack ./lib/sock/sock_client.ts --config ./lib/sock/webpack.sockjs.config.ts --mode=development --watch",
     "dev:preview": "cross-env NODE_ENV=development webpack --config ./preview/webpack.preview.config.js",
-    "dev:demo": "cross-env NODE_ENV=development webpack --config ./example/vue/webpack.config.ts",
-    "build:demo": "cross-env NODE_ENV=production webpack --config ./example/vue/webpack.config.ts",
+    "dev:vue": "cross-env NODE_ENV=development webpack --config ./example/vue/webpack.config.ts",
+
     "watch": "tsc -w -p ./tsconfig.json",
+
     "build:umd": "cross-env NODE_ENV=production TS_NODE_PROJECT=\"../../tsconfig.webpack.json\" webpack --config ./webpack.config.ts",
     "build:esm": "tsc -p ./tsconfig.json",
     "build:typings": "tsc --p ./tsconfig.typings.json",
     "build:sockjs": "cross-env NODE_ENV=production webpack ./lib/sock/sock_client.ts --config ./lib/sock/webpack.sockjs.config.ts",
     "build:preview": "cross-env NODE_ENV=production webpack --config ./preview/webpack.preview.config.js",
+    "build:vue": "cross-env NODE_ENV=production webpack --config ./example/vue/webpack.config.ts",
+
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
@@ -33,14 +36,12 @@
   "dependencies": {
     "codemirror": "^5.60.0",
     "cross-env": "^7.0.2",
-    "css2json": "^1.1.1",
     "deepmerge": "^4.2.2",
     "element-ui": "^2.15.1",
     "express": "^4.17.1",
     "get-port": "^5.1.1",
     "html-minifier": "^4.0.0",
     "html-webpack-plugin": "^4.5.2",
-    "html2json": "^1.0.2",
     "js-beautify": "^1.11.0",
     "jsdom": "^16.2.2",
     "lodash": "^4.17.15",
@@ -52,7 +53,6 @@
     "sockjs-client": "^1.4.0",
     "tiza": "^2.2.1",
     "traverse": "^0.6.6",
-    "tree-model": "^1.0.7",
     "vue": "^2.6.11",
     "vuex": "^3.6.2",
     "webpack-log": "^3.0.1"

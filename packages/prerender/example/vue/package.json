@@ -1,0 +1,17 @@
+{
+  "name": "@killblanks/prerender-vue",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev:vue": "webpack-dev-server --mode development --open --hot",
+    "build:vue": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.6.11",
+    "vuex": "^3.6.2"
+  }
+}
