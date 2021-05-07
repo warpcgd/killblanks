@@ -53,9 +53,9 @@ async-each@^1.0.0:
   integrity sha1-tyfb+H12UWAvBvTUrDh/R9kbDL8=
 
 async-validator@^3.3.0:
-  version "3.5.1"
-  resolved "http://npm-registry.duowan.com/async-validator/download/async-validator-3.5.1.tgz#cd62b9688b2465f48420e27adb47760ab1b5559f"
-  integrity sha1-zWK5aIskZfSEIOJ620d2CrG1VZ8=
+  version "3.5.2"
+  resolved "http://npm-registry.duowan.com/async-validator/download/async-validator-3.5.2.tgz#68e866a96824e8b2694ff7a831c1a25c44d5e500"
+  integrity sha1-aOhmqWgk6LJpT/eoMcGiXETV5QA=
 
 atob@^2.1.2:
   version "2.1.2"
@@ -253,9 +253,9 @@ core-js@^2.4.0:
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
 core-js@^3.6.5:
-  version "3.10.2"
-  resolved "http://npm-registry.duowan.com/core-js/download/core-js-3.10.2.tgz#17cb038ce084522a717d873b63f2b3ee532e2cd5"
-  integrity sha1-F8sDjOCEUipxfYc7Y/Kz7lMuLNU=
+  version "3.12.0"
+  resolved "http://npm-registry.duowan.com/core-js/download/core-js-3.12.0.tgz#62bac86f7d7f087d40dba3e90a211c2c3c8559ea"
+  integrity sha1-YrrIb31/CH1A26PpCiEcLDyFWeo=
 
 core-util-is@~1.0.0:
   version "1.0.2"
@@ -494,9 +494,9 @@ glob2base@^0.0.12:
     find-index "^0.1.1"
 
 glob@^7.0.5:
-  version "7.1.6"
-  resolved "http://npm-registry.duowan.com/glob/download/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
-  integrity sha1-FB8zuBp8JJLhJVlDB0gMRmeSeKY=
+  version "7.1.7"
+  resolved "http://npm-registry.duowan.com/glob/download/glob-7.1.7.tgz#3b193e9233f01d42d0b3f78294bbeeb418f94a90"
+  integrity sha1-Oxk+kjPwHULQs/eClLvutBj5SpA=
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -588,9 +588,9 @@ is-buffer@^1.1.5:
   integrity sha1-76ouqdqg16suoTqXsritUf776L4=
 
 is-core-module@^2.2.0:
-  version "2.2.0"
-  resolved "http://npm-registry.duowan.com/is-core-module/download/is-core-module-2.2.0.tgz#97037ef3d52224d85163f5597b2b63d9afed981a"
-  integrity sha1-lwN+89UiJNhRY/VZeytj2a/tmBo=
+  version "2.3.0"
+  resolved "http://npm-registry.duowan.com/is-core-module/download/is-core-module-2.3.0.tgz#d341652e3408bca69c4671b79a0954a3d349f887"
+  integrity sha1-00FlLjQIvKacRnG3mglUo9NJ+Ic=
   dependencies:
     has "^1.0.3"
 
