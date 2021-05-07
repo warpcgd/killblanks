@@ -15,7 +15,7 @@ class Render {
         this.option = option;
         this.previewPageUrl = `http://${this.option.host}:${this.option.port}/index.html`;
     }
-    async renderPreivewScreen(origin, sockets, open = true) {
+    async renderPreivewScreen(origin, _sockets, open = true) {
         var _a, _b;
         try {
             const page = await init_1.PUPPETEER.newPage();
@@ -29,7 +29,7 @@ class Render {
             const fileName = await index_1.writeMagicHtml(_rawHtml, this.option);
             const skeletonPageUrl = `http://${(_a = this === null || this === void 0 ? void 0 : this.option) === null || _a === void 0 ? void 0 : _a.host}:${(_b = this === null || this === void 0 ? void 0 : this.option) === null || _b === void 0 ? void 0 : _b.port}/${fileName}`;
             if (open) {
-                this.openNewWindow(sockets);
+                this.openNewWindow();
             }
             init_1.PUPPETEER.closePage(page);
             return {
@@ -70,7 +70,7 @@ class Render {
             return inject(clean);
         }, inject.toString(), clean);
     }
-    openNewWindow(sockets) {
+    openNewWindow() {
         let appName = 'google chrome';
         if (process.platform === 'win32') {
             appName = 'chrome';
@@ -78,9 +78,7 @@ class Render {
         else if (process.platform === 'linux') {
             appName = 'google-chrome';
         }
-        if (!sockets || !sockets.preview) {
-            open(this.previewPageUrl, { app: [appName, '--incognito'] });
-        }
+        open(this.previewPageUrl, { app: [appName, '--incognito'] });
     }
     async outputScreen() {
         const { langs } = this.option;

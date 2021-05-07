@@ -60,7 +60,7 @@ class Server {
             init_1.PUPPETEER.destroy();
         }
         (_a = this === null || this === void 0 ? void 0 : this.listenServer) === null || _a === void 0 ? void 0 : _a.close(() => {
-            index_1.default.info('server closed');
+            index_1.default.info('Server closed');
         });
     }
 }

@@ -32,6 +32,7 @@ class PrerenderPlugin {
    * @internal
    */
   option: Options | undefined = undefined
+  hasInit = false
 
   /**
    * @internal
@@ -73,12 +74,14 @@ class PrerenderPlugin {
         await this.outputSkeletonScreen()
       }
       callback()
+      this.hasInit = false
     })
     EVENT_LIST.forEach(event => {
       // @ts-ignore
       compiler.hooks[event].tap(PLUGIN_NAME, () => {
         if (SERVER) {
           SERVER.destroy()
+          this.hasInit = false
         }
       })
     })
@@ -89,14 +92,19 @@ class PrerenderPlugin {
    */
   private async init(option: Options = {}): Promise<void> {
     try {
+      if (this.hasInit) {
+        return
+      }
       const host = await getLocalIpAddress()
       const port = await getFreePort()
       const mergeOption = merge({ host, port }, defaultOptions, option)
       this.option = mergeOption
       await initMediator(this.option)
       initMemoryFileSystem()
+      this.hasInit = true
     } catch (error) {
       log.error(error)
+      this.hasInit = false
     }
   }
 

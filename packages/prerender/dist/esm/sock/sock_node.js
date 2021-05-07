@@ -57,19 +57,17 @@ class NodeSock {
         this.routesData = await (init_1.RENDER === null || init_1.RENDER === void 0 ? void 0 : init_1.RENDER.renderPreivewScreen(originUrl, this.sockets));
     }
     connect(msg, conn) {
+        var _a, _b;
         const message = msg;
         const { data } = message;
         if (!this.sockets) {
             this.sockets = {};
         }
-        // @ts-ignore
         if (!this.sockets[data]) {
-            // @ts-ignore
             this.sockets[data] = [];
         }
-        // @ts-ignore
         // log.info(`${data} sock has connected`)
-        this.sockets[data].push(conn);
+        (_b = (_a = this.sockets) === null || _a === void 0 ? void 0 : _a[data]) === null || _b === void 0 ? void 0 : _b.push(conn);
     }
     console(msg) {
         const { data } = msg;

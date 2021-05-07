@@ -28,6 +28,7 @@ class PrerenderPlugin {
          * @internal
          */
         this.option = undefined;
+        this.hasInit = false;
         this.option = option;
     }
     /**
@@ -61,12 +62,14 @@ class PrerenderPlugin {
                 await this.outputSkeletonScreen();
             }
             callback();
+            this.hasInit = false;
         });
         EVENT_LIST.forEach(event => {
             // @ts-ignore
             compiler.hooks[event].tap(PLUGIN_NAME, () => {
                 if (init_1.SERVER) {
                     init_1.SERVER.destroy();
+                    this.hasInit = false;
                 }
             });
         });
@@ -76,15 +79,20 @@ class PrerenderPlugin {
      */
     async init(option = {}) {
         try {
+            if (this.hasInit) {
+                return;
+            }
             const host = await config_1.getLocalIpAddress();
             const port = await config_1.getFreePort();
             const mergeOption = merge_1.default({ host, port }, config_1.defaultOptions, option);
             this.option = mergeOption;
             await init_1.initMediator(this.option);
             MemoryFileSystem_1.initMemoryFileSystem();
+            this.hasInit = true;
         }
         catch (error) {
             index_1.default.error(error);
+            this.hasInit = false;
         }
     }
     /**

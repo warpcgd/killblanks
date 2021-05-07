@@ -84,14 +84,11 @@ class NodeSock {
     if (!this.sockets) {
       this.sockets = {}
     }
-    // @ts-ignore
-    if (!this.sockets[data]) {
-      // @ts-ignore
-      this.sockets[data] = []
+    if (!this.sockets[data as SOCKETS_TYPE]) {
+      this.sockets[data as SOCKETS_TYPE] = []
     }
-    // @ts-ignore
     // log.info(`${data} sock has connected`)
-    this.sockets[data].push(conn)
+    this.sockets?.[data as SOCKETS_TYPE]?.push(conn)
   }
 
   console(msg: Msg): void {

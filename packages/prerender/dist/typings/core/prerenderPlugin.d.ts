@@ -4,6 +4,7 @@ declare class PrerenderPlugin {
      * @internal
      */
     option: Options | undefined;
+    hasInit: boolean;
     /**
      * @internal
      */
